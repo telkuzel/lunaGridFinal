@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqgreonf664j4"]
+
+[ext_resource type="Script" uid="uid://dmmjp4lpyfu0j" path="res://Scripts/player_movement.gd" id="1_4flbx"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_4flbx")
+min_zoom = 30
+max_rot = -7
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.842311, 0.538991, 0, -0.538991, 0.842311, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 27.0587)
+fov = 76.0093

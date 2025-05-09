@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwdfmr6mbbl4k"]
+
+[ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_7p0ow"]
+[ext_resource type="Material" uid="uid://mcp7i03rl4np" path="res://3dModels/material/deny_material.tres" id="2_ibquw"]
+[ext_resource type="Material" uid="uid://da3ivnfslxbvi" path="res://3dModels/material/sucsess_material.tres" id="3_n4oov"]
+[ext_resource type="Material" uid="uid://bwglbsxwbifoe" path="res://3dModels/material/select_material.tres" id="4_erjbt"]
+[ext_resource type="ArrayMesh" uid="uid://byuae2jdkg7v3" path="res://3dModels/modulesMesh/2C.obj" id="5_n4oov"]
+[ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="5_vgh1w"]
+[ext_resource type="ArrayMesh" uid="uid://b1mhmljgjh4rc" path="res://3dModels/modulesMesh/2CS.obj" id="6_erjbt"]
+[ext_resource type="Material" uid="uid://bsphxvxo2j702" path="res://3dModels/material/main_module_material.tres" id="6_vky36"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vgh1w"]
+size = Vector3(11, 3.7, 8.4)
+
+[node name="Node3D" type="StaticBody3D" node_paths=PackedStringArray("collision_shape", "mesh")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_7p0ow")
+connections = [NodePath("Connection"), NodePath("Connection2")]
+type = 4
+rayLenght = 3.0
+ground_markers = [NodePath("Connection"), NodePath("Connection2"), NodePath("Node3D"), NodePath("Node3D2")]
+collision_shape = NodePath("CollisionShape3D")
+mesh = NodePath("MeshInstance3D2")
+material_sucsess = ExtResource("2_ibquw")
+material_deny = ExtResource("3_n4oov")
+material_select = ExtResource("4_erjbt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("5_n4oov")
+surface_material_override/0 = ExtResource("6_vky36")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("6_erjbt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65, 0.1)
+shape = SubResource("BoxShape3D_vgh1w")
+
+[node name="Connection2" parent="." instance=ExtResource("5_vgh1w")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.4, 2.4, -5.1)
+
+[node name="Connection" parent="." instance=ExtResource("5_vgh1w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.4, 4.9)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.4, 0)
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.4, 0)

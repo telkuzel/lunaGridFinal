@@ -1,0 +1,766 @@
+[gd_scene load_steps=30 format=3 uid="uid://ctuqhenn385jq"]
+
+[ext_resource type="Script" uid="uid://n6hhy0iwhb78" path="res://Scripts/UI/UIControl.gd" id="1_2yjmo"]
+[ext_resource type="Texture2D" uid="uid://sfg1smuvnk54" path="res://Scenes/UI/Icons/Select.png" id="2_813c4"]
+[ext_resource type="Texture2D" uid="uid://n345wqfopder" path="res://Scenes/UI/Icons/Mark.png" id="3_jlkmm"]
+[ext_resource type="Texture2D" uid="uid://y4lh0jmm3kk2" path="res://Scenes/UI/Icons/ZoomOut.png" id="4_462t7"]
+[ext_resource type="Texture2D" uid="uid://c103oyx3ip8rr" path="res://Scenes/UI/Icons/ZoomIn.png" id="5_8oemv"]
+[ext_resource type="Texture2D" uid="uid://dd70uwsm2441q" path="res://Scenes/UI/Icons/Open.png" id="6_dfgx4"]
+[ext_resource type="Texture2D" uid="uid://l2a8frtasmxy" path="res://Scenes/UI/Icons/Save.png" id="7_ph0kv"]
+[ext_resource type="StyleBox" uid="uid://bwicwwaabume1" path="res://Scenes/UI/Leftbar.tres" id="8_cjgo1"]
+[ext_resource type="Texture2D" uid="uid://dv6qnpirlp7eg" path="res://Scenes/UI/Icons/Menu.png" id="9_wnk6b"]
+[ext_resource type="Theme" uid="uid://bf1r74222lewk" path="res://Scenes/UI/LineEdit.tres" id="10_hgi12"]
+[ext_resource type="Texture2D" uid="uid://e1yg1jbdglen" path="res://Scenes/UI/Icons/Search.png" id="11_kfylw"]
+[ext_resource type="Texture2D" uid="uid://dra7hiv7lxear" path="res://Scenes/UI/Icons/Hmodules.png" id="12_h4vik"]
+[ext_resource type="Texture2D" uid="uid://bi03ddyjbeqdw" path="res://Scenes/UI/Icons/Tmodules.png" id="13_gu2a4"]
+[ext_resource type="Texture2D" uid="uid://dsl1p62el72qf" path="res://Scenes/UI/Icons/Pmodules.png" id="14_wb2t4"]
+[ext_resource type="Texture2D" uid="uid://cj6gd65os1den" path="res://Scenes/UI/InfoImage.png" id="15_8oemv"]
+[ext_resource type="Texture2D" uid="uid://b2ae3uwghv55h" path="res://Scenes/UI/Icons/Info.png" id="15_h2gsf"]
+[ext_resource type="Script" uid="uid://du1pvitujuls4" path="res://Scripts/UI/ItemList.gd" id="16_bit2e"]
+[ext_resource type="Texture2D" uid="uid://ckohxjos86r2e" path="res://Scenes/UI/ModulesImages/photo_2025-04-14_19-47-58.jpg" id="17_462t7"]
+[ext_resource type="PackedScene" uid="uid://bk63jx414kv83" path="res://Scenes/module.tscn" id="17_813c4"]
+[ext_resource type="Texture2D" uid="uid://doo1air4xi06i" path="res://Scenes/UI/ModulesImages/sdfvgfdsd.png" id="18_8oemv"]
+
+[sub_resource type="GDScript" id="GDScript_2yjmo"]
+script/source = "extends Control
+
+@export var camera_pivot: Node3D
+#func _ready():
+	#print(camera_pivot)
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6hcop"]
+bg_color = Color(0.168627, 0.168627, 0.168627, 0.839216)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_813c4"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnt18"]
+bg_color = Color(0.560784, 0.560784, 0.560784, 1)
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.168627, 0.168627, 0.168627, 1)
+corner_radius_top_right = 10
+
+[sub_resource type="Theme" id="Theme_jba58"]
+ItemList/styles/panel = SubResource("StyleBoxFlat_nnt18")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yjmo"]
+bg_color = Color(0.560784, 0.560784, 0.560784, 0.705882)
+border_width_left = 2
+border_width_top = 2
+border_color = Color(0.168627, 0.168627, 0.168627, 1)
+corner_radius_top_left = 10
+
+[sub_resource type="Animation" id="Animation_wrm1d"]
+resource_name = "LeftbarAnim"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/LeftBarCont/Leftbar:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(60, 0), Vector2(250, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3dryh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/LeftBarCont/Leftbar:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(60, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wowpa"]
+_data = {
+&"LeftbarAnim": SubResource("Animation_wrm1d"),
+&"RESET": SubResource("Animation_3dryh")
+}
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_2yjmo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="TopbarCont" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Topbar" type="Panel" parent="VBoxContainer/TopbarCont"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_6hcop")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TopbarCont/Topbar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="VBoxContainer/TopbarCont/Topbar/HBoxContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/TopbarCont/Topbar/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.560784, 0.560784, 0.560784, 1)
+theme_override_font_sizes/font_size = 36
+text = "MoonBaseCore"
+vertical_alignment = 1
+
+[node name="NavigateButtons" type="HBoxContainer" parent="VBoxContainer/TopbarCont/Topbar"]
+custom_minimum_size = Vector2(360, 55)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -27.5
+offset_bottom = 27.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="BtnSelect" type="Control" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSelect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.168627, 0.168627, 0.168627, 0.0392157)
+script = ExtResource("1_2yjmo")
+
+[node name="Select" type="Sprite2D" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSelect"]
+position = Vector2(26, 28)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_813c4")
+
+[node name="BtnMark" type="Control" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 55)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnMark"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.168627, 0.168627, 0.168627, 0.0392157)
+script = ExtResource("1_2yjmo")
+
+[node name="Mark" type="Sprite2D" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnMark"]
+position = Vector2(26, 28)
+texture = ExtResource("3_jlkmm")
+offset = Vector2(2, 0)
+
+[node name="BtnZoomOut" type="Control" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 55)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomOut"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.168627, 0.168627, 0.168627, 0.0392157)
+script = ExtResource("1_2yjmo")
+
+[node name="ZoomOut" type="Sprite2D" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomOut"]
+position = Vector2(26, 28)
+texture = ExtResource("4_462t7")
+offset = Vector2(2, 0)
+
+[node name="BtnZoomIn" type="Control" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 55)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomIn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.168627, 0.168627, 0.168627, 0.0392157)
+script = ExtResource("1_2yjmo")
+zoom_step = -2.0
+
+[node name="ZoomIn" type="Sprite2D" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomIn"]
+position = Vector2(26, 28)
+texture = ExtResource("5_8oemv")
+offset = Vector2(2, 0)
+
+[node name="BtnOpenFile" type="Control" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 55)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnOpenFile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.168627, 0.168627, 0.168627, 0.0392157)
+script = ExtResource("1_2yjmo")
+
+[node name="OpenFile" type="Sprite2D" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnOpenFile"]
+position = Vector2(26, 28)
+texture = ExtResource("6_dfgx4")
+offset = Vector2(2, 0)
+
+[node name="BtnSave" type="Control" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 55)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSave"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.168627, 0.168627, 0.168627, 0.0392157)
+script = ExtResource("1_2yjmo")
+
+[node name="Save" type="Sprite2D" parent="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSave"]
+position = Vector2(26, 28)
+texture = ExtResource("7_ph0kv")
+offset = Vector2(2, 0)
+
+[node name="LeftBarCont" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Leftbar" type="Panel" parent="VBoxContainer/LeftBarCont"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("8_cjgo1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/LeftBarCont/Leftbar"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="topCont" type="VBoxContainer" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="BtnToggle" type="Control" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnToggle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.728823, 0.728822, 0.728821, 0.509804)
+script = ExtResource("1_2yjmo")
+
+[node name="Menu" type="Sprite2D" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnToggle"]
+position = Vector2(31, 32)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("9_wnk6b")
+
+[node name="Control" type="Control" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont"]
+custom_minimum_size = Vector2(60, 100)
+layout_mode = 2
+
+[node name="Search" type="Control" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/Search"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.729412, 0.729412, 0.729412, 0.509804)
+script = ExtResource("1_2yjmo")
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/Search/ColorRect"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 20.0
+offset_right = 240.0
+offset_bottom = 51.0
+theme = ExtResource("10_hgi12")
+theme_override_colors/caret_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+
+[node name="Search" type="Sprite2D" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/Search"]
+position = Vector2(30, 32)
+texture = ExtResource("11_kfylw")
+offset = Vector2(2, 0)
+
+[node name="BtnHmodules" type="Control" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnHmodules"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.729412, 0.729412, 0.729412, 0.509804)
+script = ExtResource("1_2yjmo")
+itemlistHp = NodePath("../../../../../Body/TabContainer/ItemListH")
+TabCont = NodePath("../../../../../Body/TabContainer")
+
+[node name="Hmodules" type="Sprite2D" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnHmodules"]
+position = Vector2(30, 28)
+texture = ExtResource("12_h4vik")
+
+[node name="Label" type="Label" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnHmodules"]
+layout_mode = 1
+offset_left = 60.0
+offset_right = 241.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_font_sizes/font_size = 18
+text = "Обитаемые модули"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnTmodules" type="Control" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnTmodules"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.729412, 0.729412, 0.729412, 0.509804)
+script = ExtResource("1_2yjmo")
+itemlistHp = NodePath("../../../../../Body/TabContainer/ItemListT")
+TabCont = NodePath("../../../../../Body/TabContainer")
+
+[node name="Tmodules" type="Sprite2D" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnTmodules"]
+position = Vector2(30, 32)
+texture = ExtResource("13_gu2a4")
+
+[node name="Label" type="Label" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnTmodules"]
+layout_mode = 1
+offset_left = 60.0
+offset_right = 240.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_font_sizes/font_size = 18
+text = "Технологические 
+модули"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnPmodules" type="Control" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnPmodules"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.729412, 0.729412, 0.729412, 0.509804)
+script = ExtResource("1_2yjmo")
+itemlistHp = NodePath("../../../../../Body/TabContainer/ItemListP")
+TabCont = NodePath("../../../../../Body/TabContainer")
+
+[node name="Pmodules" type="Sprite2D" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnPmodules"]
+position = Vector2(30, 28)
+texture = ExtResource("14_wb2t4")
+
+[node name="Label" type="Label" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnPmodules"]
+layout_mode = 1
+offset_left = 60.0
+offset_right = 240.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_font_sizes/font_size = 18
+text = "Промышленные 
+модули"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="botCont" type="VBoxContainer" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer"]
+layout_mode = 2
+
+[node name="BtnInfo" type="Control" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/botCont"]
+clip_contents = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/botCont/BtnInfo"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.830335, 0.830335, 0.830335, 0.509804)
+script = ExtResource("1_2yjmo")
+InfoImage = ExtResource("15_8oemv")
+
+[node name="Info" type="Sprite2D" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/botCont/BtnInfo"]
+position = Vector2(30, 33)
+texture = ExtResource("15_h2gsf")
+
+[node name="Label" type="Label" parent="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/botCont/BtnInfo"]
+layout_mode = 0
+offset_left = 60.0
+offset_right = 240.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_font_sizes/font_size = 18
+text = "Информация
+о команде"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Body" type="Control" parent="VBoxContainer/LeftBarCont"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/LeftBarCont/Body"]
+visible = false
+layout_mode = 0
+offset_top = 220.0
+offset_right = 293.0
+offset_bottom = 563.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_813c4")
+current_tab = 0
+tabs_visible = false
+
+[node name="ItemListH" type="ItemList" parent="VBoxContainer/LeftBarCont/Body/TabContainer"]
+custom_minimum_size = Vector2(220, 175)
+layout_mode = 2
+focus_neighbor_left = NodePath("../../../Leftbar/VBoxContainer/topCont/BtnHmodules/ColorRect")
+theme = SubResource("Theme_jba58")
+theme_override_colors/guide_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_constants/v_separation = 10
+theme_override_constants/icon_margin = 10
+theme_override_constants/h_separation = 10
+item_count = 5
+item_0/text = "Жилой модуль"
+item_0/icon = ExtResource("12_h4vik")
+item_1/text = "Спортивный модуль"
+item_1/icon = ExtResource("12_h4vik")
+item_2/text = "Административный модуль"
+item_2/icon = ExtResource("12_h4vik")
+item_3/text = "Медицинский модуль"
+item_3/icon = ExtResource("12_h4vik")
+item_4/text = "Модуль досуга и культуры"
+item_4/icon = ExtResource("12_h4vik")
+script = ExtResource("16_bit2e")
+ModuleInfo = NodePath("../../ModuleInfo")
+ModuleNames = ["Жилой модуль", "Спортивный модуль", "Административный\\n модуль", "Медицинский\\n модуль", "Исследовательский\\n модуль", "Модуль досуга\\n и культуры"]
+ModuleImages = [ExtResource("17_462t7"), ExtResource("18_8oemv"), null, null, null, null]
+ModuleDescriptionTexts = ["Модуль для проживания экипажа.\\nВключает жизнеобеспечение, связь\\nи вентиляцию. Основной элемент\\nжилищного комплекса. Связан\\nс медициной, досугом, спортом.\\nОбъединяется в общий комплекс.\\nПоддерживает инженерную сеть.\\nОбеспечивает комфорт в среде Луны.\\n", "Модуль для тренировок и спорта.\\nПредотвращает мышечную атрофию.\\nИнтегрирован с жилым комплексом.\\nМожет быть закрытым или открытым.\\nПредназначен для экипажа.\\nСодержит тренажёры, снаряды.\\nПозволяет занятия группами.\\nУвеличивает моральный дух.\\n", "Центр управления базой. Связь,\\nпланирование и анализ миссий.\\nРазмещение офиса и терминалов.\\nИнтегрирован с жилыми модулями.\\nПоддерживает мед. и научный блок.\\nПозволяет удалённый доступ.\\nПостоянное присутствие персонала.\\nКлюч к координации систем базы.\\n", "Предназначен для диагностики,\\nлечения, хранения мед. средств.\\nВключает хирургический блок.\\nРасположен рядом с жилыми.\\nОбеспечивает стерильность.\\nСвязан с аварийными системами.\\nПоддерживает экстренные меры.\\nРаботает автономно при ЧС.\\n", "Научный блок с оборудованием.\\nПроводит эксперименты на Луне.\\nАнализ почвы, воздуха, проб.\\nСодержит микроскопы и ИКТ.\\nИзолирован от вибраций и шума.\\nИнтеграция с адм. и жилыми.\\nПоддерживает образовательный блок.\\nОтдельная канализация данных.\\n", "Создан для отдыха, досуга,\\nразвлечений и мероприятий.\\nПомогает снизить стресс.\\nВключает зону чтения и кино.\\nЧасто объединён с жилыми.\\nПоддерживает соц. активность.\\nПозволяет проводить события.\\nОткрыт для всего экипажа.\\n"]
+ModuleSpecifTexts = ["Уклон до 2%, с ровным основанием.\\nДо админ. модулей: 10–20 м.\\nДо мед. модулей: 10–15 м.\\nДо производств: не менее 30 м.\\nСтыкуется с другими модулями.\\nИзбегает пылевых зон < 10 м.\\nСоединения: типы 1, 2, 5.\\nРазмер: 9.2×5.2×5.6 м с защитой.\\n", "Уклон до 2% — безопасная зона.\\nОт жилых: 0–10 м (внутри комплекса).\\nОт производств: не менее 15 м.\\nИзбегать вибраций и шумов.\\nСоединения: типы 1, 2, 3.\\nТранспортный шлюз: 2×2 м.\\nИнженерные порты: 0.5×0.3 м.\\nРазмер: до 9.2×5.2×5.6 м.\\n", "Уклон до 2% — безопасное основание.\\nДо жилых: 10–20 м.\\nДо производств: не менее 20 м.\\nДо мед. модулей: 10–15 м.\\nИзбегать контакта с тех. зонами.\\nСоединения: типы 1, 2, 5.\\nСтандартный шлюз: 2×2 м.\\nРазмер: 9.2×5.2×5.6 м с грунтом.\\n", "Уклон до 1% (жесткий стандарт).\\nДо жилых: 10–15 м.\\nДо производств: не менее 15 м.\\nИзбегать пыли и вибрации < 15 м.\\nСоединения: типы 1, 2, 5.\\nШлюзы: основной и аварийный.\\nИнж. порты: 0.4×0.4 м.\\nРазмер: до 8.8×5.2×5.6 м.\\n", "Уклон до 2% — надёжное основание.\\nДо жилых: 15–20 м.\\nДо админ.: 10–15 м.\\nДо производств: не менее 15 м.\\nИзбегать тяжёлой техники рядом.\\nСоединения: типы 1, 2, 6.\\nНаучный порт: 0.6×0.6 м.\\nРазмер: до 9.2×5.2×5.6 м.\\n", "Уклон до 2% — стандарт.\\nДо жилых: 5–15 м.\\nДо производств: не менее 15 м.\\nДо админ.: 5–10 м.\\nИзбегать вибраций и пыли.\\nСоединения: типы 1, 2, 5.\\nИнженерные порты: 0.5×0.3 м.\\nРазмер: 9.2×5.2×5.6 м.\\n"]
+Modules = [ExtResource("17_813c4"), ExtResource("17_813c4"), ExtResource("17_813c4"), ExtResource("17_813c4"), ExtResource("17_813c4"), ExtResource("17_813c4")]
+metadata/_tab_index = 0
+
+[node name="ItemListT" type="ItemList" parent="VBoxContainer/LeftBarCont/Body/TabContainer"]
+visible = false
+custom_minimum_size = Vector2(220, 175)
+layout_mode = 2
+focus_neighbor_left = NodePath("../../../Leftbar/VBoxContainer/topCont/BtnHmodules/ColorRect")
+theme = SubResource("Theme_jba58")
+theme_override_colors/guide_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_constants/v_separation = 10
+theme_override_constants/icon_margin = 10
+theme_override_constants/h_separation = 10
+item_count = 6
+item_0/text = "Модуль T1"
+item_0/icon = ExtResource("12_h4vik")
+item_1/text = "Модуль 2"
+item_1/icon = ExtResource("12_h4vik")
+item_2/text = "Модуль 3"
+item_2/icon = ExtResource("12_h4vik")
+item_3/text = "Модуль 4"
+item_3/icon = ExtResource("12_h4vik")
+item_4/text = "Модуль 5"
+item_4/icon = ExtResource("12_h4vik")
+item_5/text = "Модуль 6"
+item_5/icon = ExtResource("12_h4vik")
+script = ExtResource("16_bit2e")
+ModuleInfo = NodePath("../../ModuleInfo")
+ModuleNames = ["", "", "", "", "", ""]
+ModuleImages = [null, null, null, null, null, null]
+ModuleDescriptionTexts = ["", "", "", "", "", ""]
+ModuleSpecifTexts = ["", "", "", "", "", ""]
+Modules = [ExtResource("17_813c4"), ExtResource("17_813c4"), ExtResource("17_813c4"), ExtResource("17_813c4"), ExtResource("17_813c4"), ExtResource("17_813c4")]
+metadata/_tab_index = 1
+
+[node name="ItemListP" type="ItemList" parent="VBoxContainer/LeftBarCont/Body/TabContainer"]
+visible = false
+custom_minimum_size = Vector2(220, 175)
+layout_mode = 2
+focus_neighbor_left = NodePath("../../../Leftbar/VBoxContainer/topCont/BtnHmodules/ColorRect")
+theme = SubResource("Theme_jba58")
+theme_override_colors/guide_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_constants/v_separation = 10
+theme_override_constants/icon_margin = 10
+theme_override_constants/h_separation = 10
+item_count = 6
+item_0/text = "Модуль P1"
+item_0/icon = ExtResource("12_h4vik")
+item_1/text = "Модуль 2"
+item_1/icon = ExtResource("12_h4vik")
+item_2/text = "Модуль 3"
+item_2/icon = ExtResource("12_h4vik")
+item_3/text = "Модуль 4"
+item_3/icon = ExtResource("12_h4vik")
+item_4/text = "Модуль 5"
+item_4/icon = ExtResource("12_h4vik")
+item_5/text = "Модуль 6"
+item_5/icon = ExtResource("12_h4vik")
+script = ExtResource("16_bit2e")
+ModuleInfo = NodePath("../../ModuleInfo")
+ModuleNames = ["", "", "", "", "", ""]
+ModuleImages = [null, null, null, null, null, null]
+ModuleDescriptionTexts = ["", "", "", "", "", ""]
+ModuleSpecifTexts = ["", "", "", "", "", ""]
+Modules = [ExtResource("17_813c4"), ExtResource("17_813c4"), ExtResource("17_813c4"), ExtResource("17_813c4"), ExtResource("17_813c4"), ExtResource("17_813c4")]
+metadata/_tab_index = 2
+
+[node name="ModuleInfo" type="Panel" parent="VBoxContainer/LeftBarCont/Body"]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(240, 563)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -563.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2yjmo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/LeftBarCont/Body/ModuleInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.004
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -0.252
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="ModuleName" type="Label" parent="VBoxContainer/LeftBarCont/Body/ModuleInfo/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_font_sizes/font_size = 16
+text = "Название модуля"
+horizontal_alignment = 1
+
+[node name="ModuleImage" type="TextureRect" parent="VBoxContainer/LeftBarCont/Body/ModuleInfo/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("12_h4vik")
+
+[node name="ModuleDescriptionText" type="Label" parent="VBoxContainer/LeftBarCont/Body/ModuleInfo/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_font_sizes/font_size = 12
+text = "Соединения:
+ Используются типы:
+ – Герметичный переход 2×2 м;
+ – Инженерные порты 0,5×0,3 м;
+ – Административное соединение
+ (при необходимости) 1×1,5 м.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ModuleSpecifText" type="Label" parent="VBoxContainer/LeftBarCont/Body/ModuleInfo/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
+theme_override_font_sizes/font_size = 12
+text = "Соединения:
+ Используются типы:
+ – Герметичный переход 2×2 м;
+ – Инженерные порты 0,5×0,3 м;
+ – Административное соединение
+ (при необходимости) 1×1,5 м.
+"
+horizontal_alignment = 1
+
+[node name="BotomBar" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Botombar" type="Panel" parent="VBoxContainer/BotomBar"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_6hcop")
+
+[node name="Control" type="Control" parent="VBoxContainer/BotomBar/Botombar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -902.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Coordinats" type="Label" parent="VBoxContainer/BotomBar/Botombar"]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 1.0
+offset_right = 474.0
+offset_bottom = 27.0
+text = "Координаты x: 1000 y: -950"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_wowpa")
+}
+playback_auto_capture = false
+
+[connection signal="gui_input" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSelect/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSelect/ColorRect" method="_on_BtnSelect_gui_input"]
+[connection signal="mouse_entered" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSelect/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSelect/ColorRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSelect/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSelect/ColorRect" method="_on_mouse_exited"]
+[connection signal="gui_input" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnMark/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnMark/ColorRect" method="_on_BtnMark_gui_input"]
+[connection signal="mouse_entered" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnMark/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnMark/ColorRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnMark/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnMark/ColorRect" method="_on_mouse_exited"]
+[connection signal="gui_input" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomOut/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomOut/ColorRect" method="_on_Zoom_gui_input"]
+[connection signal="mouse_entered" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomOut/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomOut/ColorRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomOut/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomOut/ColorRect" method="_on_mouse_exited"]
+[connection signal="gui_input" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomIn/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomIn/ColorRect" method="_on_Zoom_gui_input"]
+[connection signal="mouse_entered" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomIn/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomIn/ColorRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomIn/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnZoomIn/ColorRect" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnOpenFile/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnOpenFile/ColorRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnOpenFile/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnOpenFile/ColorRect" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSave/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSave/ColorRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSave/ColorRect" to="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSave/ColorRect" method="_on_mouse_exited"]
+[connection signal="gui_input" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnToggle/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnToggle/ColorRect" method="_on_gui_input_BtnToggle"]
+[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnToggle/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnToggle/ColorRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnToggle/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnToggle/ColorRect" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/Search/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/Search/ColorRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/Search/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/Search/ColorRect" method="_on_mouse_exited"]
+[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/Search/ColorRect/LineEdit" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/Search/ColorRect" method="_on_line_edit_mouse_exited"]
+[connection signal="gui_input" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnHmodules/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnHmodules/ColorRect" method="_on_BtnHmodules_gui_input"]
+[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnHmodules/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnHmodules/ColorRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnHmodules/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnHmodules/ColorRect" method="_on_mouse_exited"]
+[connection signal="gui_input" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnTmodules/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnTmodules/ColorRect" method="_on_BtnHmodules_gui_input"]
+[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnTmodules/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnTmodules/ColorRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnTmodules/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnTmodules/ColorRect" method="_on_mouse_exited"]
+[connection signal="gui_input" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnPmodules/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnPmodules/ColorRect" method="_on_BtnHmodules_gui_input"]
+[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnPmodules/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnPmodules/ColorRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnPmodules/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/topCont/BtnPmodules/ColorRect" method="_on_mouse_exited"]
+[connection signal="gui_input" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/botCont/BtnInfo/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/botCont/BtnInfo/ColorRect" method="_on_gui_input_BtnInfo"]
+[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/botCont/BtnInfo/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/botCont/BtnInfo/ColorRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/botCont/BtnInfo/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/VBoxContainer/botCont/BtnInfo/ColorRect" method="_on_mouse_exited"]
+[connection signal="item_selected" from="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListH" to="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListH" method="_on_item_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListH" to="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListH" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListH" to="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListH" method="_on_mouse_exited"]
+[connection signal="item_selected" from="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListT" to="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListT" method="_on_item_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListT" to="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListT" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListT" to="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListT" method="_on_mouse_exited"]
+[connection signal="item_selected" from="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListP" to="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListP" method="_on_item_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListP" to="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListP" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListP" to="VBoxContainer/LeftBarCont/Body/TabContainer/ItemListP" method="_on_mouse_exited"]

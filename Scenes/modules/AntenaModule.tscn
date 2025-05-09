@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://48fmcbol86tl"]
+
+[ext_resource type="Script" uid="uid://dlu6u5sie1he" path="res://Scripts/modules/placeable_module.gd" id="1_qsnsx"]
+[ext_resource type="Material" uid="uid://mcp7i03rl4np" path="res://3dModels/material/deny_material.tres" id="2_hfcoo"]
+[ext_resource type="Material" uid="uid://da3ivnfslxbvi" path="res://3dModels/material/sucsess_material.tres" id="3_i8vat"]
+[ext_resource type="Material" uid="uid://bwglbsxwbifoe" path="res://3dModels/material/select_material.tres" id="4_f6hoq"]
+[ext_resource type="ArrayMesh" uid="uid://ca7w1s0616jq7" path="res://3dModels/modulesMesh/antena.obj" id="5_e8xoe"]
+[ext_resource type="ArrayMesh" uid="uid://ctcemspb43vy3" path="res://3dModels/modulesMesh/antenaS1.obj" id="5_hfcoo"]
+[ext_resource type="Material" uid="uid://bsphxvxo2j702" path="res://3dModels/material/main_module_material.tres" id="7_teuhf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i688u"]
+size = Vector3(1, 13.0798, 1)
+
+[node name="antena" type="StaticBody3D" node_paths=PackedStringArray("collision_shape", "mesh")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_qsnsx")
+type = 6
+ground_markers = [NodePath("marker1"), NodePath("marker2"), NodePath("marker3")]
+collision_shape = NodePath("CollisionShape3D")
+mesh = NodePath("MeshInstance3D2")
+material_sucsess = ExtResource("2_hfcoo")
+material_deny = ExtResource("3_i8vat")
+material_select = ExtResource("4_f6hoq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.74545, 0)
+shape = SubResource("BoxShape3D_i688u")
+
+[node name="marker1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.461291, 0.203479, 0.464459)
+
+[node name="marker2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389474, 0.203479, 0.438151)
+
+[node name="marker3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.203479, -0.485632)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("5_hfcoo")
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.000122964)
+mesh = ExtResource("5_e8xoe")
+surface_material_override/0 = ExtResource("7_teuhf")
