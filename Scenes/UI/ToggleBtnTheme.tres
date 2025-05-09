@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bv8vna6m2x2gd"]
+
+[ext_resource type="StyleBox" uid="uid://di7m438l3abio" path="res://Scenes/UI/ToggleBtn.tres" id="3_ru7un"]
+
+[resource]
+Button/colors/font_color = Color(0.172549, 0.172549, 0.172549, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.114897, 0.114897, 0.114897, 1)
+Button/colors/font_hover_pressed_color = Color(0.113725, 0.113725, 0.113725, 1)
+Button/colors/font_pressed_color = Color(0.172549, 0.172549, 0.172549, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0)
+Button/colors/icon_focus_color = Color(1, 1, 1, 0.784314)
+Button/colors/icon_hover_color = Color(1, 1, 1, 0.784314)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 0.784314)
+Button/colors/icon_normal_color = Color(1, 1, 1, 0.784314)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 0.784314)
+Button/font_sizes/font_size = 18
+Button/styles/focus = ExtResource("3_ru7un")
+Button/styles/hover = ExtResource("3_ru7un")
+Button/styles/normal = ExtResource("3_ru7un")
+Button/styles/pressed = ExtResource("3_ru7un")

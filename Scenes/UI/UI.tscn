@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://ctuqhenn385jq"]
+[gd_scene load_steps=77 format=3 uid="uid://ctuqhenn385jq"]
 
 [ext_resource type="StyleBox" uid="uid://dmku67xt7ma5b" path="res://Scenes/UI/TopBarStyle.tres" id="1_wnk6b"]
 [ext_resource type="Theme" uid="uid://ne5ftygnb20w" path="res://Scenes/UI/DarkBarText.tres" id="2_sy325"]
@@ -69,6 +69,8 @@
 [ext_resource type="Texture2D" uid="uid://chne7svn8fow7" path="res://Scenes/UI/InfoModuleTextures/5.jpg" id="57_rismg"]
 [ext_resource type="Texture2D" uid="uid://d1ft3k2tmlbnb" path="res://Scenes/UI/InfoModuleTextures/6.jpg" id="58_spyke"]
 [ext_resource type="Texture2D" uid="uid://6b4ew8cpahum" path="res://Scenes/UI/InfoModuleTextures/8.jpg" id="59_sy325"]
+[ext_resource type="Theme" uid="uid://bv8vna6m2x2gd" path="res://Scenes/UI/ToggleBtnTheme.tres" id="69_sy325"]
+[ext_resource type="Texture2D" uid="uid://bixbsck2e1ib7" path="res://Scenes/UI/Icons/LeftArrow.png" id="70_b8ige"]
 [ext_resource type="Script" uid="uid://gp784pnnsa50" path="res://Scripts/UI/errors.gd" id="70_spyke"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8oemv"]
@@ -81,14 +83,26 @@ length = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/LeftBarCont/Leftbar:custom_minimum_size")
+tracks/0/path = NodePath("VBoxContainer/Control/LeftBarCont/Leftbar:custom_minimum_size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333),
+"times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(60, 0), Vector2(270, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Control/BtnToggle:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(90, 60), Vector2(300, 60)]
 }
 
 [sub_resource type="Animation" id="Animation_3dryh"]
@@ -96,7 +110,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/LeftBarCont/Leftbar:custom_minimum_size")
+tracks/0/path = NodePath("VBoxContainer/Control/LeftBarCont/Leftbar:custom_minimum_size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -104,6 +118,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(60, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer/Control/BtnToggle:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(300, 60)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wowpa"]
@@ -150,12 +176,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Control" type="Control" parent="VBoxContainer/TopbarCont/Topbar/HBoxContainer"]
-custom_minimum_size = Vector2(15, 0)
+custom_minimum_size = Vector2(7, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="Label" type="Label" parent="VBoxContainer/TopbarCont/Topbar/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 theme = ExtResource("2_sy325")
 theme_override_font_sizes/font_size = 36
 text = "LunarGrid"
@@ -235,18 +262,27 @@ icon = ExtResource("7_ph0kv")
 icon_alignment = 1
 expand_icon = true
 
-[node name="LeftBarCont" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftBarCont" type="HBoxContainer" parent="VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="Leftbar" type="Panel" parent="VBoxContainer/LeftBarCont"]
-clip_contents = true
+[node name="Leftbar" type="Panel" parent="VBoxContainer/Control/LeftBarCont"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 theme_override_styles/panel = ExtResource("8_cjgo1")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/LeftBarCont/Leftbar"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Control/LeftBarCont/Leftbar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -256,33 +292,22 @@ grow_vertical = 2
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer"]
 clip_contents = true
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="BtnToggle" type="Button" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 60)
-layout_mode = 2
-theme = ExtResource("12_b8ige")
-toggle_mode = true
-shortcut_feedback = false
-shortcut_in_tooltip = false
-icon = ExtResource("38_xlyft")
-expand_icon = true
-
-[node name="SeparatorTop" type="Control" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
+[node name="SeparatorTop" type="Control" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(60, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="BtnSearch" type="Control" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
+[node name="BtnSearch" type="Control" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -292,7 +317,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.729412, 0.729412, 0.729412, 0.509804)
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect"]
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect"]
 layout_mode = 0
 offset_left = 70.0
 offset_top = 20.0
@@ -302,12 +327,12 @@ theme = ExtResource("10_hgi12")
 theme_override_colors/caret_color = Color(0.168627, 0.168627, 0.168627, 1)
 theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
 
-[node name="Search" type="Sprite2D" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch"]
+[node name="Search" type="Sprite2D" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch"]
 position = Vector2(30, 32)
 texture = ExtResource("11_kfylw")
 offset = Vector2(2, 0)
 
-[node name="BtnGenModules" type="Button" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
+[node name="BtnGenModules" type="Button" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
@@ -318,7 +343,7 @@ shortcut_in_tooltip = false
 icon = ExtResource("14_wb2t4")
 expand_icon = true
 
-[node name="BtnLiveModules" type="Button" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
+[node name="BtnLiveModules" type="Button" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
@@ -329,7 +354,7 @@ shortcut_in_tooltip = false
 icon = ExtResource("12_h4vik")
 expand_icon = true
 
-[node name="BtnAdmModules" type="Button" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
+[node name="BtnAdmModules" type="Button" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
@@ -340,7 +365,7 @@ shortcut_in_tooltip = false
 icon = ExtResource("20_pxwff")
 expand_icon = true
 
-[node name="BtnAgroModules" type="Button" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
+[node name="BtnAgroModules" type="Button" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
@@ -351,7 +376,7 @@ shortcut_in_tooltip = false
 icon = ExtResource("22_xvkyl")
 expand_icon = true
 
-[node name="BtnEngModules" type="Button" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
+[node name="BtnEngModules" type="Button" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
@@ -362,7 +387,7 @@ shortcut_in_tooltip = false
 icon = ExtResource("36_q7khq")
 expand_icon = true
 
-[node name="BtnLogModules" type="Button" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
+[node name="BtnLogModules" type="Button" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
@@ -373,7 +398,7 @@ shortcut_in_tooltip = false
 icon = ExtResource("33_ntvc1")
 expand_icon = true
 
-[node name="BtnDistModules" type="Button" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
+[node name="BtnDistModules" type="Button" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
@@ -384,7 +409,7 @@ shortcut_in_tooltip = false
 icon = ExtResource("40_ajypb")
 expand_icon = true
 
-[node name="BtnComModules" type="Button" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
+[node name="BtnComModules" type="Button" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
@@ -395,12 +420,12 @@ shortcut_in_tooltip = false
 icon = ExtResource("13_gu2a4")
 expand_icon = true
 
-[node name="SeparatorBotom" type="Control" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
+[node name="SeparatorBotom" type="Control" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(60, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="BtnInfo" type="Button" parent="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
+[node name="BtnInfo" type="Button" parent="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
@@ -411,12 +436,12 @@ shortcut_in_tooltip = false
 icon = ExtResource("15_h2gsf")
 expand_icon = true
 
-[node name="Body" type="Control" parent="VBoxContainer/LeftBarCont"]
+[node name="Body" type="Control" parent="VBoxContainer/Control/LeftBarCont"]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TabContainerModuleList" type="TabContainer" parent="VBoxContainer/LeftBarCont/Body"]
+[node name="TabContainerModuleList" type="TabContainer" parent="VBoxContainer/Control/LeftBarCont/Body"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(0, 500)
@@ -432,7 +457,7 @@ theme_override_styles/panel = ExtResource("17_hgi12")
 current_tab = 0
 tabs_visible = false
 
-[node name="ItemListGen" type="ItemList" parent="VBoxContainer/LeftBarCont/Body/TabContainerModuleList"]
+[node name="ItemListGen" type="ItemList" parent="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(220, 175)
 layout_mode = 2
@@ -467,7 +492,7 @@ ModuleSpecifTexts = [" Уклон ≤ 2% (на 10 м)\\n До удалён. �
 Modules = [ExtResource("29_vyg5h"), ExtResource("30_urywp"), ExtResource("31_qr054"), ExtResource("48_rismg"), ExtResource("55_sy325"), ExtResource("29_vyg5h"), ExtResource("34_eybuc")]
 metadata/_tab_index = 0
 
-[node name="ItemListLive" type="ItemList" parent="VBoxContainer/LeftBarCont/Body/TabContainerModuleList"]
+[node name="ItemListLive" type="ItemList" parent="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 500)
@@ -505,7 +530,7 @@ ModuleSpecifTexts = [" Уклон ≤ 2% (на 10 м)\\n До удалён. �
 Modules = [ExtResource("47_pntd3"), ExtResource("44_kft87"), ExtResource("45_8wcpb"), ExtResource("47_fwow2"), ExtResource("48_sjx2j"), ExtResource("49_udfxq"), ExtResource("47_pntd3"), ExtResource("41_ntvc1")]
 metadata/_tab_index = 1
 
-[node name="ItemListAdm" type="ItemList" parent="VBoxContainer/LeftBarCont/Body/TabContainerModuleList"]
+[node name="ItemListAdm" type="ItemList" parent="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 175)
@@ -537,7 +562,7 @@ ModuleSpecifTexts = [" Уклон ≤ 1% (на 10 м)\\n До удалён. �
 Modules = [ExtResource("45_ohb3t"), ExtResource("54_spyke"), ExtResource("49_q7khq"), ExtResource("55_sy325"), ExtResource("42_q7khq")]
 metadata/_tab_index = 2
 
-[node name="ItemListAgro" type="ItemList" parent="VBoxContainer/LeftBarCont/Body/TabContainerModuleList"]
+[node name="ItemListAgro" type="ItemList" parent="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 175)
@@ -569,7 +594,7 @@ ModuleSpecifTexts = [" Уклон ≤ 1% (на 10 м)\\n До удалён. �
 Modules = [ExtResource("45_ohb3t"), ExtResource("54_spyke"), ExtResource("49_q7khq"), ExtResource("55_sy325"), ExtResource("42_q7khq")]
 metadata/_tab_index = 3
 
-[node name="ItemListEng" type="ItemList" parent="VBoxContainer/LeftBarCont/Body/TabContainerModuleList"]
+[node name="ItemListEng" type="ItemList" parent="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 175)
@@ -601,7 +626,7 @@ ModuleSpecifTexts = [" Уклон ≤ 1% (на 10 м)\\n До удалён. �
 Modules = [ExtResource("45_ohb3t"), ExtResource("54_spyke"), ExtResource("49_q7khq"), ExtResource("55_sy325"), ExtResource("42_q7khq")]
 metadata/_tab_index = 4
 
-[node name="ItemListLog" type="ItemList" parent="VBoxContainer/LeftBarCont/Body/TabContainerModuleList"]
+[node name="ItemListLog" type="ItemList" parent="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 175)
@@ -633,7 +658,7 @@ ModuleSpecifTexts = [" Уклон ≤ 1% (на 10 м)\\n До удалён. �
 Modules = [ExtResource("45_ohb3t"), ExtResource("54_spyke"), ExtResource("49_q7khq"), ExtResource("55_sy325"), ExtResource("42_q7khq")]
 metadata/_tab_index = 5
 
-[node name="ItemListDist" type="ItemList" parent="VBoxContainer/LeftBarCont/Body/TabContainerModuleList"]
+[node name="ItemListDist" type="ItemList" parent="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 175)
@@ -665,7 +690,7 @@ ModuleSpecifTexts = [" Уклон ≤ 1% (на 10 м)\\n До удалён. �
 Modules = [ExtResource("45_ohb3t"), ExtResource("54_spyke"), ExtResource("49_q7khq"), ExtResource("55_sy325"), ExtResource("42_q7khq")]
 metadata/_tab_index = 6
 
-[node name="ItemListCom" type="ItemList" parent="VBoxContainer/LeftBarCont/Body/TabContainerModuleList"]
+[node name="ItemListCom" type="ItemList" parent="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(220, 175)
@@ -697,7 +722,7 @@ ModuleSpecifTexts = [" Уклон ≤ 1% (на 10 м)\\n До удалён. �
 Modules = [ExtResource("45_ohb3t"), ExtResource("54_spyke"), ExtResource("49_q7khq"), ExtResource("55_sy325"), ExtResource("42_q7khq")]
 metadata/_tab_index = 7
 
-[node name="ModuleInfo" type="Panel" parent="VBoxContainer/LeftBarCont/Body"]
+[node name="ModuleInfo" type="Panel" parent="VBoxContainer/Control/LeftBarCont/Body"]
 visible = false
 clip_contents = true
 custom_minimum_size = Vector2(240, 563)
@@ -713,7 +738,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = ExtResource("23_h4vik")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/LeftBarCont/Body/ModuleInfo"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Control/LeftBarCont/Body/ModuleInfo"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.004
@@ -725,7 +750,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 5
 
-[node name="ModuleName" type="Label" parent="VBoxContainer/LeftBarCont/Body/ModuleInfo/VBoxContainer"]
+[node name="ModuleName" type="Label" parent="VBoxContainer/Control/LeftBarCont/Body/ModuleInfo/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -735,7 +760,7 @@ theme_override_font_sizes/font_size = 16
 text = "Название модуля"
 horizontal_alignment = 1
 
-[node name="ModuleImage" type="TextureRect" parent="VBoxContainer/LeftBarCont/Body/ModuleInfo/VBoxContainer"]
+[node name="ModuleImage" type="TextureRect" parent="VBoxContainer/Control/LeftBarCont/Body/ModuleInfo/VBoxContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
@@ -743,7 +768,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 3
 texture = ExtResource("12_h4vik")
 
-[node name="ModuleDescriptionText" type="Label" parent="VBoxContainer/LeftBarCont/Body/ModuleInfo/VBoxContainer"]
+[node name="ModuleDescriptionText" type="Label" parent="VBoxContainer/Control/LeftBarCont/Body/ModuleInfo/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 3
@@ -759,7 +784,7 @@ text = "Соединения:
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ModuleSpecifText" type="Label" parent="VBoxContainer/LeftBarCont/Body/ModuleInfo/VBoxContainer"]
+[node name="ModuleSpecifText" type="Label" parent="VBoxContainer/Control/LeftBarCont/Body/ModuleInfo/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 3
@@ -774,7 +799,7 @@ text = "Соединения:
 "
 horizontal_alignment = 1
 
-[node name="TabContainerCenter" type="TabContainer" parent="VBoxContainer/LeftBarCont/Body"]
+[node name="TabContainerCenter" type="TabContainer" parent="VBoxContainer/Control/LeftBarCont/Body"]
 unique_name_in_owner = true
 visible = false
 clip_contents = true
@@ -798,14 +823,14 @@ current_tab = 1
 tabs_visible = false
 tabs_rearrange_group = 0
 
-[node name="ComandInfo" type="TextureRect" parent="VBoxContainer/LeftBarCont/Body/TabContainerCenter"]
+[node name="ComandInfo" type="TextureRect" parent="VBoxContainer/Control/LeftBarCont/Body/TabContainerCenter"]
 visible = false
 layout_mode = 2
 texture = ExtResource("15_8oemv")
 stretch_mode = 6
 metadata/_tab_index = 0
 
-[node name="InWork" type="Label" parent="VBoxContainer/LeftBarCont/Body/TabContainerCenter"]
+[node name="InWork" type="Label" parent="VBoxContainer/Control/LeftBarCont/Body/TabContainerCenter"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.728391, 0.671441, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.0253638, 0.0253638, 0.0253638, 1)
@@ -816,7 +841,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_tab_index = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/LeftBarCont/Body"]
+[node name="RDCButtons" type="HBoxContainer" parent="VBoxContainer/Control/LeftBarCont/Body"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 5
@@ -828,26 +854,44 @@ offset_bottom = 40.0
 grow_horizontal = 2
 script = ExtResource("25_kfylw")
 
-[node name="replace" type="Button" parent="VBoxContainer/LeftBarCont/Body/HBoxContainer"]
+[node name="replace" type="Button" parent="VBoxContainer/Control/LeftBarCont/Body/RDCButtons"]
 custom_minimum_size = Vector2(120, 40)
 layout_mode = 2
 theme_override_styles/hover = ExtResource("29_bit2e")
 theme_override_styles/normal = ExtResource("29_h2gsf")
 text = "Переставить"
 
-[node name="delete" type="Button" parent="VBoxContainer/LeftBarCont/Body/HBoxContainer"]
+[node name="delete" type="Button" parent="VBoxContainer/Control/LeftBarCont/Body/RDCButtons"]
 custom_minimum_size = Vector2(80, 40)
 layout_mode = 2
 theme_override_styles/hover = ExtResource("29_bit2e")
 theme_override_styles/normal = ExtResource("29_h2gsf")
 text = "Удалить"
 
-[node name="cansel" type="Button" parent="VBoxContainer/LeftBarCont/Body/HBoxContainer"]
+[node name="cansel" type="Button" parent="VBoxContainer/Control/LeftBarCont/Body/RDCButtons"]
 custom_minimum_size = Vector2(80, 40)
 layout_mode = 2
 theme_override_styles/hover = ExtResource("29_bit2e")
 theme_override_styles/normal = ExtResource("29_h2gsf")
 text = "Отмена"
+
+[node name="BtnToggle" type="Button" parent="VBoxContainer/Control"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+offset_top = 60.0
+offset_right = 300.0
+offset_bottom = 120.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme = ExtResource("69_sy325")
+toggle_mode = true
+button_pressed = true
+shortcut_feedback = false
+shortcut_in_tooltip = false
+icon = ExtResource("70_b8ige")
+icon_alignment = 2
+expand_icon = true
 
 [node name="BotomBar" type="HBoxContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
@@ -859,32 +903,44 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = ExtResource("1_wnk6b")
 
-[node name="Control" type="Control" parent="VBoxContainer/BotomBar/Botombar"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BotomBar/Botombar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -902.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Coordinats" type="Label" parent="VBoxContainer/BotomBar/Botombar"]
-layout_mode = 0
-offset_left = 142.0
-offset_right = 356.0
-offset_bottom = 26.0
+[node name="Control" type="Control" parent="VBoxContainer/BotomBar/Botombar/HBoxContainer"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+
+[node name="Coordinats" type="Label" parent="VBoxContainer/BotomBar/Botombar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
 theme = ExtResource("2_sy325")
 text = "Координаты x: 1000 y: -950"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("48_xvkyl")
 
-[node name="Errors" type="Label" parent="VBoxContainer/BotomBar/Botombar"]
-layout_mode = 0
-offset_left = 784.0
-offset_right = 998.0
-offset_bottom = 26.0
+[node name="Control2" type="Control" parent="VBoxContainer/BotomBar/Botombar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Errors" type="Label" parent="VBoxContainer/BotomBar/Botombar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
 theme = ExtResource("2_sy325")
 text = "Ошибка: "
+vertical_alignment = 1
 script = ExtResource("70_spyke")
+
+[node name="Control3" type="Control" parent="VBoxContainer/BotomBar/Botombar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -896,34 +952,34 @@ playback_auto_capture = false
 [connection signal="toggled" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnHieghtView" to="." method="BtnHieghtView_on_toggled"]
 [connection signal="toggled" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnOpenFile" to="." method="BtnSave_on_toggled"]
 [connection signal="toggled" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSave" to="." method="BtnSave_on_toggled"]
-[connection signal="toggled" from="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnToggle" to="." method="BtnToggled_on_toggled"]
-[connection signal="gui_input" from="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" method="_on_InWork_gui_input"]
-[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" to="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" method="_on_mouse_exited"]
-[connection signal="gui_input" from="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect/LineEdit" to="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" method="_on_InWork_gui_input"]
-[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect/LineEdit" to="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" method="_on_line_edit_mouse_exited"]
-[connection signal="toggled" from="VBoxContainer/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnInfo" to="." method="BtnInfo_on_toggled"]
-[connection signal="item_selected" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListGen" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListGen" method="_on_item_selected"]
-[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListGen" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListGen" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListGen" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListGen" method="_on_mouse_exited"]
-[connection signal="item_selected" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListLive" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListLive" method="_on_item_selected"]
-[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListLive" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListLive" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListLive" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListLive" method="_on_mouse_exited"]
-[connection signal="item_selected" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListAdm" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListAdm" method="_on_item_selected"]
-[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListAdm" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListAdm" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListAdm" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListAdm" method="_on_mouse_exited"]
-[connection signal="item_selected" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListAgro" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListAgro" method="_on_item_selected"]
-[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListAgro" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListAgro" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListAgro" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListAgro" method="_on_mouse_exited"]
-[connection signal="item_selected" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListEng" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListEng" method="_on_item_selected"]
-[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListEng" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListEng" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListEng" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListEng" method="_on_mouse_exited"]
-[connection signal="item_selected" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListLog" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListLog" method="_on_item_selected"]
-[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListLog" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListLog" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListLog" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListLog" method="_on_mouse_exited"]
-[connection signal="item_selected" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListDist" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListDist" method="_on_item_selected"]
-[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListDist" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListDist" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListDist" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListDist" method="_on_mouse_exited"]
-[connection signal="item_selected" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListCom" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListCom" method="_on_item_selected"]
-[connection signal="mouse_entered" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListCom" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListCom" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListCom" to="VBoxContainer/LeftBarCont/Body/TabContainerModuleList/ItemListCom" method="_on_mouse_exited"]
+[connection signal="gui_input" from="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" to="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" method="_on_InWork_gui_input"]
+[connection signal="mouse_entered" from="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" to="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" to="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" method="_on_mouse_exited"]
+[connection signal="gui_input" from="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect/LineEdit" to="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" method="_on_InWork_gui_input"]
+[connection signal="mouse_exited" from="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect/LineEdit" to="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnSearch/ColorRect" method="_on_line_edit_mouse_exited"]
+[connection signal="toggled" from="VBoxContainer/Control/LeftBarCont/Leftbar/MarginContainer/VBoxContainer/BtnInfo" to="." method="BtnInfo_on_toggled"]
+[connection signal="item_selected" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListGen" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListGen" method="_on_item_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListGen" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListGen" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListGen" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListGen" method="_on_mouse_exited"]
+[connection signal="item_selected" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListLive" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListLive" method="_on_item_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListLive" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListLive" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListLive" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListLive" method="_on_mouse_exited"]
+[connection signal="item_selected" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListAdm" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListAdm" method="_on_item_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListAdm" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListAdm" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListAdm" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListAdm" method="_on_mouse_exited"]
+[connection signal="item_selected" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListAgro" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListAgro" method="_on_item_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListAgro" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListAgro" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListAgro" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListAgro" method="_on_mouse_exited"]
+[connection signal="item_selected" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListEng" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListEng" method="_on_item_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListEng" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListEng" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListEng" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListEng" method="_on_mouse_exited"]
+[connection signal="item_selected" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListLog" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListLog" method="_on_item_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListLog" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListLog" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListLog" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListLog" method="_on_mouse_exited"]
+[connection signal="item_selected" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListDist" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListDist" method="_on_item_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListDist" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListDist" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListDist" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListDist" method="_on_mouse_exited"]
+[connection signal="item_selected" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListCom" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListCom" method="_on_item_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListCom" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListCom" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListCom" to="VBoxContainer/Control/LeftBarCont/Body/TabContainerModuleList/ItemListCom" method="_on_mouse_exited"]
+[connection signal="toggled" from="VBoxContainer/Control/BtnToggle" to="." method="BtnToggled_on_toggled"]

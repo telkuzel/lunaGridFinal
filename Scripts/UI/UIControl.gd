@@ -15,6 +15,8 @@ var max_zoom: float = 100.0    # Максимальная дистанция
 
 
 func _ready() -> void:
+	%Leftbar.custom_minimum_size.x = 270
+	ShowAllText()
 	%BtnGenModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListGen))
 	%BtnLiveModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListLive))
 	%BtnAdmModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListAdm))
@@ -27,13 +29,16 @@ func _ready() -> void:
 	%BtnZoomIn.connect("toggled", Callable(self, "BtnZoom_on_toggled").bind(-2.0))
 
 func BtnToggled_on_toggled(toggled_on: bool) -> void:
+	var button = %BtnToggle
 	if toggled_on:
 		anim_player.play("LeftbarAnim")
 		await anim_player.animation_finished
 		ShowAllText()
+		button.icon = load("res://Scenes/UI/Icons/LeftArrow.png")
 	else:
 		anim_player.play_backwards("LeftbarAnim")
 		HideAllText()
+		button.icon = load("res://Scenes/UI/Icons/RightArrow.png")
 		
 func ShowAllText() -> void:
 	%BtnInfo.text = "Инфо о команде"
