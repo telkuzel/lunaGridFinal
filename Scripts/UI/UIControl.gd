@@ -21,20 +21,20 @@ var max_zoom: float = 100.0    # Максимальная дистанция
 
 func _ready() -> void:
 	leftBar.custom_minimum_size.x = 316
-	leftToggleBtn.position.x = 316
+	leftToggleBtn.size.x = 346
 	rightToggleBtn.scale = Vector2(-1, 1)
 	rightToggleBtn.position.x += rightToggleBtn.size.x
 	ShowAllText()
-	%BtnGenModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListGen))
-	%BtnLiveModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListLive))
-	%BtnAdmModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListAdm))
-	%BtnAgroModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListAgro))
-	%BtnEngModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListEng))
-	%BtnLogModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListLog))
-	%BtnDistModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListDist))
-	%BtnComModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListCom))
-	%BtnZoomOut.connect("toggled", Callable(self, "BtnZoom_on_toggled").bind(2.0)) #шаг приближения
-	%BtnZoomIn.connect("toggled", Callable(self, "BtnZoom_on_toggled").bind(-2.0))
+	%BtnGenModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListGen))
+	%BtnLiveModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListLive))
+	%BtnAdmModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListAdm))
+	%BtnAgroModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListAgro))
+	%BtnEngModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListEng))
+	%BtnLogModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListLog))
+	%BtnDistModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListDist))
+	%BtnComModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListCom))
+	%BtnZoomOut.connect("toggled", BtnZoom_on_toggled.bind(2.0)) #шаг приближения
+	%BtnZoomIn.connect("toggled", BtnZoom_on_toggled.bind(-2.0))
 
 
 func BtnToggledLeft_on_toggled(toggled_on: bool) -> void:
@@ -61,14 +61,16 @@ func BtnToggledRight_on_toggled(toggled_on: bool) -> void:
 
 func ShowAllText() -> void:
 	%BtnInfo.text = "ИНФО О КОМАНДЕ"
-	%BtnGenModules.text = "ОБЩИЕ МОДУЛИ"
-	%BtnLiveModules.text = "ЖИЛОЙ КОМПЛЕКС"
-	%BtnAdmModules.text = "АДМИН. КОМПЛЕКС"
-	%BtnAgroModules.text = "АГРОКОМПЛЕКС"
-	%BtnEngModules.text = "ИНЖ. КОМПЛЕКС"
-	%BtnLogModules.text = "ЛОГИСТ. КОМПЛЕКС"
-	%BtnDistModules.text = "УДАЛ. МОДУЛИ"
-	%BtnComModules.text = "КОНСТРУКТОР"
+	%BtnGenModules.text = "ОБЩИЕ"
+	%BtnLiveModules.text = "ЖИЛЫЕ"
+	%BtnAdmModules.text = "АДМИНИСТРАТИВНЫЕ"
+	%BtnAgroModules.text = "АГРОПРОМЫШЛЕННЫЕ"
+	%BtnEngModules.text = "ИНЖЕНЕРНЫЕ"
+	%BtnLogModules.text = "ЛОГИСТИЧЕСКИЕ"
+	%BtnDistModules.text = "УДАЛЁННЫЕ"
+	%BtnComModules.text = "КОМПЛЕКСЫ"
+	%BtnConstructor.text = "КОНСТРУКТОР"
+	leftToggleBtn.text = "СПИСКИ МОДУЛЕЙ"
 	%SearchLineEdit.visible = true
 
 
@@ -82,6 +84,8 @@ func HideAllText() -> void:
 	%BtnLogModules.text = ""
 	%BtnDistModules.text = ""
 	%BtnComModules.text = ""
+	%BtnConstructor.text = ""
+	leftToggleBtn.text = ""
 	%SearchLineEdit.visible = false
 
 
@@ -95,7 +99,7 @@ func BtnInfo_on_toggled(toggled_on: bool) -> void:
 		
 
 
-func BtnModules_on_toggled(toggled_on: bool, itemlist: Node) -> void:
+func BtnModules_on_pressed(itemlist: Node) -> void:
 	if TabCont.visible and itemlist.visible:
 		TabCont.visible = false
 		itemlist.visible = false

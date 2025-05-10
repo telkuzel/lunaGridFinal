@@ -86,26 +86,26 @@ length = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/Center/BtnToggleLeft:position")
+tracks/0/path = NodePath("VBoxContainer/Center/CenterHBox/Leftbar:custom_minimum_size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(66, 60), Vector2(316, 60)]
+"values": [Vector2(66, 0), Vector2(316, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxContainer/Center/CenterHBox/Leftbar:custom_minimum_size")
+tracks/1/path = NodePath("VBoxContainer/Center/BtnToggleLeft:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.15),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(66, 0), Vector2(316, 0)]
+"values": [Vector2(90, 60), Vector2(346, 60)]
 }
 
 [sub_resource type="Animation" id="Animation_3dryh"]
@@ -137,26 +137,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("VBoxContainer/Center/BtnToggleLeft:position")
+tracks/2/path = NodePath("VBoxContainer/Center/CenterHBox/Leftbar:custom_minimum_size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(66, 63)]
+"values": [Vector2(66, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("VBoxContainer/Center/CenterHBox/Leftbar:custom_minimum_size")
+tracks/3/path = NodePath("VBoxContainer/Center/BtnToggleLeft:size")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(66, 0)]
+"values": [Vector2(90, 60)]
 }
 
 [sub_resource type="Animation" id="Animation_sy325"]
@@ -382,15 +382,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("10_hgi12")
-theme_override_colors/caret_color = Color(0.168627, 0.168627, 0.168627, 1)
-theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
 
 [node name="BtnGenModules" type="Button" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme = ExtResource("12_b8ige")
-toggle_mode = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
 icon = ExtResource("14_wb2t4")
@@ -401,7 +398,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme = ExtResource("12_b8ige")
-toggle_mode = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
 icon = ExtResource("12_h4vik")
@@ -412,7 +408,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme = ExtResource("12_b8ige")
-toggle_mode = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
 icon = ExtResource("20_pxwff")
@@ -423,7 +418,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme = ExtResource("12_b8ige")
-toggle_mode = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
 icon = ExtResource("22_xvkyl")
@@ -434,7 +428,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme = ExtResource("12_b8ige")
-toggle_mode = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
 icon = ExtResource("36_q7khq")
@@ -445,7 +438,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme = ExtResource("12_b8ige")
-toggle_mode = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
 icon = ExtResource("33_ntvc1")
@@ -456,7 +448,6 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme = ExtResource("12_b8ige")
-toggle_mode = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
 icon = ExtResource("40_ajypb")
@@ -467,7 +458,16 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme = ExtResource("12_b8ige")
-toggle_mode = true
+shortcut_feedback = false
+shortcut_in_tooltip = false
+icon = ExtResource("13_gu2a4")
+expand_icon = true
+
+[node name="BtnConstructor" type="Button" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme = ExtResource("12_b8ige")
 shortcut_feedback = false
 shortcut_in_tooltip = false
 icon = ExtResource("13_gu2a4")
@@ -937,10 +937,9 @@ horizontal_alignment = 1
 [node name="BtnToggleLeft" type="Button" parent="VBoxContainer/Center"]
 unique_name_in_owner = true
 layout_mode = 2
-offset_left = 66.0
-offset_top = 63.0
-offset_right = 96.0
-offset_bottom = 123.0
+offset_top = 60.0
+offset_right = 90.0
+offset_bottom = 120.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
 theme = ExtResource("69_sy325")
