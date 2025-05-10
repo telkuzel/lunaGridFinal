@@ -1,4 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://ne5ftygnb20w"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ne5ftygnb20w"]
+
+[ext_resource type="FontFile" uid="uid://p4l5j5fmtf1t" path="res://Scenes/fonts/Black_Ops_One/BlackOpsOne-Regular_RUS_by_alince.otf" id="1_ltl2g"]
 
 [resource]
 Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 18
+Label/fonts/font = ExtResource("1_ltl2g")

@@ -41,7 +41,7 @@ func _on_mouse_exited() -> void:
 	hover_enabled = false
 	_clear_hover_highlight()
 	var moduleInfo = get_node(ModuleInfo)
-	moduleInfo.visible = false
+	#moduleInfo.visible = false
 
 @export var Modules: Array        = []
 # При выборе элемента производится выделение и обновление информации.
@@ -111,7 +111,7 @@ func update_module_info(index: int) -> void:
 		return
 
 	# Получаем ссылку на панель с информацией
-	var moduleInfoPanel = get_node(ModuleInfo)
+	var moduleInfoPanel = %RightBar
 
 	# Предполагаем, что структура панели такова:
 	# Panel
@@ -122,31 +122,21 @@ func update_module_info(index: int) -> void:
 	#         └── Label (характеристики)
 
 	# Получаем VBoxContainer (предполагаем, что он — первый ребёнок панели)
-	var vbox = moduleInfoPanel.get_child(0)
+	var vbox = moduleInfoPanel.get_child(1)
 
 	# Обновляем Label с названием модуля
-	var nameLabel = vbox.get_child(0) as Label
+	var nameLabel = vbox.get_child(1) as Label
 	nameLabel.text = ModuleNames[index].replace("\\n", "\n")
 
 	# Обновляем TextureRect с изображением модуля
-	var textureRect = vbox.get_child(1) as TextureRect
+	var textureRect = vbox.get_child(2) as TextureRect
 	textureRect.texture = ModuleImages[index]
 	textureRect.expand = true
 
 	# Обновляем Label с описанием модуля
-	var descriptionLabel = vbox.get_child(2) as Label
+	var descriptionLabel = vbox.get_child(3) as Label
 	descriptionLabel.text = ModuleDescriptionTexts[index].replace("\\n", "\n")
 
 	# Обновляем Label с характеристиками модуля
-	var specifLabel = vbox.get_child(3) as Label
+	var specifLabel = vbox.get_child(4) as Label
 	specifLabel.text = ModuleSpecifTexts[index].replace("\\n", "\n")
-
-
-
-##спавн модуля
-#@export var module = preload("res://Scenes/module.tscn")
-#
-#func _on_gui_input_BtnInfo(event):
-	#if event is InputEventMouseButton and event.button_index == 1 and event.pressed:
-		#var inst = module.instantiate()
-		#$"..".add_child(inst)

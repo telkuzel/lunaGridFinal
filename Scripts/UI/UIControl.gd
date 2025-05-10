@@ -1,6 +1,11 @@
 extends Control
 
-@onready var anim_player = %AnimationPlayer
+@onready var anim_leftBar = %LeftBarAnimation
+@onready var anim_rightBar = %RightBarAnimation
+@onready var leftBar = %Leftbar
+@onready var rightBar = %RightBar
+@onready var leftToggleBtn = %BtnToggleLeft
+@onready var rightToggleBtn = %BtnToggleRight
 @onready var TabContainerCentr = %TabContainerCenter
 @onready var TabCont = %TabContainerModuleList
 @onready var material_surface: StandardMaterial3D = preload("res://3dModels/material/surface.tres")
@@ -15,7 +20,10 @@ var max_zoom: float = 100.0    # Максимальная дистанция
 
 
 func _ready() -> void:
-	%Leftbar.custom_minimum_size.x = 270
+	leftBar.custom_minimum_size.x = 316
+	leftToggleBtn.position.x = 316
+	rightToggleBtn.scale = Vector2(-1, 1)
+	rightToggleBtn.position.x += rightToggleBtn.size.x
 	ShowAllText()
 	%BtnGenModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListGen))
 	%BtnLiveModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListLive))
@@ -28,29 +36,42 @@ func _ready() -> void:
 	%BtnZoomOut.connect("toggled", Callable(self, "BtnZoom_on_toggled").bind(2.0)) #шаг приближения
 	%BtnZoomIn.connect("toggled", Callable(self, "BtnZoom_on_toggled").bind(-2.0))
 
-func BtnToggled_on_toggled(toggled_on: bool) -> void:
-	var button = %BtnToggle
+
+func BtnToggledLeft_on_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		anim_player.play("LeftbarAnim")
-		await anim_player.animation_finished
+		anim_leftBar.play("LeftbarAnim")
+		await anim_leftBar.animation_finished
 		ShowAllText()
-		button.icon = load("res://Scenes/UI/Icons/LeftArrow.png")
+		leftToggleBtn.icon = load("res://Scenes/UI/Icons/LeftArrow.png")
 	else:
-		anim_player.play_backwards("LeftbarAnim")
+		anim_leftBar.play_backwards("LeftbarAnim")
 		HideAllText()
-		button.icon = load("res://Scenes/UI/Icons/RightArrow.png")
-		
+		leftToggleBtn.icon = load("res://Scenes/UI/Icons/RightArrow.png")
+
+
+func BtnToggledRight_on_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		anim_rightBar.play_backwards("RightBarAnim")
+		await anim_rightBar.animation_finished
+		rightToggleBtn.icon = load("res://Scenes/UI/Icons/RightArrow.png")
+	else:
+		anim_rightBar.play("RightBarAnim")
+		rightToggleBtn.icon = load("res://Scenes/UI/Icons/LeftArrow.png")
+
+
 func ShowAllText() -> void:
-	%BtnInfo.text = "Инфо о команде"
-	%BtnGenModules.text = "Общ. модули"
-	%BtnLiveModules.text = "Жилой компл."
-	%BtnAdmModules.text = "Адм.-науч. компл."
-	%BtnAgroModules.text = "Агро-компл."
-	%BtnEngModules.text = "Инж. компл."
-	%BtnLogModules.text = "Логист. компл."
-	%BtnDistModules.text = "Удал. модули"
-	%BtnComModules.text = "Констр. компл."
-	
+	%BtnInfo.text = "ИНФО О КОМАНДЕ"
+	%BtnGenModules.text = "ОБЩИЕ МОДУЛИ"
+	%BtnLiveModules.text = "ЖИЛОЙ КОМПЛЕКС"
+	%BtnAdmModules.text = "АДМИН. КОМПЛЕКС"
+	%BtnAgroModules.text = "АГРОКОМПЛЕКС"
+	%BtnEngModules.text = "ИНЖ. КОМПЛЕКС"
+	%BtnLogModules.text = "ЛОГИСТ. КОМПЛЕКС"
+	%BtnDistModules.text = "УДАЛ. МОДУЛИ"
+	%BtnComModules.text = "КОНСТРУКТОР"
+	%SearchLineEdit.visible = true
+
+
 func HideAllText() -> void:
 	%BtnInfo.text = ""
 	%BtnGenModules.text = ""
@@ -61,6 +82,8 @@ func HideAllText() -> void:
 	%BtnLogModules.text = ""
 	%BtnDistModules.text = ""
 	%BtnComModules.text = ""
+	%SearchLineEdit.visible = false
+
 
 func BtnInfo_on_toggled(toggled_on: bool) -> void:
 	if TabContainerCentr.visible and TabContainerCentr.current_tab == 0:
@@ -70,6 +93,7 @@ func BtnInfo_on_toggled(toggled_on: bool) -> void:
 		TabContainerCentr.visible = true
 		TabContainerCentr.current_tab = 0
 		
+
 
 func BtnModules_on_toggled(toggled_on: bool, itemlist: Node) -> void:
 	if TabCont.visible and itemlist.visible:
@@ -97,7 +121,6 @@ func BtnZoom_on_toggled(toggled_on: bool, zoom_step: float) -> void:
 			camera_pivot.get_node("Camera3D").position = new_pos
 
 
-		
 func BtnHieghtView_on_toggled(toggled_on: bool) -> void:
 	if grounMesh.material_override == material_surface or grounMesh.material_override == null:
 		grounMesh.material_override = material_surfaceHeight
