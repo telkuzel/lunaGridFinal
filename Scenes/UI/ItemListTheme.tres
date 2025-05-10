@@ -1,12 +1,18 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ceg2im375u4fv"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://ceg2im375u4fv"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnt18"]
-bg_color = Color(0.560784, 0.560784, 0.560784, 1)
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.168627, 0.168627, 0.168627, 1)
-corner_radius_top_right = 10
+[ext_resource type="FontFile" uid="uid://p4l5j5fmtf1t" path="res://Scenes/fonts/Black_Ops_One/BlackOpsOne-Regular_RUS_by_alince.otf" id="1_ut078"]
+[ext_resource type="StyleBox" uid="uid://d4cfowljy2eo7" path="res://Scenes/UI/ItemListHoveredStyle.tres" id="2_ut078"]
+[ext_resource type="StyleBox" uid="uid://0f4h1l5o06vb" path="res://Scenes/UI/ItemListPanelStyle.tres" id="3_a67no"]
 
 [resource]
-ItemList/styles/panel = SubResource("StyleBoxFlat_nnt18")
+ItemList/colors/font_color = Color(0.105882, 0.105882, 0.105882, 1)
+ItemList/colors/font_hovered_color = Color(1, 1, 1, 1)
+ItemList/colors/font_hovered_selected_color = Color(1, 1, 1, 1)
+ItemList/colors/guide_color = Color(0.105882, 0.105882, 0.105882, 1)
+ItemList/constants/hline = 3
+ItemList/constants/icon_margin = 10
+ItemList/constants/v_separation = 10
+ItemList/font_sizes/font_size = 18
+ItemList/fonts/font = ExtResource("1_ut078")
+ItemList/styles/hovered = ExtResource("2_ut078")
+ItemList/styles/panel = ExtResource("3_a67no")
