@@ -53,8 +53,10 @@ func BtnToggledRight_on_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		anim_rightBar.play_backwards("RightBarAnim")
 		await anim_rightBar.animation_finished
+		%BtnToggleRight.text = ""
 		rightToggleBtn.icon = load("res://Scenes/UI/Icons/RightArrow.png")
 	else:
+		%BtnToggleRight.text = "ИНФО О МОДУЛЕ"
 		anim_rightBar.play("RightBarAnim")
 		rightToggleBtn.icon = load("res://Scenes/UI/Icons/LeftArrow.png")
 

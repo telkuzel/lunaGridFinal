@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://ctuqhenn385jq"]
+[gd_scene load_steps=80 format=3 uid="uid://ctuqhenn385jq"]
 
 [ext_resource type="StyleBox" uid="uid://dmku67xt7ma5b" path="res://Scenes/UI/TopBarStyle.tres" id="1_wnk6b"]
 [ext_resource type="Theme" uid="uid://ne5ftygnb20w" path="res://Scenes/UI/DarkBarText.tres" id="2_sy325"]
@@ -68,6 +68,7 @@
 [ext_resource type="Texture2D" uid="uid://chne7svn8fow7" path="res://Scenes/UI/InfoModuleTextures/5.jpg" id="57_rismg"]
 [ext_resource type="Texture2D" uid="uid://d1ft3k2tmlbnb" path="res://Scenes/UI/InfoModuleTextures/6.jpg" id="58_spyke"]
 [ext_resource type="Texture2D" uid="uid://6b4ew8cpahum" path="res://Scenes/UI/InfoModuleTextures/8.jpg" id="59_sy325"]
+[ext_resource type="Theme" uid="uid://cai3eeni82yiw" path="res://Scenes/UI/RightBarTheme.tres" id="68_yqnje"]
 [ext_resource type="Theme" uid="uid://bv8vna6m2x2gd" path="res://Scenes/UI/ToggleBtnTheme.tres" id="69_sy325"]
 [ext_resource type="Texture2D" uid="uid://bixbsck2e1ib7" path="res://Scenes/UI/Icons/LeftArrow.png" id="70_b8ige"]
 [ext_resource type="Script" uid="uid://gp784pnnsa50" path="res://Scripts/UI/errors.gd" id="70_spyke"]
@@ -831,37 +832,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Center/CenterHBox/RightBar"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.004
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = -0.252
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 5
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 2
 
-[node name="SeparatorTop" type="Control" parent="VBoxContainer/Center/CenterHBox/RightBar/VBoxContainer"]
+[node name="SeparatorTop" type="Control" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(60, 100)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ModuleName" type="Label" parent="VBoxContainer/Center/CenterHBox/RightBar/VBoxContainer"]
+[node name="ModuleName" type="Label" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
-theme_override_font_sizes/font_size = 16
+theme = ExtResource("68_yqnje")
 text = "Название модуля"
 horizontal_alignment = 1
 
-[node name="ModuleImage" type="TextureRect" parent="VBoxContainer/Center/CenterHBox/RightBar/VBoxContainer"]
+[node name="ModuleImage" type="TextureRect" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
 clip_contents = true
 custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
@@ -869,12 +864,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 3
 texture = ExtResource("12_h4vik")
 
-[node name="ModuleDescriptionText" type="Label" parent="VBoxContainer/Center/CenterHBox/RightBar/VBoxContainer"]
+[node name="ModuleDescriptionText" type="Label" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
-theme_override_font_sizes/font_size = 12
+theme = ExtResource("68_yqnje")
 text = "Соединения:
  Используются типы:
  – Герметичный переход 2×2 м;
@@ -885,12 +880,12 @@ text = "Соединения:
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ModuleSpecifText" type="Label" parent="VBoxContainer/Center/CenterHBox/RightBar/VBoxContainer"]
+[node name="ModuleSpecifText" type="Label" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.168627, 0.168627, 0.168627, 1)
-theme_override_font_sizes/font_size = 12
+theme = ExtResource("68_yqnje")
 text = "Соединения:
  Используются типы:
  – Герметичный переход 2×2 м;

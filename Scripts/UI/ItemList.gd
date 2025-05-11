@@ -93,13 +93,8 @@ func _process(_delta: float) -> void:
 func update_module_info(index: int) -> void:
 	if index < 0 or index >= ModuleNames.size():
 		return
-	var vbox = moduleInfoPanel.get_child(1)
-	var nameLabel = vbox.get_child(1) as Label
-	nameLabel.text = ModuleNames[index].replace("\\n", "\n")
-	var textureRect = vbox.get_child(2) as TextureRect
-	textureRect.texture = ModuleImages[index]
-	textureRect.expand = true
-	var descriptionLabel = vbox.get_child(3) as Label
-	descriptionLabel.text = ModuleDescriptionTexts[index].replace("\\n", "\n")
-	var specifLabel = vbox.get_child(4) as Label
-	specifLabel.text = ModuleSpecifTexts[index].replace("\\n", "\n")
+	%ModuleName.text = ModuleNames[index].replace("\\n", "\n")
+	%ModuleImage.texture = ModuleImages[index]
+	%ModuleImage.expand = true
+	%ModuleDescriptionText.text = ModuleDescriptionTexts[index].replace("\\n", "\n")
+	%ModuleSpecifText.text = ModuleSpecifTexts[index].replace("\\n", "\n")
