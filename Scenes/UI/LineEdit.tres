@@ -1,28 +1,34 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bf1r74222lewk"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bf1r74222lewk"]
+
+[ext_resource type="FontFile" uid="uid://p4l5j5fmtf1t" path="res://Scenes/fonts/Black_Ops_One/BlackOpsOne-Regular_RUS_by_alince.otf" id="1_0mdm4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pv6ld"]
-bg_color = Color(0.568598, 0.618351, 0.759886, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.168627, 0.168627, 0.168627, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+content_margin_left = 20.0
+bg_color = Color(0.137255, 0.164706, 0.2, 0.901961)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.419608, 0.831373, 1, 0.901961)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mdm4"]
-bg_color = Color(0.479834, 0.479834, 0.479834, 0.588235)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.168627, 0.168627, 0.168627, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+content_margin_left = 20.0
+bg_color = Color(0.368627, 0.423529, 0.490196, 0.705882)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.113725, 0.113725, 0.113725, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nnt18"]
 bg_color = Color(0.568598, 0.618351, 0.759886, 1)
@@ -49,6 +55,14 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [resource]
+LineEdit/colors/caret_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_outline_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_placeholder_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_selected_color = Color(1, 1, 1, 1)
+LineEdit/colors/selection_color = Color(0.419608, 0.478431, 0.560784, 1)
+LineEdit/font_sizes/font_size = 18
+LineEdit/fonts/font = ExtResource("1_0mdm4")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_pv6ld")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_0mdm4")
 TextEdit/styles/focus = SubResource("StyleBoxFlat_nnt18")

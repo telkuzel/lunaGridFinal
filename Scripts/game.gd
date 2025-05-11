@@ -13,7 +13,7 @@ func _ready():
 	var camera_pivot = player.get_node("Pivot")
 	
 	var Errors = main_ui.get_node(
-		"VBoxContainer/BotomBar/Botombar/Errors"
+		"VBoxContainer/BotomBar/Botombar/HBoxContainer/Errors"
 	)
 	
 	# Передаем ссылку

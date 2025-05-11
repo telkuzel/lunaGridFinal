@@ -19,10 +19,10 @@ func _input(event: InputEvent) -> void:
 				var module: Placeable = res2.collider
 				if module.is_plasment:
 					return
-				$"../../../LeftBarCont/Body/HBoxContainer".visible = true
-				if $"../../../LeftBarCont/Body/HBoxContainer".curent_module:
-					$"../../../LeftBarCont/Body/HBoxContainer".curent_module.deselect()
-				$"../../../LeftBarCont/Body/HBoxContainer".curent_module = module
+				%RDCButtons.visible = true
+				if %RDCButtons.curent_module:
+					%RDCButtons.curent_module.deselect()
+				%RDCButtons.curent_module = module
 				module.select()
 				if event is InputEventMouseButton and event.double_click:
 					player.position = module.position 

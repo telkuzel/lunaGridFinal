@@ -1,6 +1,11 @@
 extends Control
 
-@onready var anim_player = %AnimationPlayer
+@onready var anim_leftBar = %LeftBarAnimation
+@onready var anim_rightBar = %RightBarAnimation
+@onready var leftBar = %Leftbar
+@onready var rightBar = %RightBar
+@onready var leftToggleBtn = %BtnToggleLeft
+@onready var rightToggleBtn = %BtnToggleRight
 @onready var TabContainerCentr = %TabContainerCenter
 @onready var TabCont = %TabContainerModuleList
 @onready var material_surface: StandardMaterial3D = preload("res://3dModels/material/surface.tres")
@@ -15,37 +20,62 @@ var max_zoom: float = 100.0    # Максимальная дистанция
 
 
 func _ready() -> void:
-	%BtnGenModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListGen))
-	%BtnLiveModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListLive))
-	%BtnAdmModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListAdm))
-	%BtnAgroModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListAgro))
-	%BtnEngModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListEng))
-	%BtnLogModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListLog))
-	%BtnDistModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListDist))
-	%BtnComModules.connect("toggled", Callable(self, "BtnModules_on_toggled").bind(%ItemListCom))
-	%BtnZoomOut.connect("toggled", Callable(self, "BtnZoom_on_toggled").bind(2.0)) #шаг приближения
-	%BtnZoomIn.connect("toggled", Callable(self, "BtnZoom_on_toggled").bind(-2.0))
+	leftBar.custom_minimum_size.x = 316
+	leftToggleBtn.size.x = 346
+	rightToggleBtn.scale = Vector2(-1, 1)
+	rightToggleBtn.position.x += rightToggleBtn.size.x
+	ShowAllText()
+	%BtnGenModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListGen))
+	%BtnLiveModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListLive))
+	%BtnAdmModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListAdm))
+	%BtnAgroModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListAgro))
+	%BtnEngModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListEng))
+	%BtnLogModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListLog))
+	%BtnDistModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListDist))
+	%BtnComModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListCom))
+	%BtnZoomOut.connect("toggled", BtnZoom_on_toggled.bind(2.0)) #шаг приближения
+	%BtnZoomIn.connect("toggled", BtnZoom_on_toggled.bind(-2.0))
 
-func BtnToggled_on_toggled(toggled_on: bool) -> void:
+
+func BtnToggledLeft_on_toggled(toggled_on: bool) -> void:
 	if toggled_on:
-		anim_player.play("LeftbarAnim")
-		await anim_player.animation_finished
+		anim_leftBar.play("LeftbarAnim")
+		await anim_leftBar.animation_finished
 		ShowAllText()
+		leftToggleBtn.icon = load("res://Scenes/UI/Icons/LeftArrow.png")
 	else:
-		anim_player.play_backwards("LeftbarAnim")
+		anim_leftBar.play_backwards("LeftbarAnim")
 		HideAllText()
-		
+		leftToggleBtn.icon = load("res://Scenes/UI/Icons/RightArrow.png")
+
+
+func BtnToggledRight_on_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		anim_rightBar.play_backwards("RightBarAnim")
+		await anim_rightBar.animation_finished
+		%BtnToggleRight.text = ""
+		rightToggleBtn.icon = load("res://Scenes/UI/Icons/RightArrow.png")
+	else:
+		%BtnToggleRight.text = "ИНФО О МОДУЛЕ"
+		anim_rightBar.play("RightBarAnim")
+		rightToggleBtn.icon = load("res://Scenes/UI/Icons/LeftArrow.png")
+
+
 func ShowAllText() -> void:
-	%BtnInfo.text = "Инфо о команде"
-	%BtnGenModules.text = "Общ. модули"
-	%BtnLiveModules.text = "Жилой компл."
-	%BtnAdmModules.text = "Адм.-науч. компл."
-	%BtnAgroModules.text = "Агро-компл."
-	%BtnEngModules.text = "Инж. компл."
-	%BtnLogModules.text = "Логист. компл."
-	%BtnDistModules.text = "Удал. модули"
-	%BtnComModules.text = "Констр. компл."
-	
+	%BtnInfo.text = "ИНФО О КОМАНДЕ"
+	%BtnGenModules.text = "ОБЩИЕ"
+	%BtnLiveModules.text = "ЖИЛЫЕ"
+	%BtnAdmModules.text = "АДМИНИСТРАТИВНЫЕ"
+	%BtnAgroModules.text = "АГРОПРОМЫШЛЕННЫЕ"
+	%BtnEngModules.text = "ИНЖЕНЕРНЫЕ"
+	%BtnLogModules.text = "ЛОГИСТИЧЕСКИЕ"
+	%BtnDistModules.text = "УДАЛЁННЫЕ"
+	%BtnComModules.text = "КОМПЛЕКСЫ"
+	%BtnConstructor.text = "КОНСТРУКТОР"
+	leftToggleBtn.text = "СПИСКИ МОДУЛЕЙ"
+	%SearchLineEdit.visible = true
+
+
 func HideAllText() -> void:
 	%BtnInfo.text = ""
 	%BtnGenModules.text = ""
@@ -56,6 +86,10 @@ func HideAllText() -> void:
 	%BtnLogModules.text = ""
 	%BtnDistModules.text = ""
 	%BtnComModules.text = ""
+	%BtnConstructor.text = ""
+	leftToggleBtn.text = ""
+	%SearchLineEdit.visible = false
+
 
 func BtnInfo_on_toggled(toggled_on: bool) -> void:
 	if TabContainerCentr.visible and TabContainerCentr.current_tab == 0:
@@ -66,7 +100,8 @@ func BtnInfo_on_toggled(toggled_on: bool) -> void:
 		TabContainerCentr.current_tab = 0
 		
 
-func BtnModules_on_toggled(toggled_on: bool, itemlist: Node) -> void:
+
+func BtnModules_on_pressed(itemlist: Node) -> void:
 	if TabCont.visible and itemlist.visible:
 		TabCont.visible = false
 		itemlist.visible = false
@@ -92,7 +127,6 @@ func BtnZoom_on_toggled(toggled_on: bool, zoom_step: float) -> void:
 			camera_pivot.get_node("Camera3D").position = new_pos
 
 
-		
 func BtnHieghtView_on_toggled(toggled_on: bool) -> void:
 	if grounMesh.material_override == material_surface or grounMesh.material_override == null:
 		grounMesh.material_override = material_surfaceHeight
