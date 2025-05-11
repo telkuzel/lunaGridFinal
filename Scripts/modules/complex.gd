@@ -13,6 +13,10 @@ var is_plasment = true
 func _ready() -> void:
 	player = get_node("/root/Game/Player")
 	manager = get_node("/root/Game/modulesManager")
+	
+
+func spavn_complex(complex_resource:Complex_save):
+	comlex_save = complex_resource
 	for i in comlex_save.modules:
 		modules.append(i.resource.instantiate())
 		modules.get(modules.size()-1).complex = complexIdx
@@ -21,6 +25,7 @@ func _ready() -> void:
 		modules.get(modules.size()-1).set
 		modules.get(modules.size()-1).is_plasment = false
 		self.add_child(modules.get(modules.size()-1))
+
 
 func _input(event: InputEvent) -> void:
 	var is_can_place = true
@@ -36,6 +41,8 @@ func _set_position():
 		var result = player.raycast()
 		if result:
 			position = result.position
+	if Input.is_key_pressed(KEY_R):
+		rotation.y += 0.1	
 
 func _process(delta: float) -> void:
 	_set_position()

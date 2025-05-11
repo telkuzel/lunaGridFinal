@@ -1,4 +1,5 @@
 extends Node
+class_name Module_save
 
 @export var position:Vector3
 

@@ -18,10 +18,16 @@ func is_distance_valid(type: int, module: Placeable, exclude: int) -> bool:
 					return false
 	return true
 
-func regisrate_complex()->int:
+func regisrate_complex(module: Connectabel)->int:
 	complex_idx += 1
-	complexes.append(complex_idx)
+	var complex = Complex.new()
+	complex.complexIdx = complex_idx
+	complexes.append(complex)
+	complex.modules.append(module)
 	return complex_idx
 
-func regisrate_module(idx:int)->int:
+func regisrate_module(module: Connectabel, complex_idx: int)->int:
+	for complex in complexes:
+		if complex.complexIdx == complex_idx:
+			complex.modules.append(module)
 	return complex_idx

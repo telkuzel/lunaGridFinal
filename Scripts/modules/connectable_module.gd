@@ -67,9 +67,9 @@ func disconnect_module():
 
 func register_in_complex(module: Connectabel):
 	if module:
-		complex = manager.regisrate_module(module.complex)
+		complex = manager.regisrate_module(self, module.complex)
 	else:
-		manager.regisrate_complex()
+		manager.regisrate_complex(self)
 		
 
 func get_nearest_connection(pos: Vector3) -> int:
