@@ -4,6 +4,9 @@ extends Node3D
 
 @export var modules = Array()
 
+@export var complexes = Array()
+var complex_idx = -1
+
 @export var distances = Array()
 
 func is_distance_valid(type: int, module: Placeable, exclude: int) -> bool:
@@ -14,3 +17,17 @@ func is_distance_valid(type: int, module: Placeable, exclude: int) -> bool:
 					distances[type - 1][i.type - 1]:
 					return false
 	return true
+
+func regisrate_complex(module: Connectabel)->int:
+	complex_idx += 1
+	var complex = Complex.new()
+	complex.complexIdx = complex_idx
+	complexes.append(complex)
+	complex.modules.append(module)
+	return complex_idx
+
+func regisrate_module(module: Connectabel, complex_idx: int)->int:
+	for complex in complexes:
+		if complex.complexIdx == complex_idx:
+			complex.modules.append(module)
+	return complex_idx
