@@ -2,6 +2,8 @@ class_name Connectabel
 extends Placeable
 
 @export var connections = Array([], TYPE_NODE_PATH, "", null)
+@export var complex:int
+@export var resource:Resource
 
 var current_connection = 0
 var other_module: Connectabel
@@ -24,6 +26,7 @@ func try_place(event):
 		player.set_plasment_mode(false)
 		mesh.hide()
 		manager.modules.append(self)
+		register_in_complex(other_module)
 		if other_module:
 			var con1 = get_connection(current_connection)
 			var con2 = other_module.get_connection(other_connection)
@@ -61,7 +64,13 @@ func start_plasment():
 func disconnect_module():
 	for i in range(0, connections.size()):
 		get_connection(i).disconnect_module()
-	
+
+func register_in_complex(module: Connectabel):
+	if module:
+		complex = manager.regisrate_module(self, module.complex)
+	else:
+		manager.regisrate_complex(self)
+		
 
 func get_nearest_connection(pos: Vector3) -> int:
 	var minimum = 1000

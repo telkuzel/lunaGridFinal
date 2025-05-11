@@ -59,13 +59,16 @@ func select():
 func deselect():
 	mesh.hide()
 
-func plasment_accept_visualize():
+func plasment_accept_visualize()->bool:
 	var material
+	var is_can_place = false
 	if _is_can_place() and manager.is_distance_valid(type, self, -1):
 		mesh.material_override = material_sucsess
+		is_can_place = true
 	else: 
 		mesh.material_override = material_deny
 	send_plasment_error()
+	return is_can_place
 
 func send_plasment_error():
 	if not _is_can_place():
