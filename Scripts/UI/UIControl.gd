@@ -56,7 +56,7 @@ func BtnToggledRight_on_toggled(toggled_on: bool) -> void:
 		%BtnToggleRight.text = ""
 		rightToggleBtn.icon = load("res://Scenes/UI/Icons/RightArrow.png")
 	else:
-		%BtnToggleRight.text = "ИНФО О МОДУЛЕ"
+		#%BtnToggleRight.text = "ИНФО О МОДУЛЕ"
 		anim_rightBar.play("RightBarAnim")
 		rightToggleBtn.icon = load("res://Scenes/UI/Icons/LeftArrow.png")
 

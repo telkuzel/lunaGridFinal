@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://ctuqhenn385jq"]
+[gd_scene load_steps=82 format=3 uid="uid://ctuqhenn385jq"]
 
 [ext_resource type="StyleBox" uid="uid://dmku67xt7ma5b" path="res://Scenes/UI/TopBarStyle.tres" id="1_wnk6b"]
 [ext_resource type="Theme" uid="uid://ne5ftygnb20w" path="res://Scenes/UI/DarkBarText.tres" id="2_sy325"]
@@ -68,10 +68,12 @@
 [ext_resource type="Texture2D" uid="uid://chne7svn8fow7" path="res://Scenes/UI/InfoModuleTextures/5.jpg" id="57_rismg"]
 [ext_resource type="Texture2D" uid="uid://d1ft3k2tmlbnb" path="res://Scenes/UI/InfoModuleTextures/6.jpg" id="58_spyke"]
 [ext_resource type="Texture2D" uid="uid://6b4ew8cpahum" path="res://Scenes/UI/InfoModuleTextures/8.jpg" id="59_sy325"]
+[ext_resource type="StyleBox" uid="uid://j6c8numrmx7k" path="res://Scenes/UI/LeftBarBtnNormal.tres" id="68_ikot2"]
 [ext_resource type="Theme" uid="uid://cai3eeni82yiw" path="res://Scenes/UI/RightBarTheme.tres" id="68_yqnje"]
 [ext_resource type="Theme" uid="uid://bv8vna6m2x2gd" path="res://Scenes/UI/ToggleBtnTheme.tres" id="69_sy325"]
 [ext_resource type="Texture2D" uid="uid://bixbsck2e1ib7" path="res://Scenes/UI/Icons/LeftArrow.png" id="70_b8ige"]
 [ext_resource type="Script" uid="uid://gp784pnnsa50" path="res://Scripts/UI/errors.gd" id="70_spyke"]
+[ext_resource type="StyleBox" uid="uid://cf8o1n3x1y4s2" path="res://Scenes/UI/SeparationLineStyle.tres" id="70_upm8f"]
 [ext_resource type="Texture2D" uid="uid://d4hgt7r6gdpgx" path="res://Scenes/UI/Icons/RightArrow.png" id="70_yqnje"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8oemv"]
@@ -363,7 +365,7 @@ layout_mode = 2
 theme_override_constants/separation = 3
 
 [node name="SeparatorTop" type="Control" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(60, 100)
+custom_minimum_size = Vector2(60, 140)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -475,7 +477,7 @@ icon = ExtResource("13_gu2a4")
 expand_icon = true
 
 [node name="SeparatorBotom" type="Control" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(60, 100)
+custom_minimum_size = Vector2(60, 140)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -535,7 +537,7 @@ item_6/icon = ExtResource("24_urywp")
 script = ExtResource("16_bit2e")
 ModuleNames = ["Жилой", "Спортивный", "Административный", "Медицинский", "Исследовательский", "Досуга и культуры", "Научный"]
 ModuleImages = [ExtResource("27_sjx2j"), ExtResource("28_udfxq"), ExtResource("29_pntd3"), ExtResource("30_rismg"), ExtResource("31_spyke"), ExtResource("27_sjx2j"), ExtResource("30_rismg")]
-ModuleDescriptionTexts = ["Размер: 9.2×5.2×5.6 м\\nМодуль для проживания экипажа.\\nСвязан с мед., досуг., спорт. моду-\\nлями. Включает жизнеобеспечение.\\nШлюз 1.5×2 м, переход 2×2 м\\nИнж. порты: 0.5×0.3 м\\nСоединения: типы 1, 2, 5\\nОбъединяется в жилой комплекс.", "Размер: 9.2×5.2×5.6 м\\nМодуль для тренировок и спорта.\\nПредотвращает мышечную атрофию.\\nСодержит тренажёры, снаряды.\\nШлюз транспортный: 2×2 м\\nИнж. порты: 0.5×0.3 м\\nСоединения: типы 1, 2, 3\\nОбъединяется в жилой комплекс.", "Размер: 9.2×5.2×5.6 м\\nУправление, связь, планирование.\\nИнтеграция с наукой и жильём.\\nКоординация всей базы.\\nШлюз 2×2 м, стандартный вход\\nИнженерные порты 0.5×0.3 м\\nСоединения: типы 1, 2, 5\\nОбъединяется в адм.-науч. компл.\\n", "Размер: 8.8×5.2×5.6 м\\nПредназначен для диагностики,\\nлечения, хранения мед. средств.\\nВключает хирургический блок.\\nШлюзы: основной и аварийный\\nИнж. порты: 0.4×0.4 м\\nСоединения: типы 1, 2, 5\\nОбъединяется в жилой комплекс.\\n", "Размер: 9.2×5.2×5.6 м\\nПредназначен для проведения\\nэкспериментов и анализа\\nпочвы, воздуха, проб.\\nНаучный порт: 0.6×0.6 м\\nИнж. порты: 0.5×0.3 м\\nСоединения: типы 1, 2, 6\\nОбъединяется в адм.-науч. компл.\\n", "Размер: 9.2×5.2×5.6 м\\nСоздан для отдыха, досуга,\\nразвлечений и мероприятий.\\nПомогает снизить стресс.\\nИнженерные порты: 0.5×0.3 м\\nШлюз стандартный: 2×2 м\\nСоединения: типы 1, 2, 5\\nОбъединяется в жилой комплекс.\\n", " Размер: 9.2×5.2×5.6 м\\n Образование, научные семинары.\\n Обмен данными, конференции.\\n Интеграция с исслед. блоками.\\n Шлюз: 1.5×2 м\\n Науч. порты: 0.6×0.6 м\\n Сервис. порты: 0.5×0.3 м\\n Админ.-научный комплекс.\\n"]
+ModuleDescriptionTexts = ["Размер: 9.2×5.2×5.6 м\\nМодуль для проживания экипажа.\\nСвязан с мед., досуг., спорт. моду-\\nлями. Включает жизнеобеспечение.\\nШлюз 1.5×2 м, переход 2×2 м\\nИнж. порты: 0.5×0.3 м\\nСоединения: типы 1, 2, 5\\nОбъединяется в жилой комплекс.", "Размер: 9.2×5.2×5.6 м\\nМодуль для тренировок и спорта.\\nПредотвращает мышечную атрофию.\\nСодержит тренажёры, снаряды.\\nШлюз транспортный: 2×2 м\\nИнж. порты: 0.5×0.3 м\\nСоединения: типы 1, 2, 3\\nОбъединяется в жилой комплекс.", "Размер: 9.2×5.2×5.6 м\\nУправление, связь, планирование.\\nИнтеграция с наукой и жильём.\\nКоординация всей базы.\\nШлюз 2×2 м, стандартный вход\\nИнженерные порты 0.5×0.3 м\\nСоединения: типы 1, 2, 5\\nОбъединяется в адм.-науч. компл.", "Размер: 8.8×5.2×5.6 м\\nПредназначен для диагностики,\\nлечения, хранения мед. средств.\\nВключает хирургический блок.\\nШлюзы: основной и аварийный\\nИнж. порты: 0.4×0.4 м\\nСоединения: типы 1, 2, 5\\nОбъединяется в жилой комплекс.", "Размер: 9.2×5.2×5.6 м\\nПредназначен для проведения\\nэкспериментов и анализа\\nпочвы, воздуха, проб.\\nНаучный порт: 0.6×0.6 м\\nИнж. порты: 0.5×0.3 м\\nСоединения: типы 1, 2, 6\\nОбъединяется в адм.-науч. компл.", "Размер: 9.2×5.2×5.6 м\\nСоздан для отдыха, досуга,\\nразвлечений и мероприятий.\\nПомогает снизить стресс.\\nИнженерные порты: 0.5×0.3 м\\nШлюз стандартный: 2×2 м\\nСоединения: типы 1, 2, 5\\nОбъединяется в жилой комплекс.", " Размер: 9.2×5.2×5.6 м\\n Образование, научные семинары.\\n Обмен данными, конференции.\\n Интеграция с исслед. блоками.\\n Шлюз: 1.5×2 м\\n Науч. порты: 0.6×0.6 м\\n Сервис. порты: 0.5×0.3 м\\n Админ.-научный комплекс."]
 ModuleSpecifTexts = [" Уклон ≤ 2% (на 10 м)\\n До удалён. модулей: 100 м\\n До адм‑научн.: 10 м\\n До агро‑компл.: 20 м\\n До техн‑компл.: 20 м\\n До энерго‑компл.: 40 м\\n Зоны избег.: кратеры, пыль\\n", " Уклон ≤ 2% (на 10 м)\\n До удалён. модулей: 100 м\\n До адм‑научн.: 10 м\\n До агро‑компл.: 20 м\\n До техн‑компл.: 20 м\\n До энерго‑компл.: 40 м\\n До космо‑лог.: 100 м\\n Зоны избег.: вибрации, пыль\\n", " Уклон ≤ 2% (на 10 м)\\n До удалён. модулей: 100 м\\n До жил. компл.: 10 м\\n До агро‑компл.: 15 м\\n До техн‑компл.: 15 м\\n До энерго‑компл.: 40 м\\n До космо‑лог.: 100 м\\n Зоны избег.: пыль, вибрации\\n", "Уклон ≤ 1% (на 10 м)\\n До удалён. модулей: 100 м\\n До жил. компл.: 10 м\\n До агро‑компл.: 20 м\\n До техн‑компл.: 20 м\\n До энерго‑компл.: 40 м\\n До космо‑лог.: 100 м\\n Зоны избег.: пыль, вибрации\\n", "Уклон ≤ 2% (на 10 м)\\n До удалён. модулей: 100 м\\n До жил. компл.: 15 м\\n До агро‑компл.: 15 м\\n До техн‑компл.: 15 м\\n До энерго‑компл.: 40 м\\n До космо‑лог.: 100 м\\n Зоны избег.: вибрации\\n", "Уклон ≤ 2% (на 10 м)\\n До удалён. модулей: 100 м\\n До жил. компл.: 5–15 м\\n До агро‑компл.: 20 м\\n До техн‑компл.: 20 м\\n До энерго‑компл.: 40 м\\n До космо‑лог.: 100 м\\n Зоны избег.: вибрации, пыль\\n", " Уклон ≤ 1% (на 10 м)\\n До удалён. модулей: 100 м\\n До жил. компл.: 10 м\\n До агро‑компл.: 15 м\\n До техн‑компл.: 15 м\\n До энерго‑компл.: 40 м\\n До космо‑лог.: 100 м\\n Зоны избег.: пыль, вибрации\\n"]
 Modules = [ExtResource("29_vyg5h"), ExtResource("30_urywp"), ExtResource("31_qr054"), ExtResource("48_rismg"), ExtResource("55_sy325"), ExtResource("29_vyg5h"), ExtResource("34_eybuc")]
 metadata/_tab_index = 0
@@ -842,33 +844,66 @@ layout_mode = 2
 theme_override_constants/separation = 2
 
 [node name="SeparatorTop" type="Control" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(60, 100)
+custom_minimum_size = Vector2(60, 140)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer"]
+clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("68_ikot2")
 
-[node name="ModuleName" type="Label" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 40)
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer/Panel/MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 8
+theme_override_constants/separation = 10
+
+[node name="ModuleName" type="Label" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
 theme = ExtResource("68_yqnje")
+theme_override_font_sizes/font_size = 18
 text = "Название модуля"
 horizontal_alignment = 1
 
-[node name="ModuleImage" type="TextureRect" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer"]
-unique_name_in_owner = true
-clip_contents = true
-custom_minimum_size = Vector2(200, 150)
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
-texture = ExtResource("12_h4vik")
+theme_override_styles/separator = ExtResource("70_upm8f")
 
-[node name="ModuleDescriptionText" type="Label" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer"]
+[node name="ModuleImage" type="TextureRect" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(280, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("12_h4vik")
+expand_mode = 5
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/separator = ExtResource("70_upm8f")
+
+[node name="ModuleDescriptionText" type="Label" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 1
 theme = ExtResource("68_yqnje")
 text = "Соединения:
  Используются типы:
@@ -880,11 +915,17 @@ text = "Соединения:
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ModuleSpecifText" type="Label" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer"]
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/separator = ExtResource("70_upm8f")
+
+[node name="ModuleSpecifText" type="Label" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_vertical = 1
 theme = ExtResource("68_yqnje")
 text = "Соединения:
  Используются типы:
@@ -894,6 +935,10 @@ text = "Соединения:
  (при необходимости) 1×1,5 м.
 "
 horizontal_alignment = 1
+
+[node name="SeparatorBotom" type="Control" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
 
 [node name="BtnToggleLeft" type="Button" parent="VBoxContainer/Center"]
 unique_name_in_owner = true
