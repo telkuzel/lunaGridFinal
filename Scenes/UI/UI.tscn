@@ -733,7 +733,6 @@ item_3/icon = ExtResource("43_ntvc1")
 item_4/text = "Энергетический модуль"
 item_4/icon = ExtResource("35_euuub")
 script = ExtResource("16_bit2e")
-Modules = [ExtResource("45_ohb3t"), ExtResource("54_spyke"), ExtResource("49_q7khq"), ExtResource("55_sy325"), ExtResource("42_q7khq")]
 metadata/_tab_index = 7
 
 [node name="TabContainerCenter" type="TabContainer" parent="VBoxContainer/Center/CenterHBox/Body"]

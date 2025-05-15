@@ -30,8 +30,9 @@ func _input(event: InputEvent) -> void:
 			and not Input.is_key_pressed(KEY_SHIFT):
 				var res3 = player.raycast_layer(2, null)
 				if res3:
+					var module: Placeable = res3.collider
 					%miniMenu.position.x = get_viewport().get_mouse_position().x - 270
 					%miniMenu.position.y = get_viewport().get_mouse_position().y - 70
 					%miniMenu.visible = true
-					#передаёшь в miniMenu.gd moduleIdx и complexIdx
+					%miniMenu.module = module
  

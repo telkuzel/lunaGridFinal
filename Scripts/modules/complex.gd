@@ -3,6 +3,10 @@ extends Node3D
 
 @export var complexIdx:int
 @export var modules:Array
+@export var infoModuleNames: String
+@export var infoModuleImages: CompressedTexture2D
+@export var infoModuleDescriptionTexts: String
+@export var infoModuleSpecifTexts: String
 
 @export var comlex_save:Complex_save
 

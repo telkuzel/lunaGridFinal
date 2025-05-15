@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://di72tvayqmoxe"]
+[gd_scene load_steps=11 format=3 uid="uid://di72tvayqmoxe"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_hdvav"]
 [ext_resource type="Material" uid="uid://mcp7i03rl4np" path="res://3dModels/material/deny_material.tres" id="2_xwbc4"]
 [ext_resource type="Material" uid="uid://da3ivnfslxbvi" path="res://3dModels/material/sucsess_material.tres" id="3_pbpu0"]
 [ext_resource type="Material" uid="uid://bwglbsxwbifoe" path="res://3dModels/material/select_material.tres" id="4_cayiu"]
 [ext_resource type="ArrayMesh" uid="uid://byuae2jdkg7v3" path="res://3dModels/modulesMesh/2C.obj" id="5_gnet2"]
+[ext_resource type="Texture2D" uid="uid://cj6gd65os1den" path="res://Scenes/UI/InfoImage.png" id="5_pbpu0"]
 [ext_resource type="ArrayMesh" uid="uid://b1mhmljgjh4rc" path="res://3dModels/modulesMesh/2CS.obj" id="6_2mfii"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="7_et8uv"]
 [ext_resource type="Material" uid="uid://bsphxvxo2j702" path="res://3dModels/material/main_module_material.tres" id="7_xwbc4"]
@@ -25,6 +26,10 @@ mesh = NodePath("MeshInstance3D2")
 material_sucsess = ExtResource("2_xwbc4")
 material_deny = ExtResource("3_pbpu0")
 material_select = ExtResource("4_cayiu")
+infoModuleNames = "Административный"
+infoModuleImages = ExtResource("5_pbpu0")
+infoModuleDescriptionTexts = "Тест1"
+infoModuleSpecifTexts = "Тест2"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("5_gnet2")
