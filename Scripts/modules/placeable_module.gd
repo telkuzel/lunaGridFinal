@@ -15,6 +15,10 @@ var manager: ModuleManager
 @export var material_sucsess: StandardMaterial3D
 @export var material_deny: StandardMaterial3D
 @export var material_select: StandardMaterial3D
+@export var infoModuleNames: String
+@export var infoModuleImages: CompressedTexture2D
+@export var infoModuleDescriptionTexts: String
+@export var infoModuleSpecifTexts: String
 
 func _ready() -> void:
 	player = get_node("/root/Game/Player")

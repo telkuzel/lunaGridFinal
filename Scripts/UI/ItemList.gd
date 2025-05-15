@@ -1,10 +1,6 @@
 extends ItemList
 
 @onready var moduleInfoPanel = %RightBar
-@export var ModuleNames: Array = []  
-@export var ModuleImages: Array = []  
-@export var ModuleDescriptionTexts: Array = [] 
-@export var ModuleSpecifTexts: Array = []  
 @export var Modules: Array = []
 
 
@@ -55,15 +51,13 @@ func _on_mouse_exited() -> void:
 
 
 func _on_item_selected(index: int) -> void:
-	update_module_info(index)
+	#update_module_info(index)
 	# Спавним модуля
 	var module = Modules[index]
 	if player.get_plasment_mode():
 		return
 	var inst = module.instantiate()
 	root.add_child(inst)
-	# СБРАСЫВАЕМ выбор этого пункта, 
-	# чтобы при следующем клике на тот же индекс _on_item_selected вызвался снова:
 	deselect(index)
 	$"..".visible = false
 	 # Запускаем отслеживание выхода из режима размещения
@@ -87,14 +81,15 @@ func _process(_delta: float) -> void:
 	var hover_index = get_item_at_position(mouse_pos)
 	# Если индекс, над которым навели, допустимый – обновляем панель с информацией
 	if hover_index != -1:
-		update_module_info(hover_index)
+		#update_module_info(hover_index)
+		pass
 
 
-func update_module_info(index: int) -> void:
-	if index < 0 or index >= ModuleNames.size():
-		return
-	%ModuleName.text = ModuleNames[index].replace("\\n", "\n")
-	%ModuleImage.texture = ModuleImages[index]
-	%ModuleImage.expand = true
-	%ModuleDescriptionText.text = ModuleDescriptionTexts[index].replace("\\n", "\n")
-	%ModuleSpecifText.text = ModuleSpecifTexts[index].replace("\\n", "\n")
+#func update_module_info(index: int) -> void: # переделать чтобы передавался модуль
+	#if index < 0 or index >= ModuleNames.size():
+		#return
+	#%ModuleName.text = ModuleNames[index].replace("\\n", "\n")
+	#%ModuleImage.texture = ModuleImages[index]
+	#%ModuleImage.expand = true
+	#%ModuleDescriptionText.text = ModuleDescriptionTexts[index].replace("\\n", "\n")
+	#%ModuleSpecifText.text = ModuleSpecifTexts[index].replace("\\n", "\n")
