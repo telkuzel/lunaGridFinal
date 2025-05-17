@@ -21,7 +21,7 @@ func _on_item_selected(index: int) -> void:
 					var file_name = "res://Scenes/complexes/complex_%d.tres" % complex.get_instance_id()
 					ResourceSaver.save(save, file_name)
 					%ItemListCom.Modules.append(save)
-					%ItemListCom.add_item("Complex %d" % %ItemListCom.get_item_count())
+					%ItemListCom.add_item("Комплекс %d" % (%ItemListCom.get_item_count() + 1), load("res://Scenes/UI/Icons/Pmodules.png"))
 					break
 	deselect(index)
 
@@ -30,7 +30,8 @@ func make_save(complex)->Complex_save:
 	for module in complex.modules:
 		var module_s = Module_save.new()
 		module_s.position = module.position
-		module_s.rotation = module.rotation.y
+		module_s.position.y = 0
+		module_s.rotation = module.rotation
 		module_s.resource = module.resource
 		save.modules.append(module_s)
 	return save

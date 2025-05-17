@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Complex_save" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/modules/complex_save.gd" id="1_f7toq"]
+
+[resource]
+script = ExtResource("1_f7toq")
+modules = [Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://Scripts/modules/module_save.gd"),"position":Vector3(14.6598, 0, -83.6949),"rotation":Vector3(0, 0, 0),"resource":"res://Scenes/modules/MainModule.tscn")
+, Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://Scripts/modules/module_save.gd"),"position":Vector3(13.2598, 0, -74.6949),"rotation":Vector3(0, 1.5708, 0),"resource":"res://Scenes/modules/MainModule.tscn")
+, Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://Scripts/modules/module_save.gd"),"position":Vector3(4.2598, 0, -73.2949),"rotation":Vector3(0, 1.19209e-07, 0),"resource":"res://Scenes/modules/MainModule.tscn")
+]

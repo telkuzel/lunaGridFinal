@@ -135,3 +135,8 @@ func BtnHieghtView_on_toggled(toggled_on: bool) -> void:
 		grounMesh.material_override = material_surfaceHeight
 	else:
 		grounMesh.material_override = material_surface
+
+
+func _on_btn_constructor_pressed() -> void:
+	#Проверка какая сейчас сцена и переключение на другую
+	pass # Replace with function body.

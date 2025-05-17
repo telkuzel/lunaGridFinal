@@ -5,6 +5,7 @@ extends ItemList
 
 
 static var is_first_time = true
+static var is_initialized: bool = false
 static var next_complex_idx: int = 0
 var hover_enabled: bool = false
 var player: Player
@@ -14,6 +15,27 @@ var root
 func _ready():
 	player = get_node("/root/Game/Player")
 	root = get_node("/root/Game")
+	if (!is_initialized):
+		var dir = DirAccess.open("res://Scenes/complexes/")
+		if dir:
+			var files = dir.get_files()  # Get all files at once
+			print("Found %d files in res://Scenes/complexes/" % files.size())
+			for file_name in files:
+				if file_name.ends_with(".tres"):
+					var resource_path = "res://Scenes/complexes/" + file_name
+					print("Processing file: %s" % resource_path)
+					var resource = load(resource_path)
+					if resource is Complex_save:
+						%ItemListCom.Modules.append(resource)
+						%ItemListCom.add_item("Комплекс %d" % (%ItemListCom.get_item_count() + 1), load("res://Scenes/UI/Icons/Pmodules.png"))
+						print("Added Complex_save from %s to Modules" % resource_path)
+					else:
+						printerr("Error: Resource at %s is not a Complex_save" % resource_path)
+				else:
+					print("Skipping non-.tres file: %s" % file_name)
+		else:
+			printerr("Error: Could not open directory res://Scenes/complexes/")
+	is_initialized = true
 
 
 func _draw():
@@ -83,10 +105,12 @@ func update_module_info(module: Placeable) -> void:
 
 func _on_complex_selected(index: int) -> void:
 	var complex_save = Modules[index]
+	if player.get_plasment_mode():
+		return
 	if complex_save == null:
 		printerr("Error: complex_save is null")
 		return
-	var complex_scene = load("res://Scenes/complexes/complex.tscn").instantiate()
+	var complex_scene = load("res://Scenes/complex.tscn").instantiate()
 	if complex_scene:
 		complex_scene.complexIdx = next_complex_idx
 		next_complex_idx += 1

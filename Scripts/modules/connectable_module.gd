@@ -3,7 +3,7 @@ extends Placeable
 
 @export var connections = Array([], TYPE_NODE_PATH, "", null)
 @export var complex:int
-@export var resource:Resource
+@export var resource: String
 
 var current_connection = 0
 var other_module: Connectabel
@@ -101,13 +101,16 @@ func connection(raycast_result):
 	rotate(Vector3.UP, angle)
 	position += (position - get_connection(current_connection).global_position)
 
-func plasment_accept_visualize():
+func plasment_accept_visualize():	
 	var material
 	var exclude = -1
 	if other_module:
 		exclude = other_module.type
+	var is_can_place = false
 	if _is_can_place() and manager.is_distance_valid(type, self, exclude):
 		mesh.material_override = material_sucsess
+		is_can_place = true
 	else: 
 		mesh.material_override = material_deny
 	send_plasment_error()
+	return is_can_place
