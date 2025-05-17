@@ -3,6 +3,7 @@ extends ItemList
 @export var module: Placeable # Переделать чтобы передавался сам модуль
 
 var manager
+static var isMouseInMiniMenu = false
 
 func _ready() -> void:
 	manager = get_node("/root/Game/modulesManager")
@@ -17,8 +18,10 @@ func _on_item_selected(index: int) -> void:
 			for complexModule in complex.modules:
 				if (module == complexModule): 
 					var save = make_save(complex)
-					ResourceSaver.save(save,"res://Scenes/complexes/test.tscn")
+					var file_name = "res://Scenes/complexes/complex_%d.tres" % complex.get_instance_id()
+					ResourceSaver.save(save, file_name)
 					%ItemListCom.Modules.append(save)
+					%ItemListCom.add_item("Complex %d" % %ItemListCom.get_item_count())
 					break
 	deselect(index)
 
@@ -32,5 +35,7 @@ func make_save(complex)->Complex_save:
 		save.modules.append(module_s)
 	return save
 
-func _on_empty_clicked(at_position: Vector2, mouse_button_index: int) -> void:
-	%miniMenu.visible = false
+func _on_mouse_exited() -> void:
+	isMouseInMiniMenu = false
+func _on_mouse_entered() -> void:
+	isMouseInMiniMenu = true

@@ -24,6 +24,8 @@ func _ready() -> void:
 	leftToggleBtn.size.x = 346
 	rightToggleBtn.scale = Vector2(-1, 1)
 	rightToggleBtn.position.x += rightToggleBtn.size.x
+	rightToggleBtn.get_child(0).position.x += rightToggleBtn.get_child(0).size.x - 24
+	rightToggleBtn.get_child(0).scale = Vector2(-1, 1)
 	ShowAllText()
 	%BtnGenModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListGen))
 	%BtnLiveModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListLive))
@@ -55,8 +57,9 @@ func BtnToggledRight_on_toggled(toggled_on: bool) -> void:
 		await anim_rightBar.animation_finished
 		%BtnToggleRight.text = ""
 		rightToggleBtn.icon = load("res://Scenes/UI/Icons/RightArrow.png")
+		rightToggleBtn.get_child(0).visible = false
 	else:
-		#%BtnToggleRight.text = "ИНФО О МОДУЛЕ"
+		rightToggleBtn.get_child(0).visible = true
 		anim_rightBar.play("RightBarAnim")
 		rightToggleBtn.icon = load("res://Scenes/UI/Icons/LeftArrow.png")
 
@@ -65,10 +68,10 @@ func ShowAllText() -> void:
 	%BtnInfo.text = "ИНФО О КОМАНДЕ"
 	%BtnGenModules.text = "ОБЩИЕ"
 	%BtnLiveModules.text = "ЖИЛЫЕ"
-	%BtnAdmModules.text = "АДМИНИСТРАТИВНЫЕ"
-	%BtnAgroModules.text = "АГРОПРОМЫШЛЕННЫЕ"
+	%BtnAdmModules.text = "АДМИН."
+	%BtnAgroModules.text = "АГРОПРОМ."
 	%BtnEngModules.text = "ИНЖЕНЕРНЫЕ"
-	%BtnLogModules.text = "ЛОГИСТИЧЕСКИЕ"
+	%BtnLogModules.text = "ЛОГИСТ."
 	%BtnDistModules.text = "УДАЛЁННЫЕ"
 	%BtnComModules.text = "КОМПЛЕКСЫ"
 	%BtnConstructor.text = "КОНСТРУКТОР"

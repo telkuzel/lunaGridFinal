@@ -17,6 +17,7 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_5y7mo")
 connections = [NodePath("Connection"), NodePath("Connection2"), NodePath("Connection3")]
+resource = null
 rayLenght = 3.0
 ground_markers = [NodePath("Connection"), NodePath("Connection2"), NodePath("Connection3")]
 collision_shape = NodePath("CollisionShape3D")

@@ -14,6 +14,7 @@ func _input(event: InputEvent) -> void:
 		 + str("%1.3f" % posy) + "   z: " + str("%1.3f" % res.position.y) + "     "
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) \
 			and not Input.is_key_pressed(KEY_SHIFT): #можно убрать шифт после смены управления
+			if (!%miniMenu.isMouseInMiniMenu): %miniMenu.visible = false
 			var res2 = player.raycast_layer(2, null)
 			if res2:
 				var module: Placeable = res2.collider

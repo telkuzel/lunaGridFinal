@@ -5,6 +5,7 @@ extends ItemList
 
 
 static var is_first_time = true
+static var next_complex_idx: int = 0
 var hover_enabled: bool = false
 var player: Player
 var root
@@ -78,3 +79,21 @@ func update_module_info(module: Placeable) -> void:
 	%ModuleImage.expand = true
 	%ModuleDescriptionText.text = module.infoModuleDescriptionTexts.replace("\\n", "\n")
 	%ModuleSpecifText.text = module.infoModuleSpecifTexts.replace("\\n", "\n")
+
+
+func _on_complex_selected(index: int) -> void:
+	var complex_save = Modules[index]
+	if complex_save == null:
+		printerr("Error: complex_save is null")
+		return
+	var complex_scene = load("res://Scenes/complexes/complex.tscn").instantiate()
+	if complex_scene:
+		complex_scene.complexIdx = next_complex_idx
+		next_complex_idx += 1
+		complex_scene.spawn_complex(complex_save)
+		get_tree().root.add_child(complex_scene)
+		deselect(index)
+		$"..".visible = false
+		_monitor_placement($"..")
+	else:
+		printerr("Error: Failed to instantiate complex scene")

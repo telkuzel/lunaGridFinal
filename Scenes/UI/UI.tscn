@@ -720,18 +720,7 @@ layout_mode = 2
 theme = ExtResource("18_kfylw")
 auto_width = true
 auto_height = true
-item_count = 5
 fixed_icon_size = Vector2i(50, 50)
-item_0/text = "Космодром"
-item_0/icon = ExtResource("40_ajypb")
-item_1/text = "Вышка связи"
-item_1/icon = ExtResource("41_urywp")
-item_2/text = "Плантации (агрокампусы)"
-item_2/icon = ExtResource("42_ohb3t")
-item_3/text = "Мусорные полигоны  и переработка"
-item_3/icon = ExtResource("43_ntvc1")
-item_4/text = "Энергетический модуль"
-item_4/icon = ExtResource("35_euuub")
 script = ExtResource("16_bit2e")
 metadata/_tab_index = 7
 
@@ -987,6 +976,26 @@ icon = ExtResource("70_yqnje")
 icon_alignment = 2
 expand_icon = true
 
+[node name="Label" type="Label" parent="VBoxContainer/Center/BtnToggleRight"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -12.0
+offset_right = 81.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 6.28318
+theme_override_colors/font_color = Color(0.105882, 0.105882, 0.105882, 1)
+theme_override_fonts/font = ExtResource("4_b8ige")
+theme_override_font_sizes/font_size = 18
+text = "ИНФО О МОДУЛЕ"
+
 [node name="BotomBar" type="HBoxContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
@@ -1075,10 +1084,9 @@ playback_auto_capture = false
 [connection signal="item_selected" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListDist" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListDist" method="_on_item_selected"]
 [connection signal="mouse_entered" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListDist" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListDist" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListDist" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListDist" method="_on_mouse_exited"]
-[connection signal="item_selected" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListCom" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListCom" method="_on_item_selected"]
-[connection signal="mouse_entered" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListCom" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListCom" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListCom" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListCom" method="_on_mouse_exited"]
-[connection signal="empty_clicked" from="VBoxContainer/Center/CenterHBox/Body/miniMenu" to="VBoxContainer/Center/CenterHBox/Body/miniMenu" method="_on_empty_clicked"]
+[connection signal="item_selected" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListCom" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListCom" method="_on_complex_selected"]
 [connection signal="item_selected" from="VBoxContainer/Center/CenterHBox/Body/miniMenu" to="VBoxContainer/Center/CenterHBox/Body/miniMenu" method="_on_item_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/Center/CenterHBox/Body/miniMenu" to="VBoxContainer/Center/CenterHBox/Body/miniMenu" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Center/CenterHBox/Body/miniMenu" to="VBoxContainer/Center/CenterHBox/Body/miniMenu" method="_on_mouse_exited"]
 [connection signal="toggled" from="VBoxContainer/Center/BtnToggleLeft" to="." method="BtnToggledLeft_on_toggled"]
 [connection signal="toggled" from="VBoxContainer/Center/BtnToggleRight" to="." method="BtnToggledRight_on_toggled"]
