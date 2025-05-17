@@ -1,17 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://di72tvayqmoxe"]
+[gd_scene load_steps=10 format=3 uid="uid://di72tvayqmoxe"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_hdvav"]
 [ext_resource type="Material" uid="uid://mcp7i03rl4np" path="res://3dModels/material/deny_material.tres" id="2_xwbc4"]
 [ext_resource type="Material" uid="uid://da3ivnfslxbvi" path="res://3dModels/material/sucsess_material.tres" id="3_pbpu0"]
 [ext_resource type="Material" uid="uid://bwglbsxwbifoe" path="res://3dModels/material/select_material.tres" id="4_cayiu"]
-[ext_resource type="ArrayMesh" uid="uid://byuae2jdkg7v3" path="res://3dModels/modulesMesh/2C.obj" id="5_gnet2"]
 [ext_resource type="Texture2D" uid="uid://cj6gd65os1den" path="res://Scenes/UI/InfoImage.png" id="5_pbpu0"]
-[ext_resource type="ArrayMesh" uid="uid://b1mhmljgjh4rc" path="res://3dModels/modulesMesh/2CS.obj" id="6_2mfii"]
+[ext_resource type="ArrayMesh" uid="uid://bmhnccjlx2x4k" path="res://3dModels/modulesBaseMesh/AdministrationBaseMesh.tres" id="6_xwbc4"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="7_et8uv"]
-[ext_resource type="Material" uid="uid://bsphxvxo2j702" path="res://3dModels/material/main_module_material.tres" id="7_xwbc4"]
+[ext_resource type="ArrayMesh" uid="uid://dd2de8w380rdv" path="res://3dModels/modulesBaseMesh/AdministrationOutMesh.obj" id="7_pbpu0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vgh1w"]
-size = Vector3(11, 3.7, 8.4)
+size = Vector3(6.45628, 2.52921, 5.6384)
 
 [node name="Node3D" type="StaticBody3D" node_paths=PackedStringArray("collision_shape", "mesh")]
 collision_layer = 2
@@ -33,24 +32,25 @@ infoModuleDescriptionTexts = "Тест1"
 infoModuleSpecifTexts = "Тест2"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("5_gnet2")
-surface_material_override/0 = ExtResource("7_xwbc4")
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.1548, 2.9225, -0.0644121)
+mesh = ExtResource("6_xwbc4")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-mesh = ExtResource("6_2mfii")
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = ExtResource("7_pbpu0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.65, 0.1)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.034317, 3.40583, -0.187378)
 shape = SubResource("BoxShape3D_vgh1w")
 
 [node name="Connection2" parent="." instance=ExtResource("7_et8uv")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.4, 2.4, -5.1)
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, -6.81118, 2.4, 0.000171438)
 
 [node name="Connection" parent="." instance=ExtResource("7_et8uv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2.4, 4.9)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 7.12085, 2.4, -0.1)
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.4, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.170353, 2.4, -5.33896)
 
 [node name="Node3D2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2.4, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.204426, 2.4, 5.14937)

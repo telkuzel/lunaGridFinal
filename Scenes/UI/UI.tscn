@@ -56,7 +56,7 @@
 [ext_resource type="PackedScene" uid="uid://rj4l4wb5qesh" path="res://Scenes/modules/MedicalModule.tscn" id="48_rismg"]
 [ext_resource type="PackedScene" uid="uid://u2afomdylncn" path="res://Scenes/modules/LogisticModule.tscn" id="48_sjx2j"]
 [ext_resource type="Script" uid="uid://dbvu7qu6wl2mw" path="res://Scripts/UI/InputController.gd" id="48_xvkyl"]
-[ext_resource type="PackedScene" uid="uid://ck3286w2cq6ws" path="res://Scenes/modules/Plamtation.tscn" id="49_q7khq"]
+[ext_resource type="PackedScene" uid="uid://ck3286w2cq6ws" path="res://Scenes/modules/Plantation.tscn" id="49_q7khq"]
 [ext_resource type="PackedScene" uid="uid://d0n6m7jljkreq" path="res://Scenes/modules/SaftyModule.tscn" id="49_udfxq"]
 [ext_resource type="PackedScene" uid="uid://48fmcbol86tl" path="res://Scenes/modules/AntenaModule.tscn" id="54_spyke"]
 [ext_resource type="PackedScene" uid="uid://cw2fkcnjcrndj" path="res://Scenes/modules/SientisticModule.tscn" id="55_sy325"]

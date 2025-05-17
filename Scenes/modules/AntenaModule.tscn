@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://48fmcbol86tl"]
+[gd_scene load_steps=8 format=3 uid="uid://48fmcbol86tl"]
 
 [ext_resource type="Script" uid="uid://dlu6u5sie1he" path="res://Scripts/modules/placeable_module.gd" id="1_qsnsx"]
 [ext_resource type="Material" uid="uid://mcp7i03rl4np" path="res://3dModels/material/deny_material.tres" id="2_hfcoo"]
 [ext_resource type="Material" uid="uid://da3ivnfslxbvi" path="res://3dModels/material/sucsess_material.tres" id="3_i8vat"]
 [ext_resource type="Material" uid="uid://bwglbsxwbifoe" path="res://3dModels/material/select_material.tres" id="4_f6hoq"]
-[ext_resource type="ArrayMesh" uid="uid://ca7w1s0616jq7" path="res://3dModels/modulesMesh/antena.obj" id="5_e8xoe"]
-[ext_resource type="ArrayMesh" uid="uid://ctcemspb43vy3" path="res://3dModels/modulesMesh/antenaS1.obj" id="5_hfcoo"]
-[ext_resource type="Material" uid="uid://bsphxvxo2j702" path="res://3dModels/material/main_module_material.tres" id="7_teuhf"]
+[ext_resource type="ArrayMesh" uid="uid://b0aavriigv1lo" path="res://3dModels/modulesBaseMesh/AntenaBaseMesh.tres" id="5_jfdji"]
+[ext_resource type="ArrayMesh" uid="uid://7vbaet4esm0" path="res://3dModels/modulesBaseMesh/AntenaOutMesh.obj" id="6_teuhf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_i688u"]
 size = Vector3(1, 13.0798, 1)
@@ -37,9 +36,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.389474, 0.203479, 0.438151
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.203479, -0.485632)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-mesh = ExtResource("5_hfcoo")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0651079, 0.955032, 0.0992444)
+mesh = ExtResource("5_jfdji")
 
 [node name="MeshInstance3D1" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.000122964)
-mesh = ExtResource("5_e8xoe")
-surface_material_override/0 = ExtResource("7_teuhf")
+mesh = ExtResource("6_teuhf")

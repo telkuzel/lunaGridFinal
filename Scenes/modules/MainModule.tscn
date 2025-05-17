@@ -1,25 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://dltjo3v3uhxba"]
+[gd_scene load_steps=9 format=3 uid="uid://dltjo3v3uhxba"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_5y7mo"]
-[ext_resource type="ArrayMesh" uid="uid://shcjn6e0sk1u" path="res://3dModels/modulesMesh/module3C.obj" id="1_ljpt0"]
-[ext_resource type="ArrayMesh" uid="uid://gemy2j0euiv5" path="res://3dModels/modulesMesh/module3CB.obj" id="2_07vnb"]
 [ext_resource type="Material" uid="uid://mcp7i03rl4np" path="res://3dModels/material/deny_material.tres" id="2_c7i1f"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="4_58xpn"]
 [ext_resource type="Material" uid="uid://bwglbsxwbifoe" path="res://3dModels/material/select_material.tres" id="4_84eln"]
 [ext_resource type="Material" uid="uid://da3ivnfslxbvi" path="res://3dModels/material/sucsess_material.tres" id="4_c7i1f"]
-[ext_resource type="Material" uid="uid://bsphxvxo2j702" path="res://3dModels/material/main_module_material.tres" id="6_re6lv"]
+[ext_resource type="ArrayMesh" uid="uid://dn5xbi4aasnw1" path="res://3dModels/modulesBaseMesh/MainBaseMesh.tres" id="5_r8ddn"]
+[ext_resource type="ArrayMesh" uid="uid://b36ovjmne1cto" path="res://3dModels/modulesBaseMesh/MainOutMesh.obj" id="6_re6lv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c7i1f"]
-size = Vector3(9.3, 3.35215, 6.7)
+size = Vector3(11.2923, 5.61001, 8.7989)
 
 [node name="module3C" type="StaticBody3D" node_paths=PackedStringArray("collision_shape", "mesh")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_5y7mo")
-connections = [NodePath("Connection"), NodePath("Connection2"), NodePath("Connection3")]
+connections = [NodePath("Connection"), NodePath("Connection2"), NodePath("Connection3"), NodePath("Connection4")]
 resource = "res://Scenes/modules/MainModule.tscn"
 rayLenght = 3.0
-ground_markers = [NodePath("Connection"), NodePath("Connection2"), NodePath("Connection3")]
+ground_markers = [NodePath("Connection"), NodePath("Connection2"), NodePath("Connection3"), NodePath("Connection3")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
 material_sucsess = ExtResource("2_c7i1f")
@@ -27,23 +26,26 @@ material_deny = ExtResource("4_c7i1f")
 material_select = ExtResource("4_84eln")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("1_ljpt0")
-surface_material_override/0 = ExtResource("6_re6lv")
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -2.34957, 3.25862, 0)
+mesh = ExtResource("5_r8ddn")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-mesh = ExtResource("2_07vnb")
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.299397, 0.216921, -0.0702763)
+mesh = ExtResource("6_re6lv")
 skeleton = NodePath("../MeshInstance3D")
-surface_material_override/0 = ExtResource("4_c7i1f")
-
-[node name="Connection" parent="." instance=ExtResource("4_58xpn")]
-transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 5.5, 2.4, 0)
-
-[node name="Connection2" parent="." instance=ExtResource("4_58xpn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 2.4, 3.5)
-
-[node name="Connection3" parent="." instance=ExtResource("4_58xpn")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.4, 2.4, -3.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.638184, 3.01768, -0.0500001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000848055, 4.0101, -0.142737)
 shape = SubResource("BoxShape3D_c7i1f")
+
+[node name="Connection" parent="." instance=ExtResource("4_58xpn")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 6.01251, 2.4, 0.023974)
+
+[node name="Connection2" parent="." instance=ExtResource("4_58xpn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00263309, 2.4, 4.76512)
+
+[node name="Connection4" parent="." instance=ExtResource("4_58xpn")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.00263405, 2.4, -4.75663)
+
+[node name="Connection3" parent="." instance=ExtResource("4_58xpn")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.83524, 2.4, -0.00805519)
