@@ -6,19 +6,26 @@ var is_plasment = true
 var manager: ModuleManager
 
 @export var type = 1
-
+@export var resource: String
 @export var rayLenght = 0.6
 @export var ground_markers = Array([], TYPE_NODE_PATH, "", null)
-
 @export var collision_shape: CollisionShape3D
 @export var mesh: MeshInstance3D
-@export var material_sucsess: StandardMaterial3D
-@export var material_deny: StandardMaterial3D
-@export var material_select: StandardMaterial3D
+@export var material_sucsess: StandardMaterial3D = preload("res://3dModels/material/deny_material.tres")
+@export var material_deny: StandardMaterial3D = preload("res://3dModels/material/sucsess_material.tres")
+@export var material_select: StandardMaterial3D = preload("res://3dModels/material/select_material.tres")
+@export var material_alert: StandardMaterial3D = preload("res://3dModels/material/alert_material.tres")
 @export var infoModuleNames: String
 @export var infoModuleImages: CompressedTexture2D
 @export var infoModuleDescriptionTexts: String
 @export var infoModuleSpecifTexts: String
+
+func set_alert():
+	mesh.show()
+	mesh.material_override = material_alert
+	
+func clear_outline():
+	mesh.hide()
 
 func _ready() -> void:
 	player = get_node("/root/Game/Player")

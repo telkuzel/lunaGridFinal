@@ -1,49 +1,50 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctsl4askflxd6"]
+[gd_scene load_steps=6 format=3 uid="uid://ctsl4askflxd6"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_eo2ra"]
-[ext_resource type="Material" uid="uid://mcp7i03rl4np" path="res://3dModels/material/deny_material.tres" id="2_bv5md"]
-[ext_resource type="Material" uid="uid://da3ivnfslxbvi" path="res://3dModels/material/sucsess_material.tres" id="3_awhj4"]
-[ext_resource type="Material" uid="uid://bwglbsxwbifoe" path="res://3dModels/material/select_material.tres" id="4_puut8"]
-[ext_resource type="ArrayMesh" uid="uid://c17giky8teils" path="res://3dModels/modulesMesh/1BC1MC.obj" id="5_bv5md"]
-[ext_resource type="Material" uid="uid://bsphxvxo2j702" path="res://3dModels/material/main_module_material.tres" id="5_cqnhx"]
-[ext_resource type="ArrayMesh" uid="uid://rk6nfn5lpso8" path="res://3dModels/modulesMesh/1BC1MCS.obj" id="7_awhj4"]
+[ext_resource type="PackedScene" uid="uid://2q3khws5yplh" path="res://3dModels/modulesBaseMesh/SportBaseMesh.glb" id="5_eo2ra"]
+[ext_resource type="ArrayMesh" uid="uid://cw1bsk3qcgp63" path="res://3dModels/modulesBaseMesh/SportOutMesh.obj" id="6_bv5md"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="7_vd7mp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dhm1g"]
-size = Vector3(10.5, 4.8, 9.3)
+size = Vector3(6.67554, 2.87249, 6.2651)
 
 [node name="Node3D" type="StaticBody3D" node_paths=PackedStringArray("collision_shape", "mesh")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_eo2ra")
-connections = [NodePath("Connection")]
-rayLenght = 3.0
-ground_markers = [NodePath("Connection"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3")]
+connections = [NodePath("Connection"), NodePath("Connection2"), NodePath("Connection3")]
+type = 2
+resource = "res://Scenes/modules/SportModule.tscn"
+rayLenght = 3.6
+ground_markers = [NodePath("Connection"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3"), NodePath("Connection2"), NodePath("Connection3")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-material_sucsess = ExtResource("2_bv5md")
-material_deny = ExtResource("3_awhj4")
-material_select = ExtResource("4_puut8")
+infoModuleNames = "Sport"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("5_bv5md")
-surface_material_override/0 = ExtResource("5_cqnhx")
+[node name="SportBaseMesh" parent="." instance=ExtResource("5_eo2ra")]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-mesh = ExtResource("7_awhj4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.308373, 0.0473443, -0.150558)
+mesh = ExtResource("6_bv5md")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 3.1, -0.0500002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.150024, 1.94103, -0.197235)
 shape = SubResource("BoxShape3D_dhm1g")
 
 [node name="Connection" parent="." instance=ExtResource("7_vd7mp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 2.4, 5.3)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.98272, 2.4, -3.58141)
+
+[node name="Connection2" parent="." instance=ExtResource("7_vd7mp")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.47754, 2.4, 0.0711673)
+
+[node name="Connection3" parent="." instance=ExtResource("7_vd7mp")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.73558, 2.4, 0.0714487)
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6, 2.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.85178, 2.4, 2.85557)
 
 [node name="Node3D2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, -4.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, -0.0917873)
 
 [node name="Node3D3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 2.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76824, 2.4, 2.91998)

@@ -3,7 +3,6 @@ extends Placeable
 
 @export var connections = Array([], TYPE_NODE_PATH, "", null)
 @export var complex:int
-@export var resource: String
 
 var current_connection = 0
 var other_module: Connectabel

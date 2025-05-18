@@ -1,48 +1,44 @@
-[gd_scene load_steps=9 format=3 uid="uid://elbdvypnav0i"]
+[gd_scene load_steps=5 format=3 uid="uid://elbdvypnav0i"]
 
 [ext_resource type="Script" uid="uid://dlu6u5sie1he" path="res://Scripts/modules/placeable_module.gd" id="1_r5sas"]
-[ext_resource type="Material" uid="uid://mcp7i03rl4np" path="res://3dModels/material/deny_material.tres" id="2_ffh07"]
-[ext_resource type="Material" uid="uid://da3ivnfslxbvi" path="res://3dModels/material/sucsess_material.tres" id="3_dxpiq"]
-[ext_resource type="Material" uid="uid://bwglbsxwbifoe" path="res://3dModels/material/select_material.tres" id="4_0q54f"]
-[ext_resource type="ArrayMesh" uid="uid://drn3mcsmdonef" path="res://3dModels/modulesMesh/roket.obj" id="5_hesmt"]
-[ext_resource type="Material" uid="uid://bsphxvxo2j702" path="res://3dModels/material/main_module_material.tres" id="6_dxpiq"]
-[ext_resource type="ArrayMesh" uid="uid://dev0oy2xiq2l" path="res://3dModels/modulesMesh/roketS.obj" id="6_ggtrf"]
+[ext_resource type="PackedScene" uid="uid://bxmdx4ew65us2" path="res://3dModels/modulesBaseMesh/RocketBaseMesh.glb" id="5_ffh07"]
+[ext_resource type="ArrayMesh" uid="uid://dse6t58qv5y6t" path="res://3dModels/modulesBaseMesh/RocketOutMesh.obj" id="6_dxpiq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffh07"]
-size = Vector3(15, 11.8589, 15)
+size = Vector3(6.54297, 5.28113, 6.42603)
 
 [node name="Node3D" type="StaticBody3D" node_paths=PackedStringArray("collision_shape", "mesh")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_r5sas")
-type = 6
-rayLenght = 3.0
-ground_markers = [NodePath("Node3D4"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3")]
+type = 7
+resource = "res://Scenes/modules/RocketModule.tscn"
+rayLenght = 3.6
+ground_markers = [NodePath("Node3D4"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3"), NodePath("Node3D5")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-material_sucsess = ExtResource("2_ffh07")
-material_deny = ExtResource("3_dxpiq")
-material_select = ExtResource("4_0q54f")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("5_hesmt")
-surface_material_override/0 = ExtResource("6_dxpiq")
+[node name="RocketBaseMesh" parent="." instance=ExtResource("5_ffh07")]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-mesh = ExtResource("6_ggtrf")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.395326, 0.057999, -0.208796)
+mesh = ExtResource("6_dxpiq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.57056, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0292969, 2.84491, -0.233765)
 shape = SubResource("BoxShape3D_ffh07")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25221, 2, 0)
 
 [node name="Node3D2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2.80928)
 
 [node name="Node3D3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01371, 2, 0)
 
 [node name="Node3D4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3.29822)
+
+[node name="Node3D5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.334057)

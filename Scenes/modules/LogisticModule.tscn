@@ -1,50 +1,42 @@
-[gd_scene load_steps=10 format=3 uid="uid://u2afomdylncn"]
+[gd_scene load_steps=6 format=3 uid="uid://u2afomdylncn"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_q0fxy"]
-[ext_resource type="Material" uid="uid://mcp7i03rl4np" path="res://3dModels/material/deny_material.tres" id="2_indnj"]
-[ext_resource type="Material" uid="uid://da3ivnfslxbvi" path="res://3dModels/material/sucsess_material.tres" id="3_f4rjs"]
-[ext_resource type="Material" uid="uid://bwglbsxwbifoe" path="res://3dModels/material/select_material.tres" id="4_t3u6q"]
-[ext_resource type="ArrayMesh" uid="uid://c17giky8teils" path="res://3dModels/modulesMesh/1BC1MC.obj" id="5_g8to3"]
-[ext_resource type="Material" uid="uid://bsphxvxo2j702" path="res://3dModels/material/main_module_material.tres" id="6_lbjf7"]
-[ext_resource type="ArrayMesh" uid="uid://rk6nfn5lpso8" path="res://3dModels/modulesMesh/1BC1MCS.obj" id="7_qwg5y"]
+[ext_resource type="PackedScene" uid="uid://doymdthxt2go0" path="res://3dModels/modulesBaseMesh/LogisticBaseMesh.glb" id="5_tbdrs"]
+[ext_resource type="ArrayMesh" uid="uid://bt2r8saw81evt" path="res://3dModels/modulesBaseMesh/LogisticOutMesh.obj" id="6_q0fxy"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="8_7ok5k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dhm1g"]
-size = Vector3(10.5, 5, 9.3)
+size = Vector3(4.86908, 2.73206, 2.97582)
 
 [node name="Node3D" type="StaticBody3D" node_paths=PackedStringArray("collision_shape", "mesh")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_q0fxy")
 connections = [NodePath("Connection")]
-type = 8
-rayLenght = 3.0
+resource = "res://Scenes/modules/LogisticModule.tscn"
+rayLenght = 3.4
 ground_markers = [NodePath("Connection"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-material_sucsess = ExtResource("2_indnj")
-material_deny = ExtResource("3_f4rjs")
-material_select = ExtResource("4_t3u6q")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("5_g8to3")
-surface_material_override/0 = ExtResource("6_lbjf7")
+[node name="LogisticBaseMesh" parent="." instance=ExtResource("5_tbdrs")]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-mesh = ExtResource("7_qwg5y")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.230143, 0.025059, -0.0814416)
+mesh = ExtResource("6_q0fxy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75, 3, -0.0500002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.229401, 1.84503, -0.172797)
 shape = SubResource("BoxShape3D_dhm1g")
 
 [node name="Connection" parent="." instance=ExtResource("8_7ok5k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 2.4, 5.3)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.50102, 2.53525, -0.170247)
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6, 2.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40375, 2.4, 1.12477)
 
 [node name="Node3D2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, -4.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41466, 2.4, -1.3895)
 
 [node name="Node3D3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 2.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0516477, 2.4, -0.220317)

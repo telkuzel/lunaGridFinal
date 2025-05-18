@@ -14,7 +14,6 @@ extends Control
 @export var camera_pivot: Node3D 
 @export var grounMesh: MeshInstance3D
 
-
 var min_zoom: float = 20.0     # Минимальная дистанция
 var max_zoom: float = 100.0    # Максимальная дистанция
 
@@ -76,7 +75,7 @@ func ShowAllText() -> void:
 	%BtnComModules.text = "КОМПЛЕКСЫ"
 	%BtnConstructor.text = "КОНСТРУКТОР"
 	leftToggleBtn.text = "СПИСКИ МОДУЛЕЙ"
-	%SearchLineEdit.visible = true
+	#%SearchLineEdit.visible = true
 
 
 func HideAllText() -> void:
@@ -91,7 +90,7 @@ func HideAllText() -> void:
 	%BtnComModules.text = ""
 	%BtnConstructor.text = ""
 	leftToggleBtn.text = ""
-	%SearchLineEdit.visible = false
+	#%SearchLineEdit.visible = false
 
 
 func BtnInfo_on_toggled(toggled_on: bool) -> void:
@@ -138,5 +137,14 @@ func BtnHieghtView_on_toggled(toggled_on: bool) -> void:
 
 
 func _on_btn_constructor_pressed() -> void:
-	#Проверка какая сейчас сцена и переключение на другую
-	pass # Replace with function body.
+	%ItemListGen.is_initialized = false
+	if get_node("/root/Game").curentSceneIndex == 0:
+		change_scene("res://Scenes/Constructor.tscn")
+		%BtnComModules.visible = false
+	else:
+		change_scene("res://Scenes/game.tscn")
+		%BtnComModules.visible = true
+
+
+func change_scene(scenePath: String):
+	get_tree().change_scene_to_file(scenePath)

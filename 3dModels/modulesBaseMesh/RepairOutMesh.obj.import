@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dewp0col7f3tj"
+path="res://.godot/imported/RepairOutMesh.obj-7142a974ea909866159621fd3967c17b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/RepairOutMesh.obj-7142a974ea909866159621fd3967c17b.mesh"]
+
+source_file="res://3dModels/modulesBaseMesh/RepairOutMesh.obj"
+dest_files=["res://.godot/imported/RepairOutMesh.obj-7142a974ea909866159621fd3967c17b.mesh", "res://.godot/imported/RepairOutMesh.obj-7142a974ea909866159621fd3967c17b.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

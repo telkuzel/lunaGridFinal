@@ -1,48 +1,41 @@
-[gd_scene load_steps=9 format=3 uid="uid://c257x5ntu21cb"]
+[gd_scene load_steps=5 format=3 uid="uid://c257x5ntu21cb"]
 
 [ext_resource type="Script" uid="uid://dlu6u5sie1he" path="res://Scripts/modules/placeable_module.gd" id="1_04kwh"]
-[ext_resource type="Material" uid="uid://mcp7i03rl4np" path="res://3dModels/material/deny_material.tres" id="2_ncq3e"]
-[ext_resource type="Material" uid="uid://da3ivnfslxbvi" path="res://3dModels/material/sucsess_material.tres" id="3_6qcmr"]
-[ext_resource type="Material" uid="uid://bwglbsxwbifoe" path="res://3dModels/material/select_material.tres" id="4_7r0ia"]
-[ext_resource type="ArrayMesh" uid="uid://bkehh5xg08qyk" path="res://3dModels/modulesMesh/solar.obj" id="5_04kwh"]
-[ext_resource type="Material" uid="uid://bsphxvxo2j702" path="res://3dModels/material/main_module_material.tres" id="6_urkkd"]
-[ext_resource type="ArrayMesh" uid="uid://bf68dwmi5x73b" path="res://3dModels/modulesMesh/solarS.obj" id="7_ncq3e"]
+[ext_resource type="PackedScene" uid="uid://c562nhahcg7b8" path="res://3dModels/modulesBaseMesh/SolarPanelBaseMesh.glb" id="5_41ued"]
+[ext_resource type="ArrayMesh" uid="uid://b3htntmahsseb" path="res://3dModels/modulesBaseMesh/SolarPanelOutMesh.obj" id="6_04kwh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffh07"]
-size = Vector3(3.97725, 2.72601, 4.73741)
+size = Vector3(3.51841, 3.06163, 4.81326)
 
 [node name="Node3D" type="StaticBody3D" node_paths=PackedStringArray("collision_shape", "mesh")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_04kwh")
-type = 6
-rayLenght = 3.0
+type = 7
+resource = "res://Scenes/modules/SolarPanel.tscn"
+rayLenght = 3.6
 ground_markers = [NodePath("Node3D4"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-material_sucsess = ExtResource("2_ncq3e")
-material_deny = ExtResource("3_6qcmr")
-material_select = ExtResource("4_7r0ia")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("5_04kwh")
-surface_material_override/0 = ExtResource("6_urkkd")
+[node name="SolarPanelBaseMesh" parent="." instance=ExtResource("5_41ued")]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-mesh = ExtResource("7_ncq3e")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.126245, 0.0473416, 0.0789032)
+mesh = ExtResource("6_04kwh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000114441, 1.88443, 0.0736923)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.229306, 2.14805, -0.0685063)
 shape = SubResource("BoxShape3D_ffh07")
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.936807, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.91521, 2, 0)
 
 [node name="Node3D2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 1.9969)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.331394, 2, 2.31251)
 
 [node name="Node3D3" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.35895, 2, 0)
 
 [node name="Node3D4" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1.78377)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.299832, 2, -2.43078)

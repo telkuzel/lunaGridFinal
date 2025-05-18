@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://brar0s3c5gx2d"]
+
+[ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_hpqmn"]
+[ext_resource type="PackedScene" uid="uid://3hpnnma1fe30" path="res://3dModels/modulesBaseMesh/Conector2BaseMesh.glb" id="2_ggow8"]
+[ext_resource type="ArrayMesh" uid="uid://dnstikeeti1dy" path="res://3dModels/modulesBaseMesh/Conector2OutMesh.obj" id="3_30ey5"]
+[ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="7_314oh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vgh1w"]
+size = Vector3(4.69803, 2.44771, 4.5937)
+
+[node name="Node3D" type="StaticBody3D" node_paths=PackedStringArray("collision_shape", "mesh")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_hpqmn")
+connections = [NodePath("Connection"), NodePath("Connection2"), NodePath("Connection3"), NodePath("Connection4")]
+resource = "res://Scenes/modules/Conector2Module.tscn"
+rayLenght = 3.6
+ground_markers = [NodePath("Connection"), NodePath("Connection2"), NodePath("Node3D"), NodePath("Connection3"), NodePath("Connection4")]
+collision_shape = NodePath("CollisionShape3D")
+mesh = NodePath("MeshInstance3D2")
+
+[node name="Conector2BaseMesh" parent="." instance=ExtResource("2_ggow8")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.120616, 0.0877168, -0.0609109)
+mesh = ExtResource("3_30ey5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0215302, 1.71809, 0.00949728)
+shape = SubResource("BoxShape3D_vgh1w")
+
+[node name="Connection2" parent="." instance=ExtResource("7_314oh")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0206994, 2.4, -2.61819)
+
+[node name="Connection3" parent="." instance=ExtResource("7_314oh")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.60201, 2.4, 0.00984318)
+
+[node name="Connection4" parent="." instance=ExtResource("7_314oh")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.64495, 2.4, 0.00789714)
+
+[node name="Connection" parent="." instance=ExtResource("7_314oh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0213192, 2.4, 2.62783)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0121479, 2.4, 0)

@@ -1,6 +1,8 @@
 extends Node3D
 class_name GameScript
 
+@export var curentSceneIndex: int
+
 func _ready():
 	# Ждем, пока все узлы добавятся в дерево
 	await get_tree().process_frame

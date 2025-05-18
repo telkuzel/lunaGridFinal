@@ -1,49 +1,44 @@
-[gd_scene load_steps=10 format=3 uid="uid://rj4l4wb5qesh"]
+[gd_scene load_steps=6 format=3 uid="uid://rj4l4wb5qesh"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_rc4bi"]
-[ext_resource type="Material" uid="uid://mcp7i03rl4np" path="res://3dModels/material/deny_material.tres" id="2_gmjpt"]
-[ext_resource type="Material" uid="uid://da3ivnfslxbvi" path="res://3dModels/material/sucsess_material.tres" id="3_wj53f"]
-[ext_resource type="Material" uid="uid://bwglbsxwbifoe" path="res://3dModels/material/select_material.tres" id="4_3nywq"]
-[ext_resource type="ArrayMesh" uid="uid://jg7i0fni7rkq" path="res://3dModels/modulesMesh/1C.obj" id="5_wxopl"]
-[ext_resource type="ArrayMesh" uid="uid://ryh62uy2bjqn" path="res://3dModels/modulesMesh/1CS.obj" id="6_r770r"]
-[ext_resource type="Material" uid="uid://bsphxvxo2j702" path="res://3dModels/material/main_module_material.tres" id="6_x5g8q"]
+[ext_resource type="PackedScene" uid="uid://bfoyyrc1q2xae" path="res://3dModels/modulesBaseMesh/MedicalBaseMesh.glb" id="5_xyimf"]
+[ext_resource type="ArrayMesh" uid="uid://wxsk2mk41rhy" path="res://3dModels/modulesBaseMesh/MedicaOutMesh.obj" id="6_x5g8q"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="7_a1yyq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fknje"]
-size = Vector3(9, 3.6, 9)
+size = Vector3(4.83105, 2.96274, 3.58545)
 
 [node name="Node3D" type="StaticBody3D" node_paths=PackedStringArray("collision_shape", "mesh")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_rc4bi")
 connections = [NodePath("Connection")]
-rayLenght = 3.0
+type = 2
+resource = "res://Scenes/modules/MedicalModule.tscn"
+rayLenght = 3.4
 ground_markers = [NodePath("Node3D"), NodePath("Connection")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-material_sucsess = ExtResource("2_gmjpt")
-material_deny = ExtResource("3_wj53f")
-material_select = ExtResource("4_3nywq")
+infoModuleNames = "Medical"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7, 0)
-shape = SubResource("BoxShape3D_fknje")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("5_wxopl")
-surface_material_override/0 = ExtResource("6_x5g8q")
+[node name="MedicalBaseMesh" parent="." instance=ExtResource("5_xyimf")]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-mesh = ExtResource("6_r770r")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.920844, 0.0256519, 0.36031)
+mesh = ExtResource("6_x5g8q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.286621, 1.87034, 0.172119)
+shape = SubResource("BoxShape3D_fknje")
 
 [node name="Connection" parent="." instance=ExtResource("7_a1yyq")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.95689, 2.4, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.47185, 2.4, 0.188683)
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.052, 2.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74334, 2.4, -1.45797)
 
 [node name="Node3D2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00461197, 2.4, -3.96422)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74081, 2.4, 1.83356)
 
 [node name="Node3D3" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00461197, 2.4, 4.10283)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.463023, 2.4, 0.165623)

@@ -1,50 +1,41 @@
-[gd_scene load_steps=10 format=3 uid="uid://cw2fkcnjcrndj"]
+[gd_scene load_steps=6 format=3 uid="uid://cw2fkcnjcrndj"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_vwvo5"]
-[ext_resource type="Material" uid="uid://mcp7i03rl4np" path="res://3dModels/material/deny_material.tres" id="2_1wg6b"]
-[ext_resource type="ArrayMesh" uid="uid://diyfe6jmvqo7q" path="res://3dModels/modulesMesh/2C2.obj" id="2_kyjbn"]
-[ext_resource type="Material" uid="uid://da3ivnfslxbvi" path="res://3dModels/material/sucsess_material.tres" id="3_bhlc3"]
-[ext_resource type="ArrayMesh" uid="uid://dph1c6hfedxvw" path="res://3dModels/modulesMesh/2C2S.obj" id="3_wxnd3"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="4_1wg6b"]
-[ext_resource type="Material" uid="uid://bwglbsxwbifoe" path="res://3dModels/material/select_material.tres" id="4_j0nk2"]
-[ext_resource type="Material" uid="uid://bsphxvxo2j702" path="res://3dModels/material/main_module_material.tres" id="6_7jnnv"]
+[ext_resource type="PackedScene" uid="uid://bml8jtpukn173" path="res://3dModels/modulesBaseMesh/SienceBaseMesh.glb" id="5_eu1k6"]
+[ext_resource type="ArrayMesh" uid="uid://cwijdi71ecxh3" path="res://3dModels/modulesBaseMesh/SienceOutMesh.obj" id="6_7jnnv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0mj0u"]
-size = Vector3(9, 3.55786, 10.0997)
+size = Vector3(4.9386, 2.41754, 3.18777)
 
 [node name="Node3D" type="StaticBody3D" node_paths=PackedStringArray("collision_shape", "mesh")]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_vwvo5")
-connections = [NodePath("Connection"), NodePath("Connection2")]
-type = 2
-rayLenght = 3.0
-ground_markers = [NodePath("Connection"), NodePath("Connection2"), NodePath("Node3D"), NodePath("Node3D2")]
+connections = [NodePath("Connection")]
+type = 3
+resource = "res://Scenes/modules/SientisticModule.tscn"
+rayLenght = 3.6
+ground_markers = [NodePath("Connection"), NodePath("Node3D"), NodePath("Node3D2")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-material_sucsess = ExtResource("2_1wg6b")
-material_deny = ExtResource("3_bhlc3")
-material_select = ExtResource("4_j0nk2")
+infoModuleNames = "Sients"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = ExtResource("2_kyjbn")
-surface_material_override/0 = ExtResource("6_7jnnv")
+[node name="SienceBaseMesh" parent="." instance=ExtResource("5_eu1k6")]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-mesh = ExtResource("3_wxnd3")
-
-[node name="Connection" parent="." instance=ExtResource("4_1wg6b")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.4, -5.41115)
-
-[node name="Connection2" parent="." instance=ExtResource("4_1wg6b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4, 5.37832)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.248624, 0.0397798, -0.497247)
+mesh = ExtResource("6_7jnnv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72107, -0.00567627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101624, 1.64615, -0.189625)
 shape = SubResource("BoxShape3D_0mj0u")
 
+[node name="Connection" parent="." instance=ExtResource("4_1wg6b")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.68113, 2.4, -0.170123)
+
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.60127, 2.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85974, 2.4, 1.2517)
 
 [node name="Node3D2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.33884, 2.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7618, 2.4, -1.58304)

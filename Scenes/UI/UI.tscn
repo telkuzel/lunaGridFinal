@@ -1,56 +1,57 @@
-[gd_scene load_steps=78 format=3 uid="uid://ctuqhenn385jq"]
+[gd_scene load_steps=86 format=3 uid="uid://ctuqhenn385jq"]
 
 [ext_resource type="StyleBox" uid="uid://dmku67xt7ma5b" path="res://Scenes/UI/TopBarStyle.tres" id="1_wnk6b"]
 [ext_resource type="Theme" uid="uid://ne5ftygnb20w" path="res://Scenes/UI/DarkBarText.tres" id="2_sy325"]
-[ext_resource type="Texture2D" uid="uid://y4lh0jmm3kk2" path="res://Scenes/UI/Icons/ZoomOut.png" id="4_462t7"]
-[ext_resource type="Texture2D" uid="uid://cxytgbtgtvrjo" path="res://Scenes/UI/Icons/LayersBtn.png" id="4_ajypb"]
 [ext_resource type="FontFile" uid="uid://p4l5j5fmtf1t" path="res://Scenes/fonts/Black_Ops_One/BlackOpsOne-Regular_RUS_by_alince.otf" id="4_b8ige"]
-[ext_resource type="Texture2D" uid="uid://c103oyx3ip8rr" path="res://Scenes/UI/Icons/ZoomIn.png" id="5_8oemv"]
-[ext_resource type="Texture2D" uid="uid://dd70uwsm2441q" path="res://Scenes/UI/Icons/Open.png" id="6_dfgx4"]
-[ext_resource type="Texture2D" uid="uid://l2a8frtasmxy" path="res://Scenes/UI/Icons/Save.png" id="7_ph0kv"]
+[ext_resource type="Texture2D" uid="uid://c3rcxefxtk5wn" path="res://Scenes/UI/Icons/layers 1.png" id="6_boy5g"]
+[ext_resource type="Texture2D" uid="uid://cn0kwdtuptb1s" path="res://Scenes/UI/Icons/zoom out 1.png" id="7_xlyft"]
 [ext_resource type="StyleBox" uid="uid://bwicwwaabume1" path="res://Scenes/UI/Leftbar.tres" id="8_cjgo1"]
+[ext_resource type="Texture2D" uid="uid://cdxfq6svp2hsj" path="res://Scenes/UI/Icons/zoommln 1.png" id="8_qr054"]
+[ext_resource type="Texture2D" uid="uid://bg4g2aue3v16e" path="res://Scenes/UI/Icons/file 1.png" id="9_eybuc"]
+[ext_resource type="Texture2D" uid="uid://ddk2txkoi6n4d" path="res://Scenes/UI/Icons/save 1.png" id="10_4ydx5"]
 [ext_resource type="Theme" uid="uid://bf1r74222lewk" path="res://Scenes/UI/LineEdit.tres" id="10_hgi12"]
 [ext_resource type="Theme" uid="uid://q5gsfobw31kq" path="res://Scenes/UI/TopBarBtnTheme.tres" id="11_b8ige"]
 [ext_resource type="Theme" uid="uid://bkc1ku5oj1d8u" path="res://Scenes/UI/LeftBarBtnTheme.tres" id="12_b8ige"]
-[ext_resource type="Texture2D" uid="uid://dra7hiv7lxear" path="res://Scenes/UI/Icons/Hmodules.png" id="12_h4vik"]
-[ext_resource type="Texture2D" uid="uid://bi03ddyjbeqdw" path="res://Scenes/UI/Icons/Tmodules.png" id="13_gu2a4"]
-[ext_resource type="Texture2D" uid="uid://dsl1p62el72qf" path="res://Scenes/UI/Icons/Pmodules.png" id="14_wb2t4"]
+[ext_resource type="Texture2D" uid="uid://dbilykaelg4v3" path="res://Scenes/UI/Icons/kubic 1.png" id="14_vyg5h"]
 [ext_resource type="Texture2D" uid="uid://cj6gd65os1den" path="res://Scenes/UI/InfoImage.png" id="15_8oemv"]
-[ext_resource type="Texture2D" uid="uid://b2ae3uwghv55h" path="res://Scenes/UI/Icons/Info.png" id="15_h2gsf"]
+[ext_resource type="Texture2D" uid="uid://b78umrwvan2nv" path="res://Scenes/UI/Icons/homles 2.png" id="15_j1dw4"]
 [ext_resource type="Script" uid="uid://du1pvitujuls4" path="res://Scripts/UI/ItemList.gd" id="16_bit2e"]
 [ext_resource type="Script" uid="uid://n6hhy0iwhb78" path="res://Scripts/UI/UIControl.gd" id="16_dfgx4"]
+[ext_resource type="Texture2D" uid="uid://dpqnb75vnt76m" path="res://Scenes/UI/Icons/admin 2.png" id="16_kft87"]
+[ext_resource type="Texture2D" uid="uid://b1b57lqyw3xsl" path="res://Scenes/UI/Icons/gaisenberg 2.png" id="17_8wcpb"]
 [ext_resource type="StyleBox" uid="uid://c8pegq4c61gnl" path="res://Scenes/UI/TabContainer.tres" id="17_hgi12"]
+[ext_resource type="Texture2D" uid="uid://dnv158x32pp6g" path="res://Scenes/UI/Icons/RGmecanic 2.png" id="18_fwow2"]
 [ext_resource type="Theme" uid="uid://ceg2im375u4fv" path="res://Scenes/UI/ItemListTheme.tres" id="18_kfylw"]
-[ext_resource type="Texture2D" uid="uid://ckn5u5kg41m2q" path="res://Scenes/UI/Icons/SportModule.png" id="19_ewv6b"]
-[ext_resource type="Texture2D" uid="uid://j8xfl3xpd1ok" path="res://Scenes/UI/Icons/AdminModule.png" id="20_pxwff"]
-[ext_resource type="Texture2D" uid="uid://bq8fjqtfa4u0b" path="res://Scenes/UI/Icons/MedModule.png" id="21_grq85"]
-[ext_resource type="Texture2D" uid="uid://b4xy1sns6b11x" path="res://Scenes/UI/Icons/LabModule.png" id="22_xvkyl"]
-[ext_resource type="Texture2D" uid="uid://c7ypdwiudu2k2" path="res://Scenes/UI/Icons/FunModule.png" id="23_ajypb"]
-[ext_resource type="Texture2D" uid="uid://p5cm5fb0wskm" path="res://Scenes/UI/Icons/SirnceModule.png" id="24_urywp"]
+[ext_resource type="Texture2D" uid="uid://c7xgtkl6x0cfr" path="res://Scenes/UI/Icons/magazine 2.png" id="19_sjx2j"]
+[ext_resource type="Texture2D" uid="uid://bi5rnr05vouup" path="res://Scenes/UI/Icons/raketka 2.png" id="20_udfxq"]
+[ext_resource type="Texture2D" uid="uid://fxa7syiuwfgr" path="res://Scenes/UI/Icons/sirncen 2.png" id="21_pntd3"]
+[ext_resource type="Texture2D" uid="uid://cfijxxv4onhv8" path="res://Scenes/UI/Icons/shesterna 2.png" id="22_rismg"]
+[ext_resource type="Texture2D" uid="uid://cc7jolxpk6r45" path="res://Scenes/UI/Icons/info 2.png" id="23_spyke"]
 [ext_resource type="Script" uid="uid://b3jehhe3d1xf1" path="res://Scripts/replace_acept.gd" id="25_kfylw"]
+[ext_resource type="Texture2D" uid="uid://duvu0osra8wkv" path="res://Scenes/UI/Icons/medic 2.png" id="26_kft87"]
+[ext_resource type="Texture2D" uid="uid://br631ifq844iu" path="res://Scenes/UI/Icons/save mudak 2.png" id="27_8wcpb"]
+[ext_resource type="PackedScene" uid="uid://dmbblmh8eahas" path="res://Scenes/modules/Conector1Module.tscn" id="27_ajypb"]
+[ext_resource type="Texture2D" uid="uid://7dkjbsh82v7x" path="res://Scenes/UI/Icons/logistik 2.png" id="27_fwow2"]
+[ext_resource type="Texture2D" uid="uid://co3vrrjnjrcsk" path="res://Scenes/UI/Icons/TransportModule 2.png" id="28_fwow2"]
 [ext_resource type="StyleBox" uid="uid://pxeay1fmpkql" path="res://Scenes/UI/TopBtnHover.tres" id="29_bit2e"]
 [ext_resource type="StyleBox" uid="uid://61qgq2mbujj5" path="res://Scenes/UI/TopBtn.tres" id="29_h2gsf"]
+[ext_resource type="PackedScene" uid="uid://cnvhtq1342de8" path="res://Scenes/modules/StorageModule.tscn" id="29_urywp"]
 [ext_resource type="PackedScene" uid="uid://dltjo3v3uhxba" path="res://Scenes/modules/MainModule.tscn" id="29_vyg5h"]
 [ext_resource type="PackedScene" uid="uid://ctsl4askflxd6" path="res://Scenes/modules/SportModule.tscn" id="30_urywp"]
 [ext_resource type="PackedScene" uid="uid://di72tvayqmoxe" path="res://Scenes/modules/AdministrationModule.tscn" id="31_qr054"]
-[ext_resource type="Texture2D" uid="uid://mr7cs3ftfjgq" path="res://Scenes/UI/Icons/FactoryModule.png" id="32_ohb3t"]
-[ext_resource type="Texture2D" uid="uid://djhcsuk1vdjv3" path="res://Scenes/UI/Icons/StorageModule.png" id="33_ntvc1"]
-[ext_resource type="Texture2D" uid="uid://d2p5ww6n8uqt8" path="res://Scenes/UI/Icons/RFactoryModule.png" id="34_8h2de"]
-[ext_resource type="PackedScene" uid="uid://dxlu6abq6hxsk" path="res://Scenes/modules/LearningModule.tscn" id="34_eybuc"]
-[ext_resource type="Texture2D" uid="uid://ceh487trejbki" path="res://Scenes/UI/Icons/ElectricityModule.png" id="35_euuub"]
-[ext_resource type="Texture2D" uid="uid://bn0u857y76wlt" path="res://Scenes/UI/Icons/RepairModule.png" id="36_q7khq"]
-[ext_resource type="Texture2D" uid="uid://bmpgibrhxmv3h" path="res://Scenes/UI/Icons/LogisticModule.png" id="37_boy5g"]
-[ext_resource type="Texture2D" uid="uid://c853by7tv4eql" path="res://Scenes/UI/Icons/SaveModule.png" id="38_xlyft"]
-[ext_resource type="Texture2D" uid="uid://botvgetiwl84o" path="res://Scenes/UI/Icons/TransportModule.png" id="39_qr054"]
-[ext_resource type="Texture2D" uid="uid://hmkqepd8coho" path="res://Scenes/UI/Icons/SpaceShipModule.png" id="40_ajypb"]
+[ext_resource type="PackedScene" uid="uid://40u7iqel1mwi" path="res://Scenes/modules/EngeneringModule.tscn" id="32_ohb3t"]
+[ext_resource type="PackedScene" uid="uid://dxlu6abq6hxsk" path="res://Scenes/modules/CultureModule.tscn" id="34_eybuc"]
+[ext_resource type="Texture2D" uid="uid://xfwl8rjclytu" path="res://Scenes/UI/Icons/sport mudak 2.png" id="37_sjx2j"]
+[ext_resource type="Texture2D" uid="uid://dnl47laib0uuw" path="res://Scenes/UI/Icons/kegla 2.png" id="38_udfxq"]
 [ext_resource type="PackedScene" uid="uid://ddi5gxeergo8s" path="res://Scenes/modules/TransportModule.tscn" id="41_ntvc1"]
-[ext_resource type="Texture2D" uid="uid://diaf1midthd8i" path="res://Scenes/UI/Icons/TowerModule.png" id="41_urywp"]
-[ext_resource type="Texture2D" uid="uid://b6iw8rdlkhom3" path="res://Scenes/UI/Icons/PlantationModule.png" id="42_ohb3t"]
 [ext_resource type="PackedScene" uid="uid://c257x5ntu21cb" path="res://Scenes/modules/SolarPanel.tscn" id="42_q7khq"]
-[ext_resource type="Texture2D" uid="uid://cxw02553g60ks" path="res://Scenes/UI/Icons/TrashModule.png" id="43_ntvc1"]
-[ext_resource type="PackedScene" uid="uid://brar0s3c5gx2d" path="res://Scenes/modules/StorageModule.tscn" id="44_kft87"]
+[ext_resource type="Texture2D" uid="uid://b0xg3ynqyiyht" path="res://Scenes/UI/Icons/kokos 2.png" id="43_udfxq"]
+[ext_resource type="PackedScene" uid="uid://brar0s3c5gx2d" path="res://Scenes/modules/Conector2Module.tscn" id="44_kft87"]
 [ext_resource type="PackedScene" uid="uid://crp4pn2qh1u32" path="res://Scenes/modules/RegolitModule.tscn" id="45_8wcpb"]
 [ext_resource type="PackedScene" uid="uid://elbdvypnav0i" path="res://Scenes/modules/RocketModule.tscn" id="45_ohb3t"]
+[ext_resource type="PackedScene" uid="uid://cgnu16g7jxn05" path="res://Scenes/modules/TrashModule.tscn" id="46_4ydx5"]
+[ext_resource type="Texture2D" uid="uid://ctwbo8j44p7jl" path="res://Scenes/UI/Icons/SSSR 2.png" id="46_pntd3"]
+[ext_resource type="Texture2D" uid="uid://mif7ld1j8757" path="res://Scenes/UI/Icons/factory 2.png" id="46_yqnje"]
 [ext_resource type="PackedScene" uid="uid://iexyabc7nekl" path="res://Scenes/modules/RepairModule.tscn" id="47_fwow2"]
 [ext_resource type="PackedScene" uid="uid://bwdfmr6mbbl4k" path="res://Scenes/modules/FactoryModule.tscn" id="47_pntd3"]
 [ext_resource type="PackedScene" uid="uid://rj4l4wb5qesh" path="res://Scenes/modules/MedicalModule.tscn" id="48_rismg"]
@@ -58,16 +59,20 @@
 [ext_resource type="Script" uid="uid://dbvu7qu6wl2mw" path="res://Scripts/UI/InputController.gd" id="48_xvkyl"]
 [ext_resource type="PackedScene" uid="uid://ck3286w2cq6ws" path="res://Scenes/modules/Plantation.tscn" id="49_q7khq"]
 [ext_resource type="PackedScene" uid="uid://d0n6m7jljkreq" path="res://Scenes/modules/SaftyModule.tscn" id="49_udfxq"]
+[ext_resource type="Texture2D" uid="uid://dxamuqtc2aujd" path="res://Scenes/UI/Icons/marvanna 2.png" id="50_rismg"]
+[ext_resource type="Texture2D" uid="uid://ctli2uyr3t2ev" path="res://Scenes/UI/Icons/electric panel 2.png" id="53_ikot2"]
+[ext_resource type="Texture2D" uid="uid://cphq1bbiaglx3" path="res://Scenes/UI/Icons/left arrrow 2.png" id="53_sy325"]
+[ext_resource type="Texture2D" uid="uid://buib1537dd1kb" path="res://Scenes/UI/Icons/right arrow 2.png" id="54_b8ige"]
 [ext_resource type="PackedScene" uid="uid://48fmcbol86tl" path="res://Scenes/modules/AntenaModule.tscn" id="54_spyke"]
+[ext_resource type="Texture2D" uid="uid://b2xwf8quc2y2f" path="res://Scenes/UI/Icons/Tower mudak 2.png" id="54_upm8f"]
+[ext_resource type="Texture2D" uid="uid://dbvdmh0ckj0vg" path="res://Scenes/UI/Icons/Musor 2.png" id="55_s20ri"]
 [ext_resource type="PackedScene" uid="uid://cw2fkcnjcrndj" path="res://Scenes/modules/SientisticModule.tscn" id="55_sy325"]
 [ext_resource type="StyleBox" uid="uid://j6c8numrmx7k" path="res://Scenes/UI/LeftBarBtnNormal.tres" id="68_ikot2"]
 [ext_resource type="Script" uid="uid://4e6l06g8gy6" path="res://Scripts/UI/miniMenu.gd" id="68_s20ri"]
 [ext_resource type="Theme" uid="uid://cai3eeni82yiw" path="res://Scenes/UI/RightBarTheme.tres" id="68_yqnje"]
 [ext_resource type="Theme" uid="uid://bv8vna6m2x2gd" path="res://Scenes/UI/ToggleBtnTheme.tres" id="69_sy325"]
-[ext_resource type="Texture2D" uid="uid://bixbsck2e1ib7" path="res://Scenes/UI/Icons/LeftArrow.png" id="70_b8ige"]
 [ext_resource type="Script" uid="uid://gp784pnnsa50" path="res://Scripts/UI/errors.gd" id="70_spyke"]
 [ext_resource type="StyleBox" uid="uid://cf8o1n3x1y4s2" path="res://Scenes/UI/SeparationLineStyle.tres" id="70_upm8f"]
-[ext_resource type="Texture2D" uid="uid://d4hgt7r6gdpgx" path="res://Scenes/UI/Icons/RightArrow.png" id="70_yqnje"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8oemv"]
 bg_color = Color(0.596078, 0.596078, 0.596078, 1)
@@ -104,8 +109,14 @@ ItemList/fonts/font = ExtResource("4_b8ige")
 ItemList/styles/hovered = SubResource("StyleBoxFlat_pntd3")
 ItemList/styles/panel = SubResource("StyleBoxFlat_rismg")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ntvc1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_t5516"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sy325"]
 bg_color = Color(0.137255, 0.164706, 0.2, 0.509804)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8h2de"]
 
 [sub_resource type="Animation" id="Animation_wrm1d"]
 resource_name = "LeftbarAnim"
@@ -297,7 +308,7 @@ theme = ExtResource("11_b8ige")
 toggle_mode = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("4_ajypb")
+icon = ExtResource("6_boy5g")
 icon_alignment = 1
 expand_icon = true
 
@@ -309,7 +320,7 @@ theme = ExtResource("11_b8ige")
 toggle_mode = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("4_462t7")
+icon = ExtResource("7_xlyft")
 icon_alignment = 1
 expand_icon = true
 
@@ -321,7 +332,7 @@ theme = ExtResource("11_b8ige")
 toggle_mode = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("5_8oemv")
+icon = ExtResource("8_qr054")
 icon_alignment = 1
 expand_icon = true
 
@@ -333,7 +344,7 @@ theme = ExtResource("11_b8ige")
 toggle_mode = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("6_dfgx4")
+icon = ExtResource("9_eybuc")
 icon_alignment = 1
 expand_icon = true
 
@@ -345,7 +356,7 @@ theme = ExtResource("11_b8ige")
 toggle_mode = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("7_ph0kv")
+icon = ExtResource("10_4ydx5")
 icon_alignment = 1
 expand_icon = true
 
@@ -417,7 +428,7 @@ layout_mode = 2
 theme = ExtResource("12_b8ige")
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("14_wb2t4")
+icon = ExtResource("14_vyg5h")
 expand_icon = true
 
 [node name="BtnLiveModules" type="Button" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]
@@ -427,7 +438,7 @@ layout_mode = 2
 theme = ExtResource("12_b8ige")
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("12_h4vik")
+icon = ExtResource("15_j1dw4")
 expand_icon = true
 
 [node name="BtnAdmModules" type="Button" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]
@@ -437,7 +448,7 @@ layout_mode = 2
 theme = ExtResource("12_b8ige")
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("20_pxwff")
+icon = ExtResource("16_kft87")
 expand_icon = true
 
 [node name="BtnAgroModules" type="Button" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]
@@ -447,7 +458,7 @@ layout_mode = 2
 theme = ExtResource("12_b8ige")
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("22_xvkyl")
+icon = ExtResource("17_8wcpb")
 expand_icon = true
 
 [node name="BtnEngModules" type="Button" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]
@@ -457,7 +468,7 @@ layout_mode = 2
 theme = ExtResource("12_b8ige")
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("36_q7khq")
+icon = ExtResource("18_fwow2")
 expand_icon = true
 
 [node name="BtnLogModules" type="Button" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]
@@ -467,7 +478,7 @@ layout_mode = 2
 theme = ExtResource("12_b8ige")
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("33_ntvc1")
+icon = ExtResource("19_sjx2j")
 expand_icon = true
 
 [node name="BtnDistModules" type="Button" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]
@@ -477,7 +488,7 @@ layout_mode = 2
 theme = ExtResource("12_b8ige")
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("40_ajypb")
+icon = ExtResource("20_udfxq")
 expand_icon = true
 
 [node name="BtnComModules" type="Button" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]
@@ -487,7 +498,7 @@ layout_mode = 2
 theme = ExtResource("12_b8ige")
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("13_gu2a4")
+icon = ExtResource("21_pntd3")
 expand_icon = true
 
 [node name="BtnConstructor" type="Button" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]
@@ -497,7 +508,7 @@ layout_mode = 2
 theme = ExtResource("12_b8ige")
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("13_gu2a4")
+icon = ExtResource("22_rismg")
 expand_icon = true
 
 [node name="SeparatorBotom" type="Control" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]
@@ -513,7 +524,7 @@ theme = ExtResource("12_b8ige")
 toggle_mode = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("15_h2gsf")
+icon = ExtResource("23_spyke")
 expand_icon = true
 
 [node name="Body" type="Control" parent="VBoxContainer/Center/CenterHBox"]
@@ -542,24 +553,22 @@ layout_mode = 2
 theme = ExtResource("18_kfylw")
 auto_width = true
 auto_height = true
-item_count = 7
+item_count = 6
 fixed_icon_size = Vector2i(50, 50)
-item_0/text = "Жилой"
-item_0/icon = ExtResource("12_h4vik")
-item_1/text = "Спортивный"
-item_1/icon = ExtResource("19_ewv6b")
-item_2/text = "Административный"
-item_2/icon = ExtResource("20_pxwff")
-item_3/text = "Медицинский"
-item_3/icon = ExtResource("21_grq85")
-item_4/text = "Исследовательский"
-item_4/icon = ExtResource("22_xvkyl")
-item_5/text = "Досуга и культуры"
-item_5/icon = ExtResource("23_ajypb")
-item_6/text = "Научный"
-item_6/icon = ExtResource("24_urywp")
+item_0/text = "con1"
+item_0/icon = ExtResource("14_vyg5h")
+item_1/text = "con2"
+item_1/icon = ExtResource("26_kft87")
+item_2/text = "storage"
+item_2/icon = ExtResource("15_j1dw4")
+item_3/text = "logistic"
+item_3/icon = ExtResource("27_fwow2")
+item_4/text = "safty"
+item_4/icon = ExtResource("27_8wcpb")
+item_5/text = "Eng"
+item_5/icon = ExtResource("28_fwow2")
 script = ExtResource("16_bit2e")
-Modules = [ExtResource("29_vyg5h"), ExtResource("30_urywp"), ExtResource("31_qr054"), ExtResource("48_rismg"), ExtResource("55_sy325"), ExtResource("29_vyg5h"), ExtResource("34_eybuc")]
+Modules = [ExtResource("27_ajypb"), ExtResource("44_kft87"), ExtResource("29_urywp"), ExtResource("48_sjx2j"), ExtResource("49_udfxq"), ExtResource("32_ohb3t")]
 metadata/_tab_index = 0
 
 [node name="ItemListLive" type="ItemList" parent="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList"]
@@ -570,26 +579,18 @@ layout_mode = 2
 theme = ExtResource("18_kfylw")
 auto_width = true
 auto_height = true
-item_count = 8
+item_count = 4
 fixed_icon_size = Vector2i(50, 50)
-item_0/text = "Производственый"
-item_0/icon = ExtResource("32_ohb3t")
-item_1/text = "Складской"
-item_1/icon = ExtResource("33_ntvc1")
-item_2/text = "Завод реголита"
-item_2/icon = ExtResource("34_8h2de")
-item_3/text = "Ремонтный"
-item_3/icon = ExtResource("36_q7khq")
-item_4/text = "Логистический"
-item_4/icon = ExtResource("37_boy5g")
-item_5/text = "Безопасность"
-item_5/icon = ExtResource("38_xlyft")
-item_6/text = "Инженерный"
-item_6/icon = ExtResource("13_gu2a4")
-item_7/text = "Транспортный"
-item_7/icon = ExtResource("39_qr054")
+item_0/text = "live"
+item_0/icon = ExtResource("15_j1dw4")
+item_1/text = "med"
+item_1/icon = ExtResource("26_kft87")
+item_2/text = "sport"
+item_2/icon = ExtResource("37_sjx2j")
+item_3/text = "culture"
+item_3/icon = ExtResource("38_udfxq")
 script = ExtResource("16_bit2e")
-Modules = [ExtResource("47_pntd3"), ExtResource("44_kft87"), ExtResource("45_8wcpb"), ExtResource("47_fwow2"), ExtResource("48_sjx2j"), ExtResource("49_udfxq"), ExtResource("47_pntd3"), ExtResource("41_ntvc1")]
+Modules = [ExtResource("29_vyg5h"), ExtResource("48_rismg"), ExtResource("30_urywp"), ExtResource("34_eybuc")]
 metadata/_tab_index = 1
 
 [node name="ItemListAdm" type="ItemList" parent="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList"]
@@ -600,45 +601,15 @@ layout_mode = 2
 theme = ExtResource("18_kfylw")
 auto_width = true
 auto_height = true
-item_count = 5
+item_count = 2
 fixed_icon_size = Vector2i(50, 50)
-item_0/text = "Космодром"
-item_0/icon = ExtResource("40_ajypb")
-item_1/text = "Вышка связи"
-item_1/icon = ExtResource("41_urywp")
-item_2/text = "Плантации (агрокампусы)"
-item_2/icon = ExtResource("42_ohb3t")
-item_3/text = "Мусорные полигоны  и переработка"
-item_3/icon = ExtResource("43_ntvc1")
-item_4/text = "Энергетический модуль"
-item_4/icon = ExtResource("35_euuub")
+item_0/text = "admin"
+item_0/icon = ExtResource("16_kft87")
+item_1/text = "sience"
+item_1/icon = ExtResource("43_udfxq")
 script = ExtResource("16_bit2e")
-Modules = [ExtResource("45_ohb3t"), ExtResource("54_spyke"), ExtResource("49_q7khq"), ExtResource("55_sy325"), ExtResource("42_q7khq")]
+Modules = [ExtResource("31_qr054"), ExtResource("55_sy325")]
 metadata/_tab_index = 2
-
-[node name="ItemListAgro" type="ItemList" parent="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(220, 175)
-layout_mode = 2
-theme = ExtResource("18_kfylw")
-auto_width = true
-auto_height = true
-item_count = 5
-fixed_icon_size = Vector2i(50, 50)
-item_0/text = "Космодром"
-item_0/icon = ExtResource("40_ajypb")
-item_1/text = "Вышка связи"
-item_1/icon = ExtResource("41_urywp")
-item_2/text = "Плантации (агрокампусы)"
-item_2/icon = ExtResource("42_ohb3t")
-item_3/text = "Мусорные полигоны  и переработка"
-item_3/icon = ExtResource("43_ntvc1")
-item_4/text = "Энергетический модуль"
-item_4/icon = ExtResource("35_euuub")
-script = ExtResource("16_bit2e")
-Modules = [ExtResource("45_ohb3t"), ExtResource("54_spyke"), ExtResource("49_q7khq"), ExtResource("55_sy325"), ExtResource("42_q7khq")]
-metadata/_tab_index = 3
 
 [node name="ItemListEng" type="ItemList" parent="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList"]
 unique_name_in_owner = true
@@ -648,21 +619,15 @@ layout_mode = 2
 theme = ExtResource("18_kfylw")
 auto_width = true
 auto_height = true
-item_count = 5
+item_count = 2
 fixed_icon_size = Vector2i(50, 50)
-item_0/text = "Космодром"
-item_0/icon = ExtResource("40_ajypb")
-item_1/text = "Вышка связи"
-item_1/icon = ExtResource("41_urywp")
-item_2/text = "Плантации (агрокампусы)"
-item_2/icon = ExtResource("42_ohb3t")
-item_3/text = "Мусорные полигоны  и переработка"
-item_3/icon = ExtResource("43_ntvc1")
-item_4/text = "Энергетический модуль"
-item_4/icon = ExtResource("35_euuub")
+item_0/text = "factory"
+item_0/icon = ExtResource("46_yqnje")
+item_1/text = "repair"
+item_1/icon = ExtResource("18_fwow2")
 script = ExtResource("16_bit2e")
-Modules = [ExtResource("45_ohb3t"), ExtResource("54_spyke"), ExtResource("49_q7khq"), ExtResource("55_sy325"), ExtResource("42_q7khq")]
-metadata/_tab_index = 4
+Modules = [ExtResource("47_pntd3"), ExtResource("47_fwow2")]
+metadata/_tab_index = 3
 
 [node name="ItemListLog" type="ItemList" parent="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList"]
 unique_name_in_owner = true
@@ -672,20 +637,28 @@ layout_mode = 2
 theme = ExtResource("18_kfylw")
 auto_width = true
 auto_height = true
-item_count = 5
+item_count = 1
 fixed_icon_size = Vector2i(50, 50)
-item_0/text = "Космодром"
-item_0/icon = ExtResource("40_ajypb")
-item_1/text = "Вышка связи"
-item_1/icon = ExtResource("41_urywp")
-item_2/text = "Плантации (агрокампусы)"
-item_2/icon = ExtResource("42_ohb3t")
-item_3/text = "Мусорные полигоны  и переработка"
-item_3/icon = ExtResource("43_ntvc1")
-item_4/text = "Энергетический модуль"
-item_4/icon = ExtResource("35_euuub")
+item_0/text = "transport"
+item_0/icon = ExtResource("28_fwow2")
 script = ExtResource("16_bit2e")
-Modules = [ExtResource("45_ohb3t"), ExtResource("54_spyke"), ExtResource("49_q7khq"), ExtResource("55_sy325"), ExtResource("42_q7khq")]
+Modules = [ExtResource("41_ntvc1")]
+metadata/_tab_index = 4
+
+[node name="ItemListAgro" type="ItemList" parent="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(220, 175)
+layout_mode = 2
+theme = ExtResource("18_kfylw")
+auto_width = true
+auto_height = true
+item_count = 1
+fixed_icon_size = Vector2i(50, 50)
+item_0/text = "Agro"
+item_0/icon = ExtResource("50_rismg")
+script = ExtResource("16_bit2e")
+Modules = [ExtResource("49_q7khq")]
 metadata/_tab_index = 5
 
 [node name="ItemListDist" type="ItemList" parent="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList"]
@@ -698,18 +671,18 @@ auto_width = true
 auto_height = true
 item_count = 5
 fixed_icon_size = Vector2i(50, 50)
-item_0/text = "Космодром"
-item_0/icon = ExtResource("40_ajypb")
-item_1/text = "Вышка связи"
-item_1/icon = ExtResource("41_urywp")
-item_2/text = "Плантации (агрокампусы)"
-item_2/icon = ExtResource("42_ohb3t")
-item_3/text = "Мусорные полигоны  и переработка"
-item_3/icon = ExtResource("43_ntvc1")
-item_4/text = "Энергетический модуль"
-item_4/icon = ExtResource("35_euuub")
+item_0/text = "regolit"
+item_0/icon = ExtResource("46_pntd3")
+item_1/text = "solar"
+item_1/icon = ExtResource("53_ikot2")
+item_2/text = "antena"
+item_2/icon = ExtResource("54_upm8f")
+item_3/text = "trash"
+item_3/icon = ExtResource("55_s20ri")
+item_4/text = "rocket"
+item_4/icon = ExtResource("20_udfxq")
 script = ExtResource("16_bit2e")
-Modules = [ExtResource("45_ohb3t"), ExtResource("54_spyke"), ExtResource("49_q7khq"), ExtResource("55_sy325"), ExtResource("42_q7khq")]
+Modules = [ExtResource("45_8wcpb"), ExtResource("42_q7khq"), ExtResource("54_spyke"), ExtResource("46_4ydx5"), ExtResource("45_ohb3t")]
 metadata/_tab_index = 6
 
 [node name="ItemListCom" type="ItemList" parent="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList"]
@@ -813,9 +786,9 @@ auto_height = true
 item_count = 2
 fixed_icon_size = Vector2i(50, 50)
 item_0/text = "Инфо о модуле"
-item_0/icon = ExtResource("15_h2gsf")
+item_0/icon = SubResource("CompressedTexture2D_ntvc1")
 item_1/text = "Сохранить комплекс"
-item_1/icon = ExtResource("7_ph0kv")
+item_1/icon = SubResource("CompressedTexture2D_t5516")
 script = ExtResource("68_s20ri")
 metadata/_tab_index = 7
 
@@ -889,7 +862,7 @@ clip_contents = true
 custom_minimum_size = Vector2(280, 200)
 layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource("12_h4vik")
+texture = SubResource("CompressedTexture2D_8h2de")
 expand_mode = 5
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer/Center/CenterHBox/RightBar/MarginContainer2/VBoxContainer/Panel/MarginContainer/VBoxContainer"]
@@ -952,7 +925,7 @@ toggle_mode = true
 button_pressed = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("70_b8ige")
+icon = ExtResource("53_sy325")
 icon_alignment = 2
 expand_icon = true
 
@@ -972,7 +945,7 @@ toggle_mode = true
 button_pressed = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("70_yqnje")
+icon = ExtResource("54_b8ige")
 icon_alignment = 2
 expand_icon = true
 
@@ -1073,15 +1046,15 @@ playback_auto_capture = false
 [connection signal="item_selected" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAdm" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAdm" method="_on_item_selected"]
 [connection signal="mouse_entered" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAdm" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAdm" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAdm" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAdm" method="_on_mouse_exited"]
-[connection signal="item_selected" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAgro" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAgro" method="_on_item_selected"]
-[connection signal="mouse_entered" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAgro" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAgro" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAgro" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAgro" method="_on_mouse_exited"]
 [connection signal="item_selected" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListEng" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListEng" method="_on_item_selected"]
 [connection signal="mouse_entered" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListEng" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListEng" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListEng" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListEng" method="_on_mouse_exited"]
 [connection signal="item_selected" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListLog" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListLog" method="_on_item_selected"]
 [connection signal="mouse_entered" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListLog" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListLog" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListLog" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListLog" method="_on_mouse_exited"]
+[connection signal="item_selected" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAgro" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAgro" method="_on_item_selected"]
+[connection signal="mouse_entered" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAgro" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAgro" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAgro" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListAgro" method="_on_mouse_exited"]
 [connection signal="item_selected" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListDist" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListDist" method="_on_item_selected"]
 [connection signal="mouse_entered" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListDist" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListDist" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListDist" to="VBoxContainer/Center/CenterHBox/Body/TabContainerModuleList/ItemListDist" method="_on_mouse_exited"]

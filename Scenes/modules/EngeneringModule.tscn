@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://40u7iqel1mwi"]
+
+[ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_3jwr0"]
+[ext_resource type="PackedScene" uid="uid://k4g25r6ro58h" path="res://3dModels/modulesBaseMesh/EngeneringBaseMesh.glb" id="2_rtxa2"]
+[ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="2_svbn4"]
+[ext_resource type="ArrayMesh" uid="uid://d28abclxud4y5" path="res://3dModels/modulesBaseMesh/EngeneringOutMesh.obj" id="3_m8bb1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vgh1w"]
+size = Vector3(6.65649, 2.90713, 5.34451)
+
+[node name="Node3D" type="StaticBody3D" node_paths=PackedStringArray("collision_shape", "mesh")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_3jwr0")
+connections = [NodePath("Connection"), NodePath("Connection2")]
+resource = "res://Scenes/modules/EngeneringModule.tscn"
+rayLenght = 3.6
+ground_markers = [NodePath("Connection"), NodePath("Connection2"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3")]
+collision_shape = NodePath("CollisionShape3D")
+mesh = NodePath("MeshInstance3D2")
+infoModuleNames = "Engenering"
+
+[node name="EngeneringBaseMesh" parent="." instance=ExtResource("2_rtxa2")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21648, 0.10824, 0.067651)
+mesh = ExtResource("3_m8bb1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.121744, 1.91531, -0.0744263)
+shape = SubResource("BoxShape3D_vgh1w")
+
+[node name="Connection2" parent="." instance=ExtResource("2_svbn4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.68657, 2.4, -0.0839243)
+
+[node name="Connection" parent="." instance=ExtResource("2_svbn4")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.53606, 2.4, -0.0845313)
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0115871, 2.4, -2.76111)
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0299959, 2.4, 2.66908)
+
+[node name="Node3D3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0299959, 2.4, -0.220889)

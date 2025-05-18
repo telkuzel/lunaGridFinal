@@ -115,7 +115,7 @@ func _on_complex_selected(index: int) -> void:
 		complex_scene.complexIdx = next_complex_idx
 		next_complex_idx += 1
 		complex_scene.spawn_complex(complex_save)
-		get_tree().root.add_child(complex_scene)
+		get_node("/root/Game").add_child(complex_scene)
 		deselect(index)
 		$"..".visible = false
 		_monitor_placement($"..")
