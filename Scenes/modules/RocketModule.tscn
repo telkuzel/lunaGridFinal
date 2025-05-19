@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://elbdvypnav0i"]
+[gd_scene load_steps=6 format=3 uid="uid://elbdvypnav0i"]
 
 [ext_resource type="Script" uid="uid://dlu6u5sie1he" path="res://Scripts/modules/placeable_module.gd" id="1_r5sas"]
+[ext_resource type="Texture2D" uid="uid://0ea080jpj71p" path="res://Scenes/UI/ModulesImages/Rocket.png" id="2_53k4q"]
 [ext_resource type="PackedScene" uid="uid://bxmdx4ew65us2" path="res://3dModels/modulesBaseMesh/RocketBaseMesh.glb" id="5_ffh07"]
 [ext_resource type="ArrayMesh" uid="uid://dse6t58qv5y6t" path="res://3dModels/modulesBaseMesh/RocketOutMesh.obj" id="6_dxpiq"]
 
@@ -17,6 +18,7 @@ rayLenght = 4.0
 ground_markers = [NodePath("Node3D4"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3"), NodePath("Node3D5")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
+infoModuleImages = ExtResource("2_53k4q")
 
 [node name="RocketBaseMesh" parent="." instance=ExtResource("5_ffh07")]
 

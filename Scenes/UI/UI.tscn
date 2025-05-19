@@ -3,7 +3,7 @@
 [ext_resource type="StyleBox" uid="uid://dmku67xt7ma5b" path="res://Scenes/UI/TopBarStyle.tres" id="1_wnk6b"]
 [ext_resource type="Theme" uid="uid://ne5ftygnb20w" path="res://Scenes/UI/DarkBarText.tres" id="2_sy325"]
 [ext_resource type="FontFile" uid="uid://p4l5j5fmtf1t" path="res://Scenes/fonts/Black_Ops_One/BlackOpsOne-Regular_RUS_by_alince.otf" id="4_b8ige"]
-[ext_resource type="Texture2D" uid="uid://c3rcxefxtk5wn" path="res://Scenes/UI/Icons/layers 1.png" id="6_boy5g"]
+[ext_resource type="Texture2D" uid="uid://cihbr0yht37r4" path="res://Scenes/UI/Icons/layers 1.png" id="6_ikot2"]
 [ext_resource type="Texture2D" uid="uid://cn0kwdtuptb1s" path="res://Scenes/UI/Icons/zoom out 1.png" id="7_xlyft"]
 [ext_resource type="StyleBox" uid="uid://bwicwwaabume1" path="res://Scenes/UI/Leftbar.tres" id="8_cjgo1"]
 [ext_resource type="Texture2D" uid="uid://cdxfq6svp2hsj" path="res://Scenes/UI/Icons/zoommln 1.png" id="8_qr054"]
@@ -24,7 +24,7 @@
 [ext_resource type="Theme" uid="uid://ceg2im375u4fv" path="res://Scenes/UI/ItemListTheme.tres" id="18_kfylw"]
 [ext_resource type="Texture2D" uid="uid://c7xgtkl6x0cfr" path="res://Scenes/UI/Icons/magazine 2.png" id="19_sjx2j"]
 [ext_resource type="Texture2D" uid="uid://bi5rnr05vouup" path="res://Scenes/UI/Icons/raketka 2.png" id="20_udfxq"]
-[ext_resource type="Texture2D" uid="uid://fxa7syiuwfgr" path="res://Scenes/UI/Icons/sirncen 2.png" id="21_pntd3"]
+[ext_resource type="Texture2D" uid="uid://dq8rwf133rvp0" path="res://Scenes/UI/Icons/sience 2.png" id="21_ikot2"]
 [ext_resource type="Texture2D" uid="uid://cfijxxv4onhv8" path="res://Scenes/UI/Icons/shesterna 2.png" id="22_rismg"]
 [ext_resource type="Texture2D" uid="uid://cc7jolxpk6r45" path="res://Scenes/UI/Icons/info 2.png" id="23_spyke"]
 [ext_resource type="Script" uid="uid://b3jehhe3d1xf1" path="res://Scripts/replace_acept.gd" id="25_kfylw"]
@@ -305,7 +305,7 @@ theme = ExtResource("11_b8ige")
 toggle_mode = true
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("6_boy5g")
+icon = ExtResource("6_ikot2")
 icon_alignment = 1
 expand_icon = true
 
@@ -495,7 +495,7 @@ layout_mode = 2
 theme = ExtResource("12_b8ige")
 shortcut_feedback = false
 shortcut_in_tooltip = false
-icon = ExtResource("21_pntd3")
+icon = ExtResource("21_ikot2")
 expand_icon = true
 
 [node name="BtnConstructor" type="Button" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]

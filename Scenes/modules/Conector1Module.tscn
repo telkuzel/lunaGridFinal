@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmbblmh8eahas"]
+[gd_scene load_steps=7 format=3 uid="uid://dmbblmh8eahas"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_g2os0"]
 [ext_resource type="PackedScene" uid="uid://bkvxfriooyavd" path="res://3dModels/modulesBaseMesh/Conector1BaseMesh.glb" id="2_dtb3e"]
+[ext_resource type="Texture2D" uid="uid://cxuo7ay8htpl8" path="res://Scenes/UI/ModulesImages/conector 1.png" id="2_ei73e"]
 [ext_resource type="ArrayMesh" uid="uid://dvcvapxr1w3af" path="res://3dModels/modulesBaseMesh/Conector1OutMesh.obj" id="3_ei73e"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="6_flail"]
 
@@ -19,6 +20,7 @@ ground_markers = [NodePath("Connection"), NodePath("Connection2"), NodePath("Nod
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
 infoModuleNames = "Conector1"
+infoModuleImages = ExtResource("2_ei73e")
 
 [node name="Conector1BaseMesh" parent="." instance=ExtResource("2_dtb3e")]
 

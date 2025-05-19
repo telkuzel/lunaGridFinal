@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnvhtq1342de8"]
+[gd_scene load_steps=7 format=3 uid="uid://cnvhtq1342de8"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_hpqmn"]
+[ext_resource type="Texture2D" uid="uid://djy3kc6sqx4jf" path="res://Scenes/UI/ModulesImages/Storage.png" id="2_30ey5"]
 [ext_resource type="PackedScene" uid="uid://2q3khws5yplh" path="res://3dModels/modulesBaseMesh/SportBaseMesh.glb" id="5_hpqmn"]
 [ext_resource type="ArrayMesh" uid="uid://cw1bsk3qcgp63" path="res://3dModels/modulesBaseMesh/SportOutMesh.obj" id="6_5f6rv"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="7_314oh"]
@@ -18,7 +19,9 @@ rayLenght = 3.6
 ground_markers = [NodePath("Connection"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3"), NodePath("Connection2"), NodePath("Connection3")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-infoModuleNames = "Storage"
+infoModuleNames = "Складской модуль"
+infoModuleImages = ExtResource("2_30ey5")
+infoModuleDescriptionTexts = " Размер: 5.6×5.6×3.2 м\\n Модуль хранения ресурсов,\\n грузов и оборудования.\\n Шлюз рампа: 2×2 м\\n Инж. порты: 0.5×0.3 м\\n Модуль общего назначения\\n"
 
 [node name="SportBaseMesh" parent="." instance=ExtResource("5_hpqmn")]
 

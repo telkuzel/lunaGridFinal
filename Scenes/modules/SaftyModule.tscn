@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0n6m7jljkreq"]
+[gd_scene load_steps=7 format=3 uid="uid://d0n6m7jljkreq"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_5is3f"]
+[ext_resource type="Texture2D" uid="uid://bt5bh7hlah36p" path="res://Scenes/UI/ModulesImages/Safe.png" id="2_6ygvi"]
 [ext_resource type="PackedScene" uid="uid://dx52edyuultr3" path="res://3dModels/modulesBaseMesh/SaftyBaseMesh.glb" id="5_5is3f"]
 [ext_resource type="ArrayMesh" uid="uid://c2y1ry8ssbehj" path="res://3dModels/modulesBaseMesh/SaftyOutMesh.obj" id="6_pfek5"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="7_07gm6"]
@@ -19,6 +20,7 @@ ground_markers = [NodePath("Node3D"), NodePath("Connection"), NodePath("Node3D2"
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
 infoModuleNames = "Safty"
+infoModuleImages = ExtResource("2_6ygvi")
 
 [node name="SaftyBaseMesh" parent="." instance=ExtResource("5_5is3f")]
 

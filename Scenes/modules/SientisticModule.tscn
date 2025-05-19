@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cw2fkcnjcrndj"]
+[gd_scene load_steps=7 format=3 uid="uid://cw2fkcnjcrndj"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_vwvo5"]
+[ext_resource type="Texture2D" uid="uid://boex0qf2rrprj" path="res://Scenes/UI/ModulesImages/Sience.png" id="2_ph3hw"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="4_1wg6b"]
 [ext_resource type="PackedScene" uid="uid://bml8jtpukn173" path="res://3dModels/modulesBaseMesh/SienceBaseMesh.glb" id="5_eu1k6"]
 [ext_resource type="ArrayMesh" uid="uid://cwijdi71ecxh3" path="res://3dModels/modulesBaseMesh/SienceOutMesh.obj" id="6_7jnnv"]
@@ -19,7 +20,9 @@ rayLenght = 3.6
 ground_markers = [NodePath("Connection"), NodePath("Node3D"), NodePath("Node3D2")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-infoModuleNames = "Sients"
+infoModuleNames = "Исследовательский\\nмодуль"
+infoModuleImages = ExtResource("2_ph3hw")
+infoModuleDescriptionTexts = "Размер: 4.4×3.2×3.2 м\\nПредназначен для проведения\\nэкспериментов и анализа\\nпочвы, воздуха, проб.\\nНаучный порт: 0.6×0.6 м\\nИнж. порты: 0.5×0.3 м\\nОбъединяется в адм. компл.\\n"
 
 [node name="SienceBaseMesh" parent="." instance=ExtResource("5_eu1k6")]
 

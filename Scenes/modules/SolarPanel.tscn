@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c257x5ntu21cb"]
+[gd_scene load_steps=6 format=3 uid="uid://c257x5ntu21cb"]
 
 [ext_resource type="Script" uid="uid://dlu6u5sie1he" path="res://Scripts/modules/placeable_module.gd" id="1_04kwh"]
+[ext_resource type="Texture2D" uid="uid://dpdp7b3djmh1w" path="res://Scenes/UI/ModulesImages/Solar.png" id="2_aqcv8"]
 [ext_resource type="PackedScene" uid="uid://c562nhahcg7b8" path="res://3dModels/modulesBaseMesh/SolarPanelBaseMesh.glb" id="5_41ued"]
 [ext_resource type="ArrayMesh" uid="uid://b3htntmahsseb" path="res://3dModels/modulesBaseMesh/SolarPanelOutMesh.obj" id="6_04kwh"]
 
@@ -17,6 +18,7 @@ rayLenght = 3.6
 ground_markers = [NodePath("Node3D4"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
+infoModuleImages = ExtResource("2_aqcv8")
 
 [node name="SolarPanelBaseMesh" parent="." instance=ExtResource("5_41ued")]
 

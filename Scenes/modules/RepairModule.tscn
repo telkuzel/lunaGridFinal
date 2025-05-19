@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://iexyabc7nekl"]
+[gd_scene load_steps=7 format=3 uid="uid://iexyabc7nekl"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_bns2q"]
-[ext_resource type="Material" uid="uid://mcp7i03rl4np" path="res://3dModels/material/deny_material.tres" id="2_t2ane"]
-[ext_resource type="Material" uid="uid://da3ivnfslxbvi" path="res://3dModels/material/sucsess_material.tres" id="3_1xbuv"]
-[ext_resource type="Material" uid="uid://bwglbsxwbifoe" path="res://3dModels/material/select_material.tres" id="4_06q6y"]
+[ext_resource type="Texture2D" uid="uid://bwqjy6c3rptt0" path="res://Scenes/UI/ModulesImages/Repair.png" id="2_myyim"]
 [ext_resource type="PackedScene" uid="uid://dhorgs1wiqpr7" path="res://3dModels/modulesBaseMesh/RepairBaseMesh.glb" id="5_ydrch"]
 [ext_resource type="ArrayMesh" uid="uid://dewp0col7f3tj" path="res://3dModels/modulesBaseMesh/RepairOutMesh.obj" id="6_bns2q"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="8_mgsho"]
@@ -22,10 +20,8 @@ rayLenght = 3.6
 ground_markers = [NodePath("Connection"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3"), NodePath("Connection2")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-material_sucsess = ExtResource("2_t2ane")
-material_deny = ExtResource("3_1xbuv")
-material_select = ExtResource("4_06q6y")
 infoModuleNames = "repair"
+infoModuleImages = ExtResource("2_myyim")
 
 [node name="RepairBaseMesh" parent="." instance=ExtResource("5_ydrch")]
 
