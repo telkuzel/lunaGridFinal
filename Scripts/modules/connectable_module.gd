@@ -20,7 +20,7 @@ func try_place(event):
 	if event is InputEventMouseButton \
 		and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and \
 		_is_can_place() and not Input.is_key_pressed(KEY_SHIFT) and \
-		manager.is_distance_valid(type, self, exclude):
+		manager.is_distance_valid(type, self, -1):
 		is_plasment = false
 		player.set_plasment_mode(false)
 		mesh.hide()
