@@ -95,8 +95,10 @@ func connection(raycast_result):
 	rotation = module.get_connection(other_connection).global_rotation
 	position = module.get_connection(other_connection).global_position
 	var angle = get_connection(current_connection).rotation.y
-	if angle <= 0:
-		angle -= PI
+	#if angle >= 0:
+	#	angle -= PI
+	angle *= -1
+	angle -= PI
 	rotate(Vector3.UP, angle)
 	position += (position - get_connection(current_connection).global_position)
 

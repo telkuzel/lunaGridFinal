@@ -31,13 +31,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.150024, 1.94103, -0.197235
 shape = SubResource("BoxShape3D_dhm1g")
 
 [node name="Connection" parent="." instance=ExtResource("7_314oh")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.98272, 2.4, -3.58141)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.98272, 2.4, -3.58141)
 
 [node name="Connection2" parent="." instance=ExtResource("7_314oh")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.47754, 2.4, 0.0711673)
 
 [node name="Connection3" parent="." instance=ExtResource("7_314oh")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.73558, 2.4, 0.0714487)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.79433, 2.4, 0.0711676)
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.85178, 2.4, 2.85557)

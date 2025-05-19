@@ -12,13 +12,13 @@ var complex_idx = -1
 func is_distance_valid(type: int, module: Placeable, exclude: int) -> bool:
 	if type <= distances.size():
 		for i in modules:
+			i.clear_outline()
+		for i in modules:
 			if i.type != exclude and i.type != type:
 				if (i.position - module.position).length() < \
 					distances[type - 1][i.type - 1]:
 					i.set_alert()
 					return false
-			else:
-				i.clear_outline()
 	return true
 
 func regisrate_complex(module: Connectabel)->int:
