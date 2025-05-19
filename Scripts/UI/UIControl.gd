@@ -73,7 +73,10 @@ func ShowAllText() -> void:
 	%BtnLogModules.text = "ЛОГИСТ."
 	%BtnDistModules.text = "УДАЛЁННЫЕ"
 	%BtnComModules.text = "КОМПЛЕКСЫ"
-	%BtnConstructor.text = "КОНСТРУКТОР"
+	if get_node("/root/Game").curentSceneIndex == 0:
+		%BtnConstructor.text = "КОНСТРУКТОР"
+	else:
+		%BtnConstructor.text = "ПРОЕКТ"
 	leftToggleBtn.text = "СПИСКИ МОДУЛЕЙ"
 	#%SearchLineEdit.visible = true
 
