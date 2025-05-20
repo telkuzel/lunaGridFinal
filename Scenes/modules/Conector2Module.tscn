@@ -19,7 +19,9 @@ rayLenght = 3.6
 ground_markers = [NodePath("Connection"), NodePath("Connection2"), NodePath("Node3D"), NodePath("Connection3"), NodePath("Connection4")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
+infoModuleNames = "Коннектор тип 2"
 infoModuleImages = ExtResource("2_0bvdv")
+infoModuleDescriptionTexts = " Размер: 3.6×3.6×3.2  м\\n Представляет из себя\\n  крестообразный. коридор\\n Покрыт защитным слоем.\\n Модуль общего назначения.\\n"
 
 [node name="Conector2BaseMesh" parent="." instance=ExtResource("2_ggow8")]
 

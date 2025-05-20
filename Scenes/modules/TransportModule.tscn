@@ -21,8 +21,9 @@ rayLenght = 3.6
 ground_markers = [NodePath("Connection"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Connection2"), NodePath("Connection3")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-infoModuleNames = "Transport"
+infoModuleNames = "Транспортный модуль"
 infoModuleImages = ExtResource("2_8juci")
+infoModuleDescriptionTexts = " Размер: 5.6×3.6×3.2 м\\n Обслуж. техники и транспорта.\\n Груз. коридоры, транспортёры.\\n Поддерж. стыковку транспорта\\n Инж. порты: 0.5×0.3 м\\n Транспортный комплекс.\\n"
 
 [node name="TransportBaseMesh" parent="." instance=ExtResource("2_0eanj")]
 

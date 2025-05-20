@@ -20,7 +20,9 @@ rayLenght = 3.4
 ground_markers = [NodePath("Connection"), NodePath("Node3D3"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D4"), NodePath("Node3D5")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
+infoModuleNames = "Плантации (агрокампусы)"
 infoModuleImages = ExtResource("2_xlgth")
+infoModuleDescriptionTexts = " Размер: 5.6×5.6×3.2  м\\n Модуль для выращивания пищи.\\n Поддерживает влажность и свет.\\n Инж. порты: 0.5×0.5 м\\n Покрыт защитным слоем.\\n Входит в агропром. комплекс.\\n"
 
 [node name="PlantationBaseMesh" parent="." instance=ExtResource("5_45b5h")]
 
