@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://rj4l4wb5qesh"]
+[gd_scene load_steps=7 format=3 uid="uid://rj4l4wb5qesh"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_rc4bi"]
+[ext_resource type="Texture2D" uid="uid://det84n7qgojse" path="res://Scenes/UI/ModulesImages/Med.png" id="2_28wtu"]
 [ext_resource type="PackedScene" uid="uid://bfoyyrc1q2xae" path="res://3dModels/modulesBaseMesh/MedicalBaseMesh.glb" id="5_xyimf"]
 [ext_resource type="ArrayMesh" uid="uid://wxsk2mk41rhy" path="res://3dModels/modulesBaseMesh/MedicaOutMesh.obj" id="6_x5g8q"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="7_a1yyq"]
@@ -19,7 +20,9 @@ rayLenght = 3.4
 ground_markers = [NodePath("Node3D"), NodePath("Connection")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-infoModuleNames = "Medical"
+infoModuleNames = "Медицинский\\nмодуль"
+infoModuleImages = ExtResource("2_28wtu")
+infoModuleDescriptionTexts = "Размер: 4.4×3.2×3.2 м\\nПредназначен для диагностики,\\nлечения, хранения мед. средств.\\nВключает хирургический блок.\\nИнж. порты: 0.4×0.4 м\\nОбъединяется в жилой комплекс.\\n"
 
 [node name="MedicalBaseMesh" parent="." instance=ExtResource("5_xyimf")]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://48fmcbol86tl"]
+[gd_scene load_steps=6 format=3 uid="uid://48fmcbol86tl"]
 
 [ext_resource type="Script" uid="uid://dlu6u5sie1he" path="res://Scripts/modules/placeable_module.gd" id="1_qsnsx"]
+[ext_resource type="Texture2D" uid="uid://dsmm2hys0vupj" path="res://Scenes/UI/ModulesImages/Antena.png" id="2_op3b2"]
 [ext_resource type="PackedScene" uid="uid://du35oybu2urhs" path="res://3dModels/modulesBaseMesh/AntenaBaseMesh.glb" id="5_jfdji"]
 [ext_resource type="ArrayMesh" uid="uid://7vbaet4esm0" path="res://3dModels/modulesBaseMesh/AntenaOutMesh.obj" id="6_teuhf"]
 
@@ -18,6 +19,7 @@ rayLenght = 3.0
 ground_markers = [NodePath("marker1")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
+infoModuleImages = ExtResource("2_op3b2")
 
 [node name="AntenaBaseMesh" parent="." instance=ExtResource("5_jfdji")]
 

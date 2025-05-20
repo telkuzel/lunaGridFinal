@@ -1,9 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxlu6abq6hxsk"]
+[gd_scene load_steps=7 format=3 uid="uid://dxlu6abq6hxsk"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_0n1oy"]
-[ext_resource type="Material" uid="uid://mcp7i03rl4np" path="res://3dModels/material/deny_material.tres" id="2_djc5q"]
-[ext_resource type="Material" uid="uid://da3ivnfslxbvi" path="res://3dModels/material/sucsess_material.tres" id="3_1d4oj"]
-[ext_resource type="Material" uid="uid://bwglbsxwbifoe" path="res://3dModels/material/select_material.tres" id="4_evo50"]
+[ext_resource type="Texture2D" uid="uid://djy3kc6sqx4jf" path="res://Scenes/UI/ModulesImages/Storage.png" id="2_35nap"]
 [ext_resource type="PackedScene" uid="uid://c0071xmi0ceu6" path="res://3dModels/modulesBaseMesh/CultureBaseMesh.glb" id="5_0n1oy"]
 [ext_resource type="ArrayMesh" uid="uid://cfccnmsyf58nf" path="res://3dModels/modulesBaseMesh/CultureOutMesh.obj" id="6_djc5q"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="7_8o0od"]
@@ -16,16 +14,15 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_0n1oy")
 connections = [NodePath("Connection"), NodePath("Connection2")]
-resource = "res://Scenes/modules/CultureModule.tscn"
 type = 2
+resource = "res://Scenes/modules/CultureModule.tscn"
 rayLenght = 3.4
 ground_markers = [NodePath("Node3D"), NodePath("Connection"), NodePath("Node3D2"), NodePath("Node3D3"), NodePath("Connection2"), NodePath("Node3D4"), NodePath("Node3D5")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-material_sucsess = ExtResource("2_djc5q")
-material_deny = ExtResource("3_1d4oj")
-material_select = ExtResource("4_evo50")
-infoModuleNames = "Culture"
+infoModuleNames = "Модуль досуга"
+infoModuleImages = ExtResource("2_35nap")
+infoModuleDescriptionTexts = "Размер: 5.6×5.6×3.2 м\\nСоздан для отдыха, досуга,\\nразвлечений и мероприятий.\\nИнженерные порты: 0.5×0.3 м\\nШлюз стандартный: 2×2 м\\nОбъединяется в жилой компл.\\n"
 
 [node name="CultureBaseMesh" parent="." instance=ExtResource("5_0n1oy")]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dltjo3v3uhxba"]
+[gd_scene load_steps=7 format=3 uid="uid://dltjo3v3uhxba"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_5y7mo"]
+[ext_resource type="Texture2D" uid="uid://cdyhoqa76fbfi" path="res://Scenes/UI/ModulesImages/Main.png" id="2_0wk5d"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="4_58xpn"]
 [ext_resource type="PackedScene" uid="uid://b5ab0iyfsn8vw" path="res://3dModels/modulesBaseMesh/MainBaseMesh.glb" id="5_r8ddn"]
 [ext_resource type="ArrayMesh" uid="uid://b36ovjmne1cto" path="res://3dModels/modulesBaseMesh/MainOutMesh.obj" id="6_re6lv"]
@@ -19,6 +20,9 @@ rayLenght = 3.4
 ground_markers = [NodePath("Connection"), NodePath("Connection2"), NodePath("Connection3"), NodePath("Connection3"), NodePath("Node3D")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
+infoModuleNames = "Жилой модуль"
+infoModuleImages = ExtResource("2_0wk5d")
+infoModuleDescriptionTexts = "Размер: 4.2×3.2×3.3 м\\nМодуль для проживания экипажа.\\nСвязан с мед., досуг., спорт. мод.\\nВключает жизнеобеспечение.\\nШлюз 1.5×2 м, переход 2×2 м\\nИнж. порты: 0.5×0.3 м\\nОбъединяется в жилой комплекс."
 
 [node name="MainBaseMesh" parent="." instance=ExtResource("5_r8ddn")]
 

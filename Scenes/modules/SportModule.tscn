@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctsl4askflxd6"]
+[gd_scene load_steps=7 format=3 uid="uid://ctsl4askflxd6"]
 
 [ext_resource type="Script" uid="uid://c1esronnftc0p" path="res://Scripts/modules/connectable_module.gd" id="1_eo2ra"]
+[ext_resource type="Texture2D" uid="uid://djpuui1cqoqdf" path="res://Scenes/UI/ModulesImages/Sport.png" id="2_81iae"]
 [ext_resource type="PackedScene" uid="uid://2q3khws5yplh" path="res://3dModels/modulesBaseMesh/SportBaseMesh.glb" id="5_eo2ra"]
 [ext_resource type="ArrayMesh" uid="uid://cw1bsk3qcgp63" path="res://3dModels/modulesBaseMesh/SportOutMesh.obj" id="6_bv5md"]
 [ext_resource type="PackedScene" uid="uid://eavgtpvdb3df" path="res://Scenes/modules/connection.tscn" id="7_vd7mp"]
@@ -19,7 +20,9 @@ rayLenght = 3.6
 ground_markers = [NodePath("Connection"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3"), NodePath("Connection2"), NodePath("Connection3")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-infoModuleNames = "Sport"
+infoModuleNames = "Спортивный\\nмодуль"
+infoModuleImages = ExtResource("2_81iae")
+infoModuleDescriptionTexts = "Размер: 5.6×5.6×3.2 м\\nМодуль для тренировок и спорта.\\nСодержит тренажёры и снаряды.\\nШлюз транспортный: 2×2 м\\nИнж. порты: 0.5×0.3 м\\nОбъединяется в жилой комплекс."
 
 [node name="SportBaseMesh" parent="." instance=ExtResource("5_eo2ra")]
 
