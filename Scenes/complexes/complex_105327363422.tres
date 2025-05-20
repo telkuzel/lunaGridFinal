@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Complex_save" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/modules/complex_save.gd" id="1_41561"]
+
+[resource]
+script = ExtResource("1_41561")
+modules = [Object(Node,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","script":Resource("res://Scripts/modules/module_save.gd"),"position":Vector3(8.9267, 0, -4.69366),"rotation":Vector3(0, 0, 0),"resource":"res://Scenes/modules/Plantation.tscn")
+]

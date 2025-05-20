@@ -10,11 +10,14 @@ static var next_complex_idx: int = 0
 var hover_enabled: bool = false
 var player: Player
 var root
+var manager: ModuleManager
 
 
 func _ready():
 	player = get_node("/root/Game/Player")
 	root = get_node("/root/Game")
+	
+	manager = get_node("/root/Game/modulesManager")
 	if (!is_initialized):
 		loadCompexes()
 	is_initialized = true
@@ -119,6 +122,7 @@ func _on_complex_selected(index: int) -> void:
 	var complex_scene = load("res://Scenes/complex.tscn").instantiate()
 	if complex_scene:
 		complex_scene.complexIdx = next_complex_idx
+		manager.complexes.append(complex_scene)
 		next_complex_idx += 1
 		complex_scene.spawn_complex(complex_save)
 		get_node("/root/Game").add_child(complex_scene)
