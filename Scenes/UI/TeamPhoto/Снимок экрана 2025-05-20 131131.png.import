@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cphq1bbiaglx3"
-path="res://.godot/imported/left arrrow 2.png-be01e3b23a1253ca56a5cf1cf11cb594.ctex"
+uid="uid://cslqj2e6lx3ne"
+path="res://.godot/imported/Снимок экрана 2025-05-20 131131.png-b2a252acb0a827684a7dad7608ff71f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/UI/Icons/left arrrow 2.png"
-dest_files=["res://.godot/imported/left arrrow 2.png-be01e3b23a1253ca56a5cf1cf11cb594.ctex"]
+source_file="res://Scenes/UI/TeamPhoto/Снимок экрана 2025-05-20 131131.png"
+dest_files=["res://.godot/imported/Снимок экрана 2025-05-20 131131.png-b2a252acb0a827684a7dad7608ff71f9.ctex"]
 
 [params]
 

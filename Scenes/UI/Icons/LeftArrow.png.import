@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1ft3k2tmlbnb"
-path="res://.godot/imported/6.jpg-cb9361b62e5f995eeb9cfffca3cafdd4.ctex"
+uid="uid://cphq1bbiaglx3"
+path="res://.godot/imported/LeftArrow.png-6adbd21c0233afbf5eec523cb68aeb49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/UI/InfoModuleTextures/6.jpg"
-dest_files=["res://.godot/imported/6.jpg-cb9361b62e5f995eeb9cfffca3cafdd4.ctex"]
+source_file="res://Scenes/UI/Icons/LeftArrow.png"
+dest_files=["res://.godot/imported/LeftArrow.png-6adbd21c0233afbf5eec523cb68aeb49.ctex"]
 
 [params]
 
