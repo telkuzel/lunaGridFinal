@@ -22,7 +22,7 @@ collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
 infoModuleNames = "Спортивный\\nмодуль"
 infoModuleImages = ExtResource("2_81iae")
-infoModuleDescriptionTexts = "Размер: 5.6×5.6×3.2 м\\nМодуль для тренировок и спорта.\\nСодержит тренажёры и снаряды.\\nШлюз транспортный: 2×2 м\\nИнж. порты: 0.5×0.3 м\\nОбъединяется в жилой комплекс."
+infoModuleDescriptionTexts = "Размер: 5.6×5.6×3.2 м\\nМодуль для тренировок и спорта.\\nСодержит тренажёры и снаряды.\\nШлюз транспортный: 2×2 м\\nИнж. порты: 0.5×0.3 м\\nПокрыт защитным слоем.\\nОбъединяется в жилой комплекс."
 
 [node name="SportBaseMesh" parent="." instance=ExtResource("5_eo2ra")]
 

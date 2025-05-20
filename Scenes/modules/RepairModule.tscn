@@ -20,8 +20,9 @@ rayLenght = 3.6
 ground_markers = [NodePath("Connection"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3"), NodePath("Connection2")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-infoModuleNames = "repair"
+infoModuleNames = "Ремонтный модуль"
 infoModuleImages = ExtResource("2_myyim")
+infoModuleDescriptionTexts = " Размер: 5.6×4.6×3.2 м\\n Модуль тех. обслуживания ТС.\\n Включает инструменты и станки.\\n Разм. вдали от жилой зоны.\\n Инж. порты: 0.5×0.3 м\\n Объединяется в тех. компл.\\n"
 
 [node name="RepairBaseMesh" parent="." instance=ExtResource("5_ydrch")]
 

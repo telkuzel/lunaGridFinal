@@ -16,26 +16,32 @@ func _ready():
 	player = get_node("/root/Game/Player")
 	root = get_node("/root/Game")
 	if (!is_initialized):
-		var dir = DirAccess.open("res://Scenes/complexes/")
-		if dir:
-			var files = dir.get_files()  # Get all files at once
-			print("Found %d files in res://Scenes/complexes/" % files.size())
-			for file_name in files:
-				if file_name.ends_with(".tres"):
-					var resource_path = "res://Scenes/complexes/" + file_name
-					print("Processing file: %s" % resource_path)
-					var resource = load(resource_path)
-					if resource is Complex_save:
-						%ItemListCom.Modules.append(resource)
-						%ItemListCom.add_item("Комплекс %d" % (%ItemListCom.get_item_count() + 1), load("res://Scenes/UI/Icons/Pmodules.png"))
-						print("Added Complex_save from %s to Modules" % resource_path)
-					else:
-						printerr("Error: Resource at %s is not a Complex_save" % resource_path)
-				else:
-					print("Skipping non-.tres file: %s" % file_name)
-		else:
-			printerr("Error: Could not open directory res://Scenes/complexes/")
+		loadCompexes()
 	is_initialized = true
+	
+	
+
+func loadCompexes():
+	var dir = DirAccess.open("res://Scenes/complexes/")
+	if dir:
+		var files = dir.get_files()  # Get all files at once
+		print("Found %d files in res://Scenes/complexes/" % files.size())
+		%ItemListCom.clear()
+		for file_name in files:
+			if file_name.ends_with(".tres"):
+				var resource_path = "res://Scenes/complexes/" + file_name
+				print("Processing file: %s" % resource_path)
+				var resource = load(resource_path)
+				if resource is Complex_save:
+					%ItemListCom.Modules.append(resource)
+					%ItemListCom.add_item("Комплекс %d" % (%ItemListCom.get_item_count() + 1), load("res://Scenes/UI/Icons/Pmodules.png"))
+					print("Added Complex_save from %s to Modules" % resource_path)
+				else:
+					printerr("Error: Resource at %s is not a Complex_save" % resource_path)
+			else:
+				print("Skipping non-.tres file: %s" % file_name)
+	else:
+		printerr("Error: Could not open directory res://Scenes/complexes/")
 
 
 func _draw():

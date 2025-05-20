@@ -19,7 +19,9 @@ rayLenght = 3.0
 ground_markers = [NodePath("marker1")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
+infoModuleNames = "Вышка связи"
 infoModuleImages = ExtResource("2_op3b2")
+infoModuleDescriptionTexts = " Размер: 18×18×14 м\\n Модуль для связи и ретран.\\n Изолирован от жилой инфрастр.\\n Инж. порты: 0.5×0.3 м\\n"
 
 [node name="AntenaBaseMesh" parent="." instance=ExtResource("5_jfdji")]
 

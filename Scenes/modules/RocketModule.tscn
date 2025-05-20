@@ -6,7 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dse6t58qv5y6t" path="res://3dModels/modulesBaseMesh/RocketOutMesh.obj" id="6_dxpiq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffh07"]
-size = Vector3(6.54297, 5.28113, 6.42603)
+size = Vector3(6.54297, 5.40146, 6.42603)
 
 [node name="Node3D" type="StaticBody3D" node_paths=PackedStringArray("collision_shape", "mesh")]
 collision_layer = 2
@@ -18,16 +18,19 @@ rayLenght = 4.0
 ground_markers = [NodePath("Node3D4"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3"), NodePath("Node3D5")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
+infoModuleNames = "Стартовая площадка"
 infoModuleImages = ExtResource("2_53k4q")
+infoModuleDescriptionTexts = " Размер: 16.8×16.8×14 м\\n Площадка для старта и посадки.\\n Ровная зона с пусковой стойкой.\\n Топливные порты: 0.7×0.7 м\\n"
 
 [node name="RocketBaseMesh" parent="." instance=ExtResource("5_ffh07")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.395326, 0.057999, -0.208796)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.801079, 0.057999, -0.385866)
 mesh = ExtResource("6_dxpiq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0292969, 2.84491, -0.233765)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0292969, 5.56668, -0.233765)
 shape = SubResource("BoxShape3D_ffh07")
 
 [node name="Node3D" type="Node3D" parent="."]

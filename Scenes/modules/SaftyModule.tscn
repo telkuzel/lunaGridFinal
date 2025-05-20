@@ -19,8 +19,9 @@ rayLenght = 3.6
 ground_markers = [NodePath("Node3D"), NodePath("Connection"), NodePath("Node3D2"), NodePath("Node3D3")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-infoModuleNames = "Safty"
+infoModuleNames = "Модуль безопасности"
 infoModuleImages = ExtResource("2_6ygvi")
+infoModuleDescriptionTexts = " Размер: 4.4×3.2×3.2 м\\n Модуль для аварийного реагир.\\n Содержит оборудование для\\n ликвидации аварий.\\n Инж. порты: 0.5×0.3 м\\n Модуль общего назначения.\\n"
 
 [node name="SaftyBaseMesh" parent="." instance=ExtResource("5_5is3f")]
 

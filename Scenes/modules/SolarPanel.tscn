@@ -18,7 +18,9 @@ rayLenght = 3.6
 ground_markers = [NodePath("Node3D4"), NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
+infoModuleNames = "Солнечная панель"
 infoModuleImages = ExtResource("2_aqcv8")
+infoModuleDescriptionTexts = " Размер: 3.6×4.8×3.6 м\\n Обеспечивает питанием базу.\\n Изолирован от других модулей.\\n Имеет встроенный аккумулятор.\\n Инж. порты: 0.5×0.3 м\\n"
 
 [node name="SolarPanelBaseMesh" parent="." instance=ExtResource("5_41ued")]
 

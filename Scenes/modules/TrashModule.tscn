@@ -18,8 +18,9 @@ rayLenght = 4.0
 ground_markers = [NodePath("Node3D"), NodePath("Node3D2"), NodePath("Node3D3"), NodePath("Node3D4"), NodePath("Node3D5")]
 collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
-infoModuleNames = "Trash"
+infoModuleNames = "Мусорный полигон"
 infoModuleImages = ExtResource("2_rnmdj")
+infoModuleDescriptionTexts = " Размер: 6.2×6.2×0.3 м\\n Утилизация отходов.\\n Изолированный модуль.\\n"
 
 [node name="TrashBaseMesh" parent="." instance=ExtResource("5_m6mqh")]
 
