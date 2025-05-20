@@ -23,6 +23,7 @@ func spawn_complex(complex_resource: Complex_save) -> void:
 		printerr("Error: complex_resource is null")
 		return
 	complex_save = complex_resource
+	var center_pos = Vector3.ZERO
 	for i in complex_save.modules:
 		if i.resource == null:
 			printerr("Error: Invalid module resource")
@@ -36,8 +37,12 @@ func spawn_complex(complex_resource: Complex_save) -> void:
 		last_module.complex = complexIdx
 		last_module.position = i.position
 		last_module.rotation = i.rotation
+		center_pos += i.position
 		last_module.is_plasment = false
 		add_child(last_module)
+	center_pos /= complex_save.modules.size()
+	for module in modules:
+		module.position -= center_pos
 
 func _input(event: InputEvent) -> void:
 	if not is_placement:
