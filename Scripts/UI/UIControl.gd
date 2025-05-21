@@ -45,7 +45,7 @@ func _ready() -> void:
 	%BtnZoomIn.connect("toggled", BtnZoom_on_toggled.bind(-2.0))
 	if Global.save_data != null:
 		await get_tree().process_frame
-		spawn_prj(load("res://Scenes/projects/project.tres"))
+		spawn_prj(Global.save_data)
 		Global.save_data = null 
 
 
@@ -143,17 +143,41 @@ func BtnModules_on_pressed(itemlist: Node, button: Node) -> void:
 		itemlist.visible = true
 	#button.icon = load(new_icon_path)
 
+var save
 
 func BtnSave_on_toggled(toggled_on: bool) -> void:
-	var save = make_project_save()
-	var file_name = "res://Scenes/projects/project.tres"
-	ResourceSaver.save(save, file_name)
+	save = make_project_save()
+	var file_dialog = FileDialog.new()
+	file_dialog.mode = FileDialog.FileMode.FILE_MODE_SAVE_FILE
+	file_dialog.access = FileDialog.Access.ACCESS_FILESYSTEM
+	file_dialog.filters = ["*.tres ; Файлы ресурсов"]
+	file_dialog.title = "Сохранить файл"
+	file_dialog.connect("file_selected", Callable(self, "_on_file_selected_open"))
+	add_child(file_dialog)
+	file_dialog.popup_centered()
+
+func _on_file_selected(path):
+	ResourceSaver.save(save, path)
+	print("Файл сохранён в: ", path)
 
 
 func BtnOpen_on_toggled(toggled_on: bool) -> void:
-	if load("res://Scenes/projects/project.tres") != null:
-		Global.save_data = 1
+	var file_dialog = FileDialog.new()
+	file_dialog.mode = FileDialog.FILE_MODE_OPEN_FILE
+	file_dialog.access = FileDialog.Access.ACCESS_FILESYSTEM
+	file_dialog.filters = ["*.tres ; Файлы ресурсов"]
+	file_dialog.title = "Открыть файл"
+	file_dialog.connect("file_selected", Callable(self, "_on_file_selected_open"))
+	add_child(file_dialog)
+	file_dialog.popup_centered()
+
+func _on_file_selected_open(path):
+	save = ResourceLoader.load(path)
+	if save != null:
+		Global.save_data = save
 		change_scene("res://Scenes/game.tscn")
+	else:
+		print("Не удалось загрузить файл: ", path)
 
 
 func make_project_save()->Prj_save:
