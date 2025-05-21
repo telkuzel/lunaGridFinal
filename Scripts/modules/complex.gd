@@ -57,6 +57,8 @@ func _input(event: InputEvent) -> void:
 		Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and is_placement:
 		is_placement = false
 		player.is_plasmet_mode = false
+		for module in modules:
+			module.clear_outline()
 
 func _set_position():
 	if is_placement:
