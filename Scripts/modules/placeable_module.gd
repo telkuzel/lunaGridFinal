@@ -38,6 +38,10 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if not is_plasment:
 		return
+	if Input.is_key_pressed(KEY_ESCAPE) and player.is_plasmet_mode:
+		delete()
+		player.is_plasmet_mode = false
+		return
 	plasment_accept_visualize()
 	try_place(event)
 

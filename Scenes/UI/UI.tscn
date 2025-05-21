@@ -1330,7 +1330,7 @@ libraries = {
 playback_auto_capture = false
 
 [connection signal="toggled" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnHieghtView" to="." method="BtnHieghtView_on_toggled"]
-[connection signal="toggled" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnOpenFile" to="." method="BtnSave_on_toggled"]
+[connection signal="toggled" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnOpenFile" to="." method="BtnOpen_on_toggled"]
 [connection signal="toggled" from="VBoxContainer/TopbarCont/Topbar/NavigateButtons/BtnSave" to="." method="BtnSave_on_toggled"]
 [connection signal="pressed" from="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer/BtnConstructor" to="." method="_on_btn_constructor_pressed"]
 [connection signal="toggled" from="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer/BtnInfo" to="." method="BtnInfo_on_toggled"]
