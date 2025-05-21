@@ -21,6 +21,13 @@ func _input(event):
 
 
 func _physics_process(delta: float):
+	var vel = Input.get_vector("move_left", "move_right", \
+		"move_forward", "move_backward")
+	if vel != Vector2.ZERO:
+		var aim = get_global_transform().basis
+		target_velocity = aim.z*vel.y + aim.x*vel.x 
+
+		target_velocity *= speed * 1.2
 	velocity = target_velocity
 	move_and_slide()
 
@@ -72,6 +79,7 @@ func camera_move(event: InputEvent):
 		target_velocity.normalized()
 	else:
 		target_velocity = Vector3.ZERO
+	
 
 # calc position under cursoir
 func raycast() -> Dictionary:
