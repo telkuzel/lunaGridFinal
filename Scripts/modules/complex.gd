@@ -41,8 +41,12 @@ func spawn_complex(complex_resource: Complex_save) -> void:
 		last_module.is_plasment = false
 		add_child(last_module)
 	center_pos /= complex_save.modules.size()
-	for module in modules:
-		module.position -= center_pos
+	if Global.save_data == null:
+		for module in modules:
+			module.position -= center_pos
+	else:
+		for module in modules:
+			module.position.y = -2
 
 func _input(event: InputEvent) -> void:
 	if not is_placement:

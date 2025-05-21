@@ -43,6 +43,10 @@ func _ready() -> void:
 	%BtnComModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListCom, %BtnComModules))
 	%BtnZoomOut.connect("toggled", BtnZoom_on_toggled.bind(2.0)) #шаг приближения
 	%BtnZoomIn.connect("toggled", BtnZoom_on_toggled.bind(-2.0))
+	if Global.save_data != null:
+		await get_tree().process_frame
+		spawn_prj(load("res://Scenes/projects/project.tres"))
+		Global.save_data = null 
 
 
 func BtnToggledLeft_on_toggled(toggled_on: bool) -> void:
@@ -147,9 +151,9 @@ func BtnSave_on_toggled(toggled_on: bool) -> void:
 
 
 func BtnOpen_on_toggled(toggled_on: bool) -> void:
-	var save = load("res://Scenes/projects/project.tres")
-	if save != null:
-		spawn_prj(save)
+	if load("res://Scenes/projects/project.tres") != null:
+		Global.save_data = 1
+		change_scene("res://Scenes/game.tscn")
 
 
 func make_project_save()->Prj_save:
@@ -161,6 +165,7 @@ func make_project_save()->Prj_save:
 				continue
 			var module_s = Module_save.new()
 			module_s.position = module.position
+			module_s.position.y = 0
 			module_s.rotation = module.rotation
 			module_s.resource = module.resource
 			save.modules.append(module_s)
@@ -171,6 +176,7 @@ func make_project_save()->Prj_save:
 		if not module is Connectabel:
 			var module_s = Module_save.new()
 			module_s.position = module.position
+			module_s.position.y = 0
 			module_s.rotation = module.rotation
 			module_s.resource = module.resource
 			prj_save.modules.append(module_s)
@@ -181,10 +187,6 @@ var complex_scene
 
 
 func spawn_prj(prj_save: Prj_save):
-	#for i in manager.modules:
-		#i.delete()
-	#for i in manager.complexes:
-		#i.delete()
 	for complex in prj_save.complexes:
 		var comp = load("res://Scenes/complex.tscn").instantiate()
 		root.add_child(comp)
@@ -197,6 +199,7 @@ func spawn_prj(prj_save: Prj_save):
 		#mod.rotation = module.rotation
 		#mod.resource = module.resource
 		#mod.is_placement = false
+	player.is_plasmet_mode = false
 
 func BtnZoom_on_toggled(toggled_on: bool, zoom_step: float) -> void:
 	if camera_pivot:

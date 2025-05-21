@@ -37,7 +37,7 @@ func loadCompexes():
 				var resource = load(resource_path)
 				if resource is Complex_save:
 					%ItemListCom.Modules.append(resource)
-					%ItemListCom.add_item("Комплекс %d" % (%ItemListCom.get_item_count() + 1), load("res://Scenes/UI/Icons/Pmodules.png"))
+					%ItemListCom.add_item("Комплекс %d" % (%ItemListCom.get_item_count() + 1), load("res://Scenes/UI/Icons/kubic 2.png"))
 					print("Added Complex_save from %s to Modules" % resource_path)
 				else:
 					printerr("Error: Resource at %s is not a Complex_save" % resource_path)
