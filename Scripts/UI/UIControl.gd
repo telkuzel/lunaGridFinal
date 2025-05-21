@@ -17,9 +17,15 @@ extends Control
 #static var active_button: Button = null
 var min_zoom: float = 20.0     # Минимальная дистанция
 var max_zoom: float = 100.0    # Максимальная дистанция
+var root
+var player: Player
+var manager: ModuleManager
 
 
 func _ready() -> void:
+	root = get_node("/root/Game")
+	player = get_node("/root/Game/Player")
+	manager = get_node("/root/Game/modulesManager")
 	leftBar.custom_minimum_size.x = 316
 	leftToggleBtn.size.x = 346
 	rightToggleBtn.scale = Vector2(-1, 1)
@@ -37,6 +43,10 @@ func _ready() -> void:
 	%BtnComModules.connect("pressed", BtnModules_on_pressed.bind(%ItemListCom, %BtnComModules))
 	%BtnZoomOut.connect("toggled", BtnZoom_on_toggled.bind(2.0)) #шаг приближения
 	%BtnZoomIn.connect("toggled", BtnZoom_on_toggled.bind(-2.0))
+	if Global.save_data != null:
+		await get_tree().process_frame
+		spawn_prj(load("res://Scenes/projects/project.tres"))
+		Global.save_data = null 
 
 
 func BtnToggledLeft_on_toggled(toggled_on: bool) -> void:
@@ -135,13 +145,61 @@ func BtnModules_on_pressed(itemlist: Node, button: Node) -> void:
 
 
 func BtnSave_on_toggled(toggled_on: bool) -> void:
-	if TabContainerCentr.visible and TabContainerCentr.current_tab == 1:
-		TabContainerCentr.visible = false
-		TabContainerCentr.current_tab = 0
-	else:
-		TabContainerCentr.visible = true
-		TabContainerCentr.current_tab = 1
+	var save = make_project_save()
+	var file_name = "res://Scenes/projects/project.tres"
+	ResourceSaver.save(save, file_name)
 
+
+func BtnOpen_on_toggled(toggled_on: bool) -> void:
+	if load("res://Scenes/projects/project.tres") != null:
+		Global.save_data = 1
+		change_scene("res://Scenes/game.tscn")
+
+
+func make_project_save()->Prj_save:
+	var prj_save = Prj_save.new()
+	for complex in manager.complexes:
+		var save = Complex_save.new()
+		for module in complex.modules:
+			if module == null:
+				continue
+			var module_s = Module_save.new()
+			module_s.position = module.position
+			module_s.position.y = 0
+			module_s.rotation = module.rotation
+			module_s.resource = module.resource
+			save.modules.append(module_s)
+		prj_save.complexes.append(save)
+	for module in manager.modules:
+		if module == null:
+			continue
+		if not module is Connectabel:
+			var module_s = Module_save.new()
+			module_s.position = module.position
+			module_s.position.y = 0
+			module_s.rotation = module.rotation
+			module_s.resource = module.resource
+			prj_save.modules.append(module_s)
+	return prj_save
+
+
+var complex_scene
+
+
+func spawn_prj(prj_save: Prj_save):
+	for complex in prj_save.complexes:
+		var comp = load("res://Scenes/complex.tscn").instantiate()
+		root.add_child(comp)
+		comp.spawn_complex(complex)
+		comp.is_placement = false
+	#for module in prj_save.modules:
+		#var mod = module.resource.instantiate()
+		#root.add_child(mod)
+		#mod.position = module.position
+		#mod.rotation = module.rotation
+		#mod.resource = module.resource
+		#mod.is_placement = false
+	player.is_plasmet_mode = false
 
 func BtnZoom_on_toggled(toggled_on: bool, zoom_step: float) -> void:
 	if camera_pivot:

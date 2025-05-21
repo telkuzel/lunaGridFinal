@@ -1,8 +1,10 @@
 extends HBoxContainer
 
 @export var curent_module: Placeable
+var player: Player
 
 func _ready() -> void:
+	player = get_node("/root/Game/Player")
 	$replace.pressed.connect(on_replace_presed)
 	$cansel.pressed.connect(on_cansel_presed)
 	$delete.pressed.connect(on_delete_pressed)

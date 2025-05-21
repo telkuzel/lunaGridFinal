@@ -41,11 +41,21 @@ func spawn_complex(complex_resource: Complex_save) -> void:
 		last_module.is_plasment = false
 		add_child(last_module)
 	center_pos /= complex_save.modules.size()
-	for module in modules:
-		module.position -= center_pos
+	if Global.save_data == null:
+		for module in modules:
+			module.position -= center_pos
+	else:
+		for module in modules:
+			module.position.y = -2
 
 func _input(event: InputEvent) -> void:
 	if not is_placement:
+		return
+	if Input.is_key_pressed(KEY_ESCAPE) and player.is_plasmet_mode:
+		for i in modules:
+			i.delete()
+		delete()
+		player.is_plasmet_mode = false
 		return
 	var is_can_place: bool = true
 	if  event is InputEventMouseButton and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -70,3 +80,7 @@ func _set_position():
 
 func _process(delta: float) -> void:
 	_set_position()
+
+func delete():
+	manager.complexes.erase(self)
+	self.queue_free()
