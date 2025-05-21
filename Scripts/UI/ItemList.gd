@@ -25,14 +25,14 @@ func _ready():
 	
 
 func loadCompexes():
-	var dir = DirAccess.open("res://Scenes/complexes/")
+	var dir = DirAccess.open("user://complexes/")
 	if dir:
 		var files = dir.get_files()  # Get all files at once
-		print("Found %d files in res://Scenes/complexes/" % files.size())
+		print("Found %d files in user://complexes/" % files.size())
 		%ItemListCom.clear()
 		for file_name in files:
 			if file_name.ends_with(".tres"):
-				var resource_path = "res://Scenes/complexes/" + file_name
+				var resource_path = "user://complexes/" + file_name
 				print("Processing file: %s" % resource_path)
 				var resource = load(resource_path)
 				if resource is Complex_save:
@@ -44,7 +44,11 @@ func loadCompexes():
 			else:
 				print("Skipping non-.tres file: %s" % file_name)
 	else:
-		printerr("Error: Could not open directory res://Scenes/complexes/")
+		printerr("Error: Could not open directory user://complexes/")
+		var dir_access = DirAccess.open("user://")
+		if dir_access:
+			dir_access.make_dir("user://complexes")
+			print("Created directory user://complexes/")
 
 
 func _draw():
