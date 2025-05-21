@@ -23,6 +23,7 @@ mesh = NodePath("MeshInstance3D2")
 infoModuleNames = "Спортивный\\nмодуль"
 infoModuleImages = ExtResource("2_81iae")
 infoModuleDescriptionTexts = "Размер: 5.6×5.6×3.2 м\\nМодуль для тренировок и спорта.\\nСодержит тренажёры и снаряды.\\nШлюз транспортный: 2×2 м\\nИнж. порты: 0.5×0.3 м\\nПокрыт защитным слоем.\\nОбъединяется в жилой комплекс."
+infoModuleSpecifTexts = "Уклон ≤ 2% (на 10 м)\\n Допустим. свес модуля ≤ 0,8 м\\n Макс. превышение\\nопорной точки ≤ 0,4 м\\n До изолир. модулей: 100 м\\n До агро‑компл.: 30 м\\n До адм.: 10 м\\n До инженер.: 20 м\\n До транспорт.: 30 м\\n"
 
 [node name="SportBaseMesh" parent="." instance=ExtResource("5_eo2ra")]
 

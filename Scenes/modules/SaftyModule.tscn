@@ -22,6 +22,7 @@ mesh = NodePath("MeshInstance3D2")
 infoModuleNames = "Модуль безопасности"
 infoModuleImages = ExtResource("2_6ygvi")
 infoModuleDescriptionTexts = " Размер: 4.4×3.2×3.2 м\\n Модуль для аварийного реагир.\\n Содержит оборудование для\\n ликвидации аварий.\\n Инж. порты: 0.5×0.3 м\\n Модуль общего назначения.\\n"
+infoModuleSpecifTexts = "Уклон ≤ 1% (на 10 м)\\n Допустим. свес модуля ≤ 0,8 м\\n Макс. превышение\\nопорной точки ≤ 0,2 м\\n До изолир. модулей: 100 м\\n"
 
 [node name="SaftyBaseMesh" parent="." instance=ExtResource("5_5is3f")]
 

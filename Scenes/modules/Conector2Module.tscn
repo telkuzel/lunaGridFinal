@@ -22,6 +22,7 @@ mesh = NodePath("MeshInstance3D2")
 infoModuleNames = "Коннектор тип 2"
 infoModuleImages = ExtResource("2_0bvdv")
 infoModuleDescriptionTexts = " Размер: 3.6×3.6×3.2  м\\n Представляет из себя\\n  крестообразный. коридор\\n Покрыт защитным слоем.\\n Модуль общего назначения.\\n"
+infoModuleSpecifTexts = "Уклон ≤ 2% (на 10 м)\\n Допустим. свес модуля ≤ 0,8 м\\n Макс. превышение\\nопорной точки ≤ 0,4 м\\n До изолир. модулей: 100 м\\n"
 
 [node name="Conector2BaseMesh" parent="." instance=ExtResource("2_ggow8")]
 

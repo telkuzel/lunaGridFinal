@@ -20,7 +20,8 @@ collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
 infoModuleNames = "Стартовая площадка"
 infoModuleImages = ExtResource("2_53k4q")
-infoModuleDescriptionTexts = " Размер: 16.8×16.8×14 м\\n Площадка для старта и посадки.\\n Ровная зона с пусковой стойкой.\\n Топливные порты: 0.7×0.7 м\\n"
+infoModuleDescriptionTexts = "Размер: 16.8×16.8×14 м\\n Площадка для старта и посадки.\\n Ровная зона с пусковой стойкой.\\n Топливные порты: 0.7×0.7 м\\n"
+infoModuleSpecifTexts = "До общего: 100 м\\n До изолир. модулей: 10 м\\n До жил. компл.: 100 м\\n До агро‑компл.: 100 м\\n До адм.: 100 м\\n До инженер.: 100 м\\n До транспорт.: 100 м\\n"
 
 [node name="RocketBaseMesh" parent="." instance=ExtResource("5_ffh07")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

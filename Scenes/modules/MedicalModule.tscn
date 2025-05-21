@@ -23,6 +23,7 @@ mesh = NodePath("MeshInstance3D2")
 infoModuleNames = "Медицинский\\nмодуль"
 infoModuleImages = ExtResource("2_28wtu")
 infoModuleDescriptionTexts = "Размер: 4.4×3.2×3.2 м\\nПредназначен для диагностики,\\nлечения, хранения мед. средств.\\nВключает хирургический блок.\\nИнж. порты: 0.4×0.4 м\\nПокрыт защитным слоем.\\nОбъединяется в жилой комплекс.\\n"
+infoModuleSpecifTexts = "Уклон ≤ 2% (на 10 м)\\n Допустим. свес модуля ≤ 0,8 м\\n Макс. превышение\\nопорной точки ≤ 0,4 м\\n До изолир. модулей: 100 м\\n До агро‑компл.: 30 м\\n До адм.: 10 м\\n До инженер.: 20 м\\n До транспорт.: 30 м\\n"
 
 [node name="MedicalBaseMesh" parent="." instance=ExtResource("5_xyimf")]
 
