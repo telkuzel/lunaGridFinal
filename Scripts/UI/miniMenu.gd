@@ -18,10 +18,13 @@ func _on_item_selected(index: int) -> void:
 			for complexModule in complex.modules:
 				if (module == complexModule): 
 					var save = make_save(complex)
-					var file_name = "res://Scenes/complexes/complex_%d.tres" % complex.get_instance_id()
+					var dir = DirAccess.open("user://")
+					if not dir.dir_exists("user://complexes"):
+						dir.make_dir("user://complexes")
+					var file_name = "user://complexes/complex_%d.tres" % complex.get_instance_id()
 					ResourceSaver.save(save, file_name)
 					%ItemListCom.Modules.append(save)
-					%ItemListCom.add_item("Комплекс %d" % (%ItemListCom.get_item_count() + 1), load("res://Scenes/UI/Icons/kursor 2.png"))
+					%ItemListCom.add_item("Комплекс %d" % (%ItemListCom.get_item_count() + 1), load("res://Scenes/UI/Icons/kubic 2.png"))
 					break
 	deselect(index)
 

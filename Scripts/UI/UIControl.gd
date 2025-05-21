@@ -149,11 +149,15 @@ func BtnSave_on_toggled(toggled_on: bool) -> void:
 	save = make_project_save()
 	var file_dialog = FileDialog.new()
 	file_dialog.mode = FileDialog.FileMode.FILE_MODE_SAVE_FILE
-	file_dialog.access = FileDialog.Access.ACCESS_FILESYSTEM
+	file_dialog.access = FileDialog.Access.ACCESS_USERDATA
 	file_dialog.filters = ["*.tres ; Файлы ресурсов"]
 	file_dialog.title = "Сохранить файл"
-	file_dialog.connect("file_selected", Callable(self, "_on_file_selected_open"))
+	file_dialog.current_dir = "user://projects/"
+	file_dialog.connect("file_selected", Callable(self, "_on_file_selected"))
 	add_child(file_dialog)
+	var dir = DirAccess.open("user://")
+	if dir and not dir.dir_exists("user://projects"):
+		dir.make_dir("user://projects")
 	file_dialog.popup_centered()
 
 func _on_file_selected(path):
@@ -164,20 +168,25 @@ func _on_file_selected(path):
 func BtnOpen_on_toggled(toggled_on: bool) -> void:
 	var file_dialog = FileDialog.new()
 	file_dialog.mode = FileDialog.FILE_MODE_OPEN_FILE
-	file_dialog.access = FileDialog.Access.ACCESS_FILESYSTEM
+	file_dialog.access = FileDialog.Access.ACCESS_USERDATA  
 	file_dialog.filters = ["*.tres ; Файлы ресурсов"]
 	file_dialog.title = "Открыть файл"
+	file_dialog.current_dir = "user://projects/"
 	file_dialog.connect("file_selected", Callable(self, "_on_file_selected_open"))
 	add_child(file_dialog)
+	var dir = DirAccess.open("user://")
+	if dir and not dir.dir_exists("user://projects"):
+		dir.make_dir("user://projects")
 	file_dialog.popup_centered()
 
-func _on_file_selected_open(path):
+func _on_file_selected_open(path: String) -> void:
 	save = ResourceLoader.load(path)
 	if save != null:
 		Global.save_data = save
 		change_scene("res://Scenes/game.tscn")
 	else:
-		print("Не удалось загрузить файл: ", path)
+		printerr("Не удалось загрузить файл: ", path)
+	
 
 
 func make_project_save()->Prj_save:
