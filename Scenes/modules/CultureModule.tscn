@@ -23,6 +23,7 @@ mesh = NodePath("MeshInstance3D2")
 infoModuleNames = "Модуль досуга"
 infoModuleImages = ExtResource("2_35nap")
 infoModuleDescriptionTexts = "Размер: 5.6×5.6×3.2 м\\nСоздан для отдыха, досуга,\\nразвлечений и мероприятий.\\nИнженерные порты: 0.5×0.3 м\\nШлюз стандартный: 2×2 м\\nПокрыт защитным слоем.\\nОбъединяется в жилой компл.\\n"
+infoModuleSpecifTexts = "Уклон ≤ 2% (на 10 м)\\n Допустим. свес модуля ≤ 0,8 м\\n Макс. превышение\\nопорной точки ≤ 0,4 м\\n До изолир. модулей: 100 м\\n До агро‑компл.: 30 м\\n До адм.: 10 м\\n До инженер.: 20 м\\n До транспорт.: 30 м\\n"
 
 [node name="CultureBaseMesh" parent="." instance=ExtResource("5_0n1oy")]
 

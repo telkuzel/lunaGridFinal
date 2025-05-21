@@ -20,7 +20,8 @@ collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
 infoModuleNames = "Мусорный полигон"
 infoModuleImages = ExtResource("2_rnmdj")
-infoModuleDescriptionTexts = " Размер: 6.2×6.2×0.3 м\\n Утилизация отходов.\\n Изолированный модуль.\\n"
+infoModuleDescriptionTexts = "Размер: 6.2×6.2×0.3 м\\n Утилизация отходов.\\n Изолированный модуль.\\n"
+infoModuleSpecifTexts = "До общего: 100 м\\n До изолир. модулей: 10 м\\n До жил. компл.: 100 м\\n До агро‑компл.: 100 м\\n До адм.: 100 м\\n До инженер.: 100 м\\n До транспорт.: 100 м\\n"
 
 [node name="TrashBaseMesh" parent="." instance=ExtResource("5_m6mqh")]
 

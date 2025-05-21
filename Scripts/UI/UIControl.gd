@@ -72,7 +72,7 @@ func ShowAllText() -> void:
 	%BtnAgroModules.text = "АГРОПРОМ."
 	%BtnEngModules.text = "ИНЖЕНЕРНЫЕ"
 	%BtnLogModules.text = "ТРАНСПОР."
-	%BtnDistModules.text = "УДАЛЁННЫЕ"
+	%BtnDistModules.text = "ИЗОЛИР."
 	%BtnComModules.text = "КОМПЛЕКСЫ"
 	if get_node("/root/Game").curentSceneIndex == 0:
 		%BtnConstructor.text = "КОНСТРУКТОР"

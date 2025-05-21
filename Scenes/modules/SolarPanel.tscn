@@ -20,7 +20,8 @@ collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
 infoModuleNames = "Солнечная панель"
 infoModuleImages = ExtResource("2_aqcv8")
-infoModuleDescriptionTexts = " Размер: 3.6×4.8×3.6 м\\n Обеспечивает питанием базу.\\n Изолирован от других модулей.\\n Имеет встроенный аккумулятор.\\n Инж. порты: 0.5×0.3 м\\n"
+infoModuleDescriptionTexts = "Размер: 3.6×4.8×3.6 м\\n Обеспечивает питанием базу.\\n Изолирован от других модулей.\\n Имеет встроенный аккумулятор.\\n Инж. порты: 0.5×0.3 м\\n"
+infoModuleSpecifTexts = "До общего: 100 м\\n До изолир. модулей: 10 м\\n До жил. компл.: 100 м\\n До агро‑компл.: 100 м\\n До адм.: 100 м\\n До инженер.: 100 м\\n До транспорт.: 100 м\\n"
 
 [node name="SolarPanelBaseMesh" parent="." instance=ExtResource("5_41ued")]
 
