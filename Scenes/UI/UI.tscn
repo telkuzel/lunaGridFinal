@@ -67,11 +67,11 @@
 [ext_resource type="Texture2D" uid="uid://dbvdmh0ckj0vg" path="res://Scenes/UI/Icons/Musor 2.png" id="55_s20ri"]
 [ext_resource type="PackedScene" uid="uid://cw2fkcnjcrndj" path="res://Scenes/modules/SientisticModule.tscn" id="55_sy325"]
 [ext_resource type="StyleBox" uid="uid://cvhtravd4ex70" path="res://Scenes/UI/LeftBarBtnHovered.tres" id="61_jy7ij"]
-[ext_resource type="Texture2D" uid="uid://bi7gsui5y7rka" path="res://Scenes/UI/TeamPhoto/IMG_20250515_074712.jpg" id="62_ikot2"]
+[ext_resource type="Texture2D" uid="uid://b0pnwa3jjx4hn" path="res://Scenes/UI/TeamPhoto/photo_2025-03-20_19-22-49 (2).jpg" id="62_jy7ij"]
 [ext_resource type="Texture2D" uid="uid://c6rahy2n66i5r" path="res://Scenes/UI/TeamPhoto/photo_2025-05-20_13-08-58.jpg" id="63_kypyy"]
-[ext_resource type="Texture2D" uid="uid://cslqj2e6lx3ne" path="res://Scenes/UI/TeamPhoto/Снимок экрана 2025-05-20 131131.png" id="64_jy7ij"]
+[ext_resource type="Texture2D" uid="uid://dw7s0gnrr5bqe" path="res://Scenes/UI/TeamPhoto/Марина.png" id="64_y37tf"]
+[ext_resource type="Texture2D" uid="uid://dp3oe627ayp8w" path="res://Scenes/UI/TeamPhoto/Артём.png" id="65_ewm4q"]
 [ext_resource type="Texture2D" uid="uid://c8ihef8vrqhlt" path="res://Scenes/UI/Icons/save 2.png" id="65_ikot2"]
-[ext_resource type="Texture2D" uid="uid://dabph1rlqar84" path="res://Scenes/UI/TeamPhoto/photo_2025-05-20_13-10-10.jpg" id="65_y37tf"]
 [ext_resource type="StyleBox" uid="uid://j6c8numrmx7k" path="res://Scenes/UI/LeftBarBtnNormal.tres" id="68_ikot2"]
 [ext_resource type="Script" uid="uid://4e6l06g8gy6" path="res://Scripts/UI/miniMenu.gd" id="68_s20ri"]
 [ext_resource type="Theme" uid="uid://cai3eeni82yiw" path="res://Scenes/UI/RightBarTheme.tres" id="68_yqnje"]
@@ -297,7 +297,7 @@ size_flags_horizontal = 0
 theme = ExtResource("2_sy325")
 theme_override_fonts/font = ExtResource("4_b8ige")
 theme_override_font_sizes/font_size = 36
-text = "LunarGrid"
+text = "Wavebound"
 vertical_alignment = 1
 
 [node name="NavigateButtons" type="HBoxContainer" parent="VBoxContainer/TopbarCont/Topbar"]
@@ -532,6 +532,7 @@ size_flags_vertical = 3
 
 [node name="BtnInfo" type="Button" parent="VBoxContainer/Center/CenterHBox/Leftbar/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
 theme = ExtResource("12_b8ige")
@@ -783,7 +784,7 @@ theme_override_constants/margin_bottom = 10
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("62_ikot2")
+texture = ExtResource("62_jy7ij")
 expand_mode = 4
 flip_h = true
 
@@ -843,7 +844,7 @@ theme_override_constants/margin_bottom = 10
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("64_jy7ij")
+texture = ExtResource("64_y37tf")
 expand_mode = 4
 
 [node name="Separator4" type="Control" parent="VBoxContainer/Center/CenterHBox/Body/TabContainerCenter/Panel/VBoxContainer/HBoxContainer"]
@@ -872,7 +873,7 @@ theme_override_constants/margin_bottom = 10
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("65_y37tf")
+texture = ExtResource("65_ewm4q")
 expand_mode = 4
 flip_h = true
 
@@ -1001,6 +1002,7 @@ size_flags_vertical = 3
 
 [node name="TeamInfo" type="Label" parent="VBoxContainer/Center/CenterHBox/Body/TabContainerCenter/Panel/VBoxContainer/SeparatorBotom"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
