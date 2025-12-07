@@ -89,7 +89,6 @@ func ShowAllText() -> void:
 	else:
 		%BtnConstructor.text = "ПРОЕКТ"
 	leftToggleBtn.text = "СПИСКИ МОДУЛЕЙ"
-	#%SearchLineEdit.visible = true
 
 
 func HideAllText() -> void:
@@ -104,19 +103,13 @@ func HideAllText() -> void:
 	%BtnComModules.text = ""
 	%BtnConstructor.text = ""
 	leftToggleBtn.text = ""
-	#%SearchLineEdit.visible = false
 
 
 func BtnInfo_on_toggled(toggled_on: bool) -> void:
-	#active_button = %BtnInfo
-	#var icon_path: String= %BtnInfo.icon.resource_path
-	#var new_icon_path
 	if TabContainerCentr.visible and TabContainerCentr.current_tab == 0:
-		#new_icon_path = icon_path.left(-5) + "2.png"
 		TabContainerCentr.visible = false
 		TabContainerCentr.current_tab = 1
 	else:
-		#new_icon_path = icon_path.left(-5) + "1.png"
 		TabContainerCentr.visible = true
 		TabContainerCentr.current_tab = 0
 		%TeamInfo.text = "Мы - команда студентов 3 курса МАДИ,\n специализирующихся на разработке дорожно-транспортных, земляных и строительных систем,\n включая автоматизацию, моделирование и разработку программного обеспечения.\n Участвовали в разработке Всероссийской олимпиады 'Все дороги ведут в МАДИ'."
@@ -124,24 +117,17 @@ func BtnInfo_on_toggled(toggled_on: bool) -> void:
 		%TeamDev.text = "Лоскутов Я.Д.\n Программист"
 		%TeamDis.text = "Цирюта А.С.\n Дизайнер"
 		%Mentor.text = "Подберёзкин А.А.\n Наставник"
-	#%BtnInfo.icon = load(new_icon_path)
 
 
 func BtnModules_on_pressed(itemlist: Node, button: Node) -> void:
-	#active_button = button
-	#var icon_path: String = button.icon.resource_path
-	#var new_icon_path
 	if TabCont.visible and itemlist.visible:
-		#new_icon_path = icon_path.left(-5) + "2.png"
 		TabCont.visible = false
 		itemlist.visible = false
 	else:
-		#new_icon_path = icon_path.left(-5) + "1.png"
 		if itemlist == %ItemListCom:
 			itemlist.loadCompexes()
 		TabCont.visible = true
 		itemlist.visible = true
-	#button.icon = load(new_icon_path)
 
 var save
 
@@ -225,13 +211,6 @@ func spawn_prj(prj_save: Prj_save):
 		root.add_child(comp)
 		comp.spawn_complex(complex)
 		comp.is_placement = false
-	#for module in prj_save.modules:
-		#var mod = module.resource.instantiate()
-		#root.add_child(mod)
-		#mod.position = module.position
-		#mod.rotation = module.rotation
-		#mod.resource = module.resource
-		#mod.is_placement = false
 	player.is_plasmet_mode = false
 
 func BtnZoom_on_toggled(toggled_on: bool, zoom_step: float) -> void:
@@ -260,15 +239,3 @@ func _on_btn_constructor_pressed() -> void:
 
 func change_scene(scenePath: String):
 	get_tree().change_scene_to_file(scenePath)
-
-
-#func clearBtnIcons():
-	#%BtnGenModules.icon = load(%BtnGenModules.icon.resource_path.left(-5) + "2.png")
-	#%BtnLiveModules.icon = load(%BtnLiveModules.icon.resource_path.left(-5) + "2.png")
-	#%BtnAdmModules.icon = load(%BtnAdmModules.icon.resource_path.left(-5) + "2.png")
-	#%BtnAgroModules.icon = load(%BtnAgroModules.icon.resource_path.left(-5) + "2.png")
-	#%BtnEngModules.icon = load(%BtnEngModules.icon.resource_path.left(-5) + "2.png")
-	#%BtnLogModules.icon = load(%BtnLogModules.icon.resource_path.left(-5) + "2.png")
-	#%BtnDistModules.icon = load(%BtnDistModules.icon.resource_path.left(-5) + "2.png")
-	#%BtnComModules.icon = load(%BtnComModules.icon.resource_path.left(-5) + "2.png")
-	#%BtnInfo.icon = load(%BtnInfo.icon.resource_path.left(-5) + "2.png")

@@ -21,8 +21,8 @@ collision_shape = NodePath("CollisionShape3D")
 mesh = NodePath("MeshInstance3D2")
 infoModuleNames = "Коннектор тип 2"
 infoModuleImages = ExtResource("2_0bvdv")
-infoModuleDescriptionTexts = "Размер: 3.6×3.6×3.2  м\\n Представляет из себя\\n  крестообразный коридор.\\n Покрыт защитным слоем.\\n Модуль общего назначения.\\n"
-infoModuleSpecifTexts = "Уклон ≤ 2% (на 10 м)\\n Допустим. свес модуля ≤ 0,8 м\\n Макс. превышение\\nопорной точки ≤ 0,4 м\\n До изолир. модулей: 100 м\\n"
+infoModuleDescriptionTexts = "Стоимость постройки модуля. \\n Например:\\n 3 энергии и 200 материалов\\n\\nБонусы, даваемые модулем,\\n когда он построен.\\n Например:\\n +100 к прочности базы.\\n"
+infoModuleSpecifTexts = "Бонусы, даваемые модулем,\\n когда его карта осталась\\n в качестве усилителя в руке.\\n Например:\\n +10 к скорости перезарядки."
 
 [node name="Conector2BaseMesh" parent="." instance=ExtResource("2_ggow8")]
 
